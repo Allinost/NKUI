@@ -1,0 +1,28 @@
+@import '../../styles/tokens.wxss';
+
+.nk-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nk-icon image { display: block; }
+
+.nk-icon--spin {
+  animation: nk-icon-spin 1.5s linear infinite;
+}
+
+.nk-icon__spinner {
+  display: block;
+  border: 4rpx solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: nk-icon-spin 0.7s linear infinite;
+  box-sizing: border-box;
+}
+
+@keyframes nk-icon-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

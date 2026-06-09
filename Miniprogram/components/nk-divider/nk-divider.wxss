@@ -1,0 +1,17 @@
+@import '../../styles/tokens.wxss';
+
+.nk-divider--horizontal {
+  display: flex; align-items: center; width: 100%;
+  border-top: 2rpx solid #EEEEEE; margin: 32rpx 0;
+}
+.nk-divider--horizontal.nk-divider--dashed { border-top-style: dashed; }
+
+.nk-divider--vertical {
+  display: inline-block; width: 2rpx; height: 1em;
+  border-left: 2rpx solid #EEEEEE; margin: 0 16rpx;
+}
+.nk-divider--vertical.nk-divider--dashed { border-left-style: dashed; }
+
+.nk-divider__text {
+  padding: 0 24rpx; font-size: 24rpx; color: #9E9E9E; white-space: nowrap;
+}

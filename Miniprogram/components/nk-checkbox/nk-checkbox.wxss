@@ -1,0 +1,26 @@
+@import '../../styles/tokens.wxss';
+
+.nk-checkbox {
+  display: inline-flex; align-items: center; gap: 16rpx;
+}
+.nk-checkbox--disabled { opacity: 0.38; }
+
+.nk-checkbox__box {
+  display: flex; align-items: center; justify-content: center;
+  border: 3rpx solid #E0E0E0; border-radius: 8rpx;
+  background: #fff; transition: all 0.15s; flex-shrink: 0;
+}
+.nk-checkbox--checked .nk-checkbox__box {
+  background: #2196F3; border-color: #2196F3;
+}
+
+.nk-checkbox--sm .nk-checkbox__box { width: 28rpx; height: 28rpx; }
+.nk-checkbox--md .nk-checkbox__box { width: 32rpx; height: 32rpx; }
+.nk-checkbox--lg .nk-checkbox__box { width: 40rpx; height: 40rpx; }
+
+.nk-checkbox__icon { color: #fff; font-size: 20rpx; font-weight: 700; line-height: 1; }
+.nk-checkbox__label { color: #424242; }
+
+.nk-checkbox--sm .nk-checkbox__label { font-size: 24rpx; }
+.nk-checkbox--md .nk-checkbox__label { font-size: 28rpx; }
+.nk-checkbox--lg .nk-checkbox__label { font-size: 32rpx; }

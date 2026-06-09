@@ -1,0 +1,21 @@
+<view class="nk-input nk-input--{{size}} {{disabled ? 'nk-input--disabled' : ''}} {{error ? 'nk-input--error' : ''}} {{focused ? 'nk-input--focused' : ''}}">
+  <text wx:if="{{label}}" class="nk-input__label">{{label}}</text>
+  <view class="nk-input__wrapper">
+    <nk-icon wx:if="{{prefixIcon}}" name="{{prefixIcon}}" size="sm" class="nk-input__prefix-icon" />
+    <input
+      class="nk-input__inner"
+      value="{{inputValue || value}}"
+      placeholder="{{placeholder}}"
+      disabled="{{disabled}}"
+      maxlength="{{maxlength}}"
+      bindinput="onInput"
+      bindfocus="onFocus"
+      bindblur="onBlur"
+    />
+    <view wx:if="{{clearable && (inputValue || value) && !disabled}}" class="nk-input__clear" bindtap="onClear">
+      <nk-icon name="close" size="xs" />
+    </view>
+    <nk-icon wx:elif="{{suffixIcon && !clearable}}" name="{{suffixIcon}}" size="sm" class="nk-input__suffix-icon" />
+  </view>
+  <text wx:if="{{error}}" class="nk-input__error">{{error}}</text>
+</view>

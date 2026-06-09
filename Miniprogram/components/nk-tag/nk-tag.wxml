@@ -1,0 +1,5 @@
+<view
+  class="nk-tag nk-tag--{{type}} nk-tag--{{variant}} nk-tag--{{size}} {{round ? 'nk-tag--round' : ''}}">
+  <slot />
+  <text wx:if="{{closable}}" class="nk-tag__close" bindtap="onClose">✕</text>
+</view>

@@ -1,0 +1,5 @@
+<view class="nk-loading nk-loading--{{size}} nk-loading--{{variant}}">
+  <view class="nk-loading__spinner" wx:if="{{variant !== 'bar'}}" />
+  <view wx:else class="nk-loading__bar" />
+  <text wx:if="{{text}}" class="nk-loading__text">{{text}}</text>
+</view>

@@ -1,0 +1,7 @@
+<view class="nk-badge nk-badge--{{position}}">
+  <slot />
+  <view wx:if="{{visible}}" class="nk-badge__content nk-badge--{{type}} {{variant === 'dot' ? 'nk-badge--dot' : ''}}">
+    <text wx:if="{{variant === 'count'}}">{{displayValue}}</text>
+    <text wx:elif="{{variant === 'text'}}">{{value}}</text>
+  </view>
+</view>

@@ -1,56 +1,70 @@
-// NKUI Design Tokens — Miniprogram WXSS Variables
-// Based on AllPublic/tokens/design-tokens.json
+/* NKUI Design Tokens — WXSS Custom Properties */
+/* Based on AllPublic/tokens/design-tokens.json */
 
-// Colors
-$nk-primary-50: #E3F2FD;
-$nk-primary-100: #BBDEFB;
-$nk-primary-200: #90CAF9;
-$nk-primary-300: #64B5F6;
-$nk-primary-400: #42A5F5;
-$nk-primary-500: #2196F3;
-$nk-primary-600: #1E88E5;
-$nk-primary-700: #1976D2;
-$nk-primary-800: #1565C0;
-$nk-primary-900: #0D47A1;
+page {
+  /* Colors */
+  --nk-primary-50: #E3F2FD;
+  --nk-primary-100: #BBDEFB;
+  --nk-primary-200: #90CAF9;
+  --nk-primary-300: #64B5F6;
+  --nk-primary-400: #42A5F5;
+  --nk-primary-500: #2196F3;
+  --nk-primary-600: #1E88E5;
+  --nk-primary-700: #1976D2;
+  --nk-primary-800: #1565C0;
+  --nk-primary-900: #0D47A1;
 
-$nk-neutral-0: #FFFFFF;
-$nk-neutral-50: #FAFAFA;
-$nk-neutral-100: #F5F5F5;
-$nk-neutral-200: #EEEEEE;
-$nk-neutral-300: #E0E0E0;
-$nk-neutral-400: #BDBDBD;
-$nk-neutral-500: #9E9E9E;
-$nk-neutral-600: #757575;
-$nk-neutral-700: #616161;
-$nk-neutral-800: #424242;
-$nk-neutral-900: #212121;
-$nk-neutral-1000: #000000;
+  --nk-neutral-0: #FFFFFF;
+  --nk-neutral-50: #FAFAFA;
+  --nk-neutral-100: #F5F5F5;
+  --nk-neutral-200: #EEEEEE;
+  --nk-neutral-300: #E0E0E0;
+  --nk-neutral-400: #BDBDBD;
+  --nk-neutral-500: #9E9E9E;
+  --nk-neutral-600: #757575;
+  --nk-neutral-700: #616161;
+  --nk-neutral-800: #424242;
+  --nk-neutral-900: #212121;
 
-$nk-success: #4CAF50;
-$nk-warning: #FF9800;
-$nk-error: #F44336;
-$nk-info: #2196F3;
+  --nk-success: #4CAF50;
+  --nk-warning: #FF9800;
+  --nk-error: #F44336;
+  --nk-info: #2196F3;
 
-// Font
-$nk-font-size-xs: 20rpx;
-$nk-font-size-sm: 24rpx;
-$nk-font-size-base: 28rpx;
-$nk-font-size-lg: 32rpx;
-$nk-font-size-xl: 40rpx;
-$nk-font-size-2xl: 48rpx;
-$nk-font-size-3xl: 64rpx;
+  /* Font */
+  --nk-font-size-xs: 20rpx;
+  --nk-font-size-sm: 24rpx;
+  --nk-font-size-base: 28rpx;
+  --nk-font-size-lg: 32rpx;
+  --nk-font-size-xl: 40rpx;
+  --nk-font-size-2xl: 48rpx;
+  --nk-font-size-3xl: 64rpx;
 
-// Spacing
-$nk-spacing-xs: 8rpx;
-$nk-spacing-sm: 16rpx;
-$nk-spacing-md: 24rpx;
-$nk-spacing-lg: 32rpx;
-$nk-spacing-xl: 48rpx;
-$nk-spacing-2xl: 64rpx;
-$nk-spacing-3xl: 96rpx;
+  /* Spacing */
+  --nk-spacing-xs: 8rpx;
+  --nk-spacing-sm: 16rpx;
+  --nk-spacing-md: 24rpx;
+  --nk-spacing-lg: 32rpx;
+  --nk-spacing-xl: 48rpx;
+  --nk-spacing-2xl: 64rpx;
+  --nk-spacing-3xl: 96rpx;
 
-// Radius
-$nk-radius-sm: 8rpx;
-$nk-radius-md: 16rpx;
-$nk-radius-lg: 24rpx;
-$nk-radius-full: 9999rpx;
+  /* Radius */
+  --nk-radius-sm: 8rpx;
+  --nk-radius-md: 16rpx;
+  --nk-radius-lg: 24rpx;
+  --nk-radius-xl: 32rpx;
+  --nk-radius-full: 9999rpx;
+
+  /* Shadow */
+  --nk-shadow-sm: 0 2rpx 4rpx rgba(0,0,0,0.06), 0 2rpx 6rpx rgba(0,0,0,0.1);
+  --nk-shadow-md: 0 8rpx 12rpx rgba(0,0,0,0.07), 0 4rpx 8rpx rgba(0,0,0,0.06);
+  --nk-shadow-lg: 0 20rpx 30rpx rgba(0,0,0,0.1), 0 8rpx 12rpx rgba(0,0,0,0.05);
+
+  /* Opacity */
+  --nk-opacity-disabled: 0.38;
+
+  /* Transitions */
+  --nk-duration-fast: 150ms;
+  --nk-easing-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+}

@@ -1,0 +1,12 @@
+<view wx:if="{{variant === 'line'}}" class="nk-progress nk-progress--{{size}} {{striped ? 'nk-progress--striped' : ''}}">
+  <view class="nk-progress__track">
+    <view class="nk-progress__bar" style="width:{{percent}}%;background:{{barColor}}" />
+  </view>
+  <text wx:if="{{showText}}" class="nk-progress__text">{{percent}}%</text>
+</view>
+<view wx:else class="nk-progress-circle nk-progress-circle--{{size}}" style="color:{{barColor}}">
+  <view class="nk-progress-circle__svg">
+    <canvas type="2d" id="progressCanvas" />
+  </view>
+  <text wx:if="{{showText}}" class="nk-progress-circle__text">{{percent}}%</text>
+</view>

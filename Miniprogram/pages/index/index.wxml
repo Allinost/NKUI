@@ -1,5 +1,145 @@
-<import src="/styles/_tokens.wxss" />
 <view class="page">
-  <text class="title">NKUI Miniprogram</text>
-  <text class="desc">Component library in development</text>
+  <view class="demo-section">
+    <text class="title">Button 按钮</text>
+    <view class="demo-row">
+      <nk-button wx:for="{{types}}" wx:key="item" type="{{item}}">{{item}}</nk-button>
+      <nk-button type="neutral">neutral</nk-button>
+    </view>
+    <view class="demo-row">
+      <nk-button wx:for="{{types}}" wx:key="item" type="{{item}}" variant="outline">{{item}}</nk-button>
+    </view>
+    <view class="demo-row">
+      <nk-button wx:for="{{types}}" wx:key="item" type="{{item}}" variant="ghost">{{item}}</nk-button>
+    </view>
+    <view class="demo-row">
+      <nk-button type="primary" variant="text">Text</nk-button>
+      <nk-button type="danger" variant="text">Delete</nk-button>
+    </view>
+    <view class="demo-row">
+      <nk-button size="sm">Small</nk-button>
+      <nk-button size="md">Medium</nk-button>
+      <nk-button size="lg">Large</nk-button>
+    </view>
+    <view class="demo-row">
+      <nk-button loading>Loading</nk-button>
+      <nk-button disabled>Disabled</nk-button>
+      <nk-button round>Round</nk-button>
+      <nk-button block>Block</nk-button>
+    </view>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Input 输入框</text>
+    <nk-input placeholder="Basic input" />
+    <nk-input placeholder="With clear" clearable />
+    <nk-input placeholder="With label" label="用户名" />
+    <nk-input placeholder="With error" error="请输入有效内容" />
+    <nk-input placeholder="Disabled" disabled />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Tag 标签</text>
+    <view class="demo-row">
+      <nk-tag wx:for="{{types}}" wx:key="item" type="{{item}}">{{item}}</nk-tag>
+    </view>
+    <view class="demo-row">
+      <nk-tag wx:for="{{types}}" wx:key="item" type="{{item}}" variant="solid">{{item}}</nk-tag>
+    </view>
+    <view class="demo-row">
+      <nk-tag wx:for="{{types}}" wx:key="item" type="{{item}}" variant="outline">{{item}}</nk-tag>
+    </view>
+    <view class="demo-row">
+      <nk-tag closable>Closable</nk-tag>
+      <nk-tag round>Round</nk-tag>
+    </view>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Badge 徽标</text>
+    <view class="demo-row">
+      <nk-badge variant="dot"><nk-button size="sm">Dot</nk-button></nk-badge>
+      <nk-badge variant="count" value="5"><nk-button size="sm">Count</nk-button></nk-badge>
+      <nk-badge variant="count" value="100"><nk-button size="sm">99+</nk-button></nk-badge>
+      <nk-badge variant="text" value="new"><nk-button size="sm">Text</nk-button></nk-badge>
+    </view>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Switch 开关</text>
+    <view class="demo-row">
+      <nk-switch />
+      <nk-switch label="With label" />
+      <nk-switch size="sm" />
+      <nk-switch size="lg" />
+      <nk-switch disabled />
+    </view>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Checkbox & Radio</text>
+    <view class="demo-row">
+      <nk-checkbox label="Checkbox" />
+      <nk-checkbox label="Disabled" disabled />
+    </view>
+    <view class="demo-row">
+      <nk-radio label="Radio A" />
+      <nk-radio label="Radio B" />
+    </view>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Select 选择器</text>
+    <nk-select options="{{selectOptions}}" placeholder="请选择" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Avatar 头像</text>
+    <view class="demo-row">
+      <nk-avatar text="张" />
+      <nk-avatar text="李" size="lg" />
+      <nk-avatar variant="square" text="NK" />
+    </view>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Card 卡片</text>
+    <view class="demo-row" style="flex-direction:column">
+      <nk-card variant="outlined"><text>Outlined card content</text></nk-card>
+      <nk-card variant="elevated"><text>Elevated card content</text></nk-card>
+    </view>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Divider</text>
+    <text>上方内容</text>
+    <nk-divider />
+    <text>下方内容</text>
+    <nk-divider dashed />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Progress 进度条</text>
+    <nk-progress percent="65" />
+    <nk-progress percent="100" status="success" />
+    <nk-progress percent="45" status="exception" />
+    <nk-progress percent="30" striped />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Loading 加载</text>
+    <view class="demo-row">
+      <nk-loading size="sm" />
+      <nk-loading size="md" />
+      <nk-loading size="lg" />
+      <nk-loading variant="bar" />
+    </view>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Dialog 对话框</text>
+    <nk-button bind:click="openDialog">Open Dialog</nk-button>
+    <nk-dialog id="dialog" title="确认操作">
+      <text>确定要执行此操作吗？</text>
+    </nk-dialog>
+  </view>
 </view>

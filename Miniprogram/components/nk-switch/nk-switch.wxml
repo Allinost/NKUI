@@ -1,0 +1,7 @@
+<view class="nk-switch nk-switch--{{size}} {{checked ? 'nk-switch--checked' : ''}} {{disabled ? 'nk-switch--disabled' : ''}}" bindtap="onTap">
+  <view class="nk-switch__track">
+    <view wx:if="{{loading}}" class="nk-switch__spinner" />
+    <view wx:else class="nk-switch__thumb" />
+  </view>
+  <text wx:if="{{label}}" class="nk-switch__label">{{label}}</text>
+</view>

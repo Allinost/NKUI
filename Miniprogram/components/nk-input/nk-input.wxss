@@ -1,0 +1,35 @@
+@import '../../styles/tokens.wxss';
+
+.nk-input { display: flex; flex-direction: column; gap: 8rpx; width: 100%; }
+
+.nk-input__label { font-size: 24rpx; color: #616161; font-weight: 500; }
+
+.nk-input__wrapper {
+  display: flex; align-items: center;
+  border: 2rpx solid #E0E0E0;
+  background: #fff;
+  border-radius: 8rpx;
+  transition: border-color 0.15s;
+}
+
+.nk-input--focused .nk-input__wrapper {
+  border-color: #2196F3;
+}
+
+.nk-input--error .nk-input__wrapper { border-color: #F44336; }
+.nk-input--disabled .nk-input__wrapper { background: #F5F5F5; border-color: #EEEEEE; }
+
+.nk-input__inner {
+  flex: 1; border: none; outline: none; background: transparent;
+  font-family: inherit; color: #212121; min-width: 0; box-sizing: border-box;
+}
+
+.nk-input--sm .nk-input__inner { height: 56rpx; font-size: 24rpx; padding: 0 16rpx; }
+.nk-input--md .nk-input__inner { height: 72rpx; font-size: 28rpx; padding: 0 24rpx; }
+.nk-input--lg .nk-input__inner { height: 88rpx; font-size: 32rpx; padding: 0 32rpx; }
+
+.nk-input__clear {
+  display: flex; align-items: center; padding: 0 16rpx; flex-shrink: 0;
+}
+
+.nk-input__error { font-size: 20rpx; color: #F44336; }

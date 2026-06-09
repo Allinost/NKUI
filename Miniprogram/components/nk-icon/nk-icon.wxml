@@ -1,0 +1,4 @@
+<view class="nk-icon {{spin ? 'nk-icon--spin' : ''}}" style="width:{{iconSize}}rpx;height:{{iconSize}}rpx;color:{{color}}">
+  <image src="/images/icons/{{name}}.png" mode="aspectFit" style="width:{{iconSize}}rpx;height:{{iconSize}}rpx" wx:if="{{name !== 'loading'}}" />
+  <view wx:elif="{{name === 'loading'}}" class="nk-icon__spinner" style="width:{{iconSize}}rpx;height:{{iconSize}}rpx" />
+</view>

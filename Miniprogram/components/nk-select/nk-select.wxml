@@ -1,0 +1,18 @@
+<view class="nk-select nk-select--{{size}} {{disabled ? 'nk-select--disabled' : ''}}">
+  <view class="nk-select__trigger" bindtap="onToggle">
+    <text class="nk-select__value {{displayText ? '' : 'nk-select--placeholder'}}">{{displayText || placeholder}}</text>
+    <nk-icon name="arrow-left" size="xs" class="nk-select__arrow {{isOpen ? 'nk-select__arrow--open' : ''}}" />
+  </view>
+  <view wx:if="{{isOpen}}" class="nk-select__dropdown">
+    <view
+      wx:for="{{options}}" wx:key="value"
+      class="nk-select__option {{item.value === value ? 'nk-select__option--selected' : ''}} {{item.disabled ? 'nk-select__option--disabled' : ''}}"
+      data-value="{{item.value}}" data-label="{{item.label}}"
+      bindtap="onSelect"
+    >
+      <text>{{item.label}}</text>
+      <nk-icon wx:if="{{item.value === value}}" name="check" size="xs" color="#2196F3" />
+    </view>
+    <view wx:if="{{options.length === 0}}" class="nk-select__empty">无匹配数据</view>
+  </view>
+</view>

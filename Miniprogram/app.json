@@ -1,10 +1,29 @@
 {
   "pages": ["pages/index/index"],
   "window": {
-    "navigationBarTitleText": "NKUI",
+    "navigationBarTitleText": "NKUI Miniprogram",
     "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#FAFAFA"
+  },
+  "usingComponents": {
+    "nk-button": "/components/nk-button/nk-button",
+    "nk-input": "/components/nk-input/nk-input",
+    "nk-tag": "/components/nk-tag/nk-tag",
+    "nk-badge": "/components/nk-badge/nk-badge",
+    "nk-loading": "/components/nk-loading/nk-loading",
+    "nk-switch": "/components/nk-switch/nk-switch",
+    "nk-checkbox": "/components/nk-checkbox/nk-checkbox",
+    "nk-radio": "/components/nk-radio/nk-radio",
+    "nk-divider": "/components/nk-divider/nk-divider",
+    "nk-space": "/components/nk-space/nk-space",
+    "nk-avatar": "/components/nk-avatar/nk-avatar",
+    "nk-card": "/components/nk-card/nk-card",
+    "nk-dialog": "/components/nk-dialog/nk-dialog",
+    "nk-toast": "/components/nk-toast/nk-toast",
+    "nk-select": "/components/nk-select/nk-select",
+    "nk-icon": "/components/nk-icon/nk-icon",
+    "nk-progress": "/components/nk-progress/nk-progress"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -1,0 +1,11 @@
+<button
+  class="nk-btn nk-btn--{{type}} nk-btn--{{variant}} nk-btn--{{size}}
+    {{block ? 'nk-btn--block' : ''}} {{round ? 'nk-btn--round' : ''}}
+    {{loading ? 'nk-btn--loading' : ''}}
+    {{disabled || loading ? 'nk-btn--disabled' : ''}}"
+  disabled="{{disabled || loading}}"
+  bindtap="onClick"
+>
+  <nk-icon wx:if="{{loading}}" name="loading" size="sm" />
+  <slot />
+</button>

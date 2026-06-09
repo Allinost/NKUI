@@ -1,0 +1,3 @@
+<view class="nk-space nk-space--{{direction}} {{wrap ? 'nk-space--wrap' : ''}}" style="gap:{{gap}}">
+  <slot />
+</view>

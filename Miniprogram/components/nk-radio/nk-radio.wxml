@@ -1,0 +1,6 @@
+<view class="nk-radio nk-radio--{{size}} {{checked ? 'nk-radio--checked' : ''}} {{disabled ? 'nk-radio--disabled' : ''}}" bindtap="onTap">
+  <view class="nk-radio__circle">
+    <view class="nk-radio__dot" />
+  </view>
+  <text wx:if="{{label}}" class="nk-radio__label">{{label}}</text>
+</view>

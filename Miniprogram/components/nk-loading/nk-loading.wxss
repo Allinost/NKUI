@@ -1,0 +1,32 @@
+@import '../../styles/tokens.wxss';
+
+.nk-loading {
+  display: inline-flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 16rpx; color: #2196F3;
+}
+
+.nk-loading__spinner {
+  display: block; border: 5rpx solid currentColor; border-top-color: transparent;
+  border-radius: 50%; animation: nk-loading-spin 0.7s linear infinite;
+}
+.nk-loading--sm .nk-loading__spinner { width: 32rpx; height: 32rpx; }
+.nk-loading--md .nk-loading__spinner { width: 48rpx; height: 48rpx; }
+.nk-loading--lg .nk-loading__spinner { width: 64rpx; height: 64rpx; }
+
+.nk-loading__bar {
+  width: 300rpx; height: 8rpx; border-radius: 4rpx;
+  background: linear-gradient(90deg, transparent 25%, currentColor 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: nk-loading-bar 1.2s ease infinite;
+}
+
+.nk-loading__text { color: #9E9E9E; margin: 0; }
+.nk-loading--sm .nk-loading__text { font-size: 20rpx; }
+.nk-loading--md .nk-loading__text { font-size: 24rpx; }
+.nk-loading--lg .nk-loading__text { font-size: 28rpx; }
+
+@keyframes nk-loading-spin { 100% { transform: rotate(360deg); } }
+@keyframes nk-loading-bar {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

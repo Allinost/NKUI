@@ -1,0 +1,6 @@
+<view class="nk-card nk-card--{{variant}} {{padding ? '' : 'nk-card--nopad'}}">
+  <view wx:if="{{__slot_cover}}" class="nk-card__cover"><slot name="cover" /></view>
+  <view wx:if="{{__slot_header}}" class="nk-card__header"><slot name="header" /></view>
+  <view class="nk-card__body"><slot /></view>
+  <view wx:if="{{__slot_footer}}" class="nk-card__footer"><slot name="footer" /></view>
+</view>

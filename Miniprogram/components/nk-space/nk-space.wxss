@@ -1,0 +1,6 @@
+@import '../../styles/tokens.wxss';
+
+.nk-space { display: flex; box-sizing: border-box; }
+.nk-space--horizontal { flex-direction: row; align-items: center; }
+.nk-space--vertical { flex-direction: column; }
+.nk-space--wrap { flex-wrap: wrap; }

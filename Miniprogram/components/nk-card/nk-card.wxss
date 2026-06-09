@@ -1,0 +1,16 @@
+@import '../../styles/tokens.wxss';
+
+.nk-card {
+  display: flex; flex-direction: column; background: #fff;
+  border-radius: 16rpx; overflow: hidden;
+}
+.nk-card--outlined { border: 2rpx solid #EEEEEE; }
+.nk-card--elevated { box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08); }
+.nk-card--flat { border: none; }
+
+.nk-card__body { padding: 32rpx; }
+.nk-card__header { padding: 32rpx 32rpx 0; font-size: 32rpx; font-weight: 600; }
+.nk-card__footer { padding: 0 32rpx 32rpx; }
+.nk-card--nopad .nk-card__body { padding: 0; }
+.nk-card--nopad .nk-card__header { padding: 0; }
+.nk-card--nopad .nk-card__footer { padding: 0; }

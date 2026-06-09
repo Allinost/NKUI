@@ -1,0 +1,35 @@
+@import '../../styles/tokens.wxss';
+
+.nk-select { position: relative; display: inline-block; width: 100%; }
+.nk-select--disabled { opacity: 0.38; pointer-events: none; }
+
+.nk-select__trigger {
+  display: flex; align-items: center;
+  border: 2rpx solid #E0E0E0; background: #fff;
+  cursor: pointer; gap: 16rpx;
+}
+.nk-select--sm .nk-select__trigger { height: 56rpx; font-size: 24rpx; padding: 0 16rpx; border-radius: 8rpx; }
+.nk-select--md .nk-select__trigger { height: 72rpx; font-size: 28rpx; padding: 0 24rpx; border-radius: 8rpx; }
+.nk-select--lg .nk-select__trigger { height: 88rpx; font-size: 32rpx; padding: 0 32rpx; border-radius: 16rpx; }
+
+.nk-select__value { flex: 1; color: #212121; }
+.nk-select--placeholder { color: #BDBDBD; }
+
+.nk-select__arrow { color: #BDBDBD; transition: transform 0.15s; }
+.nk-select__arrow--open { transform: rotate(-90deg); }
+
+.nk-select__dropdown {
+  position: absolute; top: calc(100% + 8rpx); left: 0; right: 0;
+  background: #fff; border: 2rpx solid #EEEEEE; border-radius: 8rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0,0,0,0.1);
+  max-height: 512rpx; overflow-y: auto; z-index: 500;
+}
+
+.nk-select__option {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16rpx 24rpx; font-size: 24rpx; gap: 16rpx;
+}
+.nk-select__option--selected { color: #2196F3; font-weight: 500; }
+.nk-select__option--disabled { opacity: 0.38; }
+
+.nk-select__empty { padding: 32rpx; text-align: center; color: #BDBDBD; font-size: 24rpx; }

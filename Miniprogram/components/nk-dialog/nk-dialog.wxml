@@ -1,0 +1,13 @@
+<view wx:if="{{visible}}" class="nk-dialog__overlay" bindtap="onMaskTap">
+  <view class="nk-dialog">
+    <view class="nk-dialog__header">
+      <text class="nk-dialog__title">{{title}}</text>
+      <text wx:if="{{closable}}" class="nk-dialog__close" bindtap="onCancel">✕</text>
+    </view>
+    <view class="nk-dialog__body"><slot /></view>
+    <view class="nk-dialog__footer">
+      <nk-button wx:if="{{cancelText}}" variant="outline" size="md" bind:click="onCancel">{{cancelText}}</nk-button>
+      <nk-button loading="{{loading}}" size="md" bind:click="onConfirm">{{confirmText}}</nk-button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+<view class="nk-avatar nk-avatar--{{variant}}" style="width:{{avatarSize}}rpx;height:{{avatarSize}}rpx;">
+  <image wx:if="{{src && !imgError}}" class="nk-avatar__img" src="{{src}}" mode="aspectFill" binderror="onError" />
+  <nk-icon wx:elif="{{icon}}" name="{{icon}}" class="nk-avatar__icon" />
+  <text wx:elif="{{text}}" class="nk-avatar__text">{{text.charAt(0)}}</text>
+</view>

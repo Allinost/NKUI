@@ -1,0 +1,38 @@
+@import '../../styles/tokens.wxss';
+
+.nk-progress { display: flex; align-items: center; gap: 16rpx; width: 100%; }
+
+.nk-progress__track {
+  flex: 1; background: #EEEEEE; border-radius: 99rpx; overflow: hidden;
+}
+.nk-progress--sm .nk-progress__track { height: 8rpx; }
+.nk-progress--md .nk-progress__track { height: 12rpx; }
+.nk-progress--lg .nk-progress__track { height: 16rpx; }
+
+.nk-progress__bar {
+  height: 100%; border-radius: 99rpx; transition: width 0.4s ease;
+}
+
+.nk-progress__text { flex-shrink: 0; color: #757575; }
+.nk-progress--sm .nk-progress__text { font-size: 20rpx; }
+.nk-progress--md .nk-progress__text { font-size: 24rpx; }
+.nk-progress--lg .nk-progress__text { font-size: 28rpx; }
+
+.nk-progress--striped .nk-progress__bar {
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.15) 75%, transparent 75%, transparent);
+  background-size: 40rpx 40rpx;
+}
+
+.nk-progress-circle {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+}
+.nk-progress-circle--sm { width: 120rpx; height: 120rpx; }
+.nk-progress-circle--md { width: 160rpx; height: 160rpx; }
+.nk-progress-circle--lg { width: 240rpx; height: 240rpx; }
+
+.nk-progress-circle__text {
+  position: absolute; font-weight: 700; color: #424242;
+}
+.nk-progress-circle--sm .nk-progress-circle__text { font-size: 24rpx; }
+.nk-progress-circle--md .nk-progress-circle__text { font-size: 32rpx; }
+.nk-progress-circle--lg .nk-progress-circle__text { font-size: 48rpx; }

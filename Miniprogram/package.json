@@ -1,0 +1,8 @@
+{
+  "name": "nkui-miniprogram",
+  "version": "1.0.0-alpha",
+  "description": "NKUI Miniprogram Component Library",
+  "private": true,
+  "miniprogram": "miniprogram",
+  "devDependencies": {}
+}

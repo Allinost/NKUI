@@ -1,0 +1,7 @@
+<view class="nk-checkbox nk-checkbox--{{size}} {{checked ? 'nk-checkbox--checked' : ''}} {{disabled ? 'nk-checkbox--disabled' : ''}}" bindtap="onTap">
+  <view class="nk-checkbox__box">
+    <text wx:if="{{checked && !indeterminate}}" class="nk-checkbox__icon">✓</text>
+    <text wx:elif="{{indeterminate}}" class="nk-checkbox__icon">−</text>
+  </view>
+  <text wx:if="{{label}}" class="nk-checkbox__label">{{label}}</text>
+</view>

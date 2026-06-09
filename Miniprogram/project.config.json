@@ -4,14 +4,14 @@
     "es6": true,
     "postcss": true,
     "minified": true,
-    "newFeature": true
+    "newFeature": true,
+    "packNpmManually": true,
+    "packNpmRelationList": []
   },
   "appid": "touristappid",
   "projectname": "NKUI-Miniprogram",
   "compileType": "miniprogram",
   "libVersion": "3.7.0",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  }
+  "packOptions": { "ignore": [], "include": [] },
+  "scripts": {}
 }

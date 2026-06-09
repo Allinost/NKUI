@@ -1,7 +1,11 @@
 @import '/styles/tokens.wxss';
 
-.page {
-  padding: 32rpx 0;
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 28rpx;
+  color: #212121;
+  background: #FAFAFA;
+  box-sizing: border-box;
 }
 
 .demo-section {
@@ -17,7 +21,6 @@
   font-weight: 600;
   margin-bottom: 24rpx;
   display: block;
-  color: #212121;
 }
 
 .demo-row {

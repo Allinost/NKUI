@@ -1,0 +1,3 @@
+<view class="nk-divider nk-divider--{{direction}} {{dashed ? 'nk-divider--dashed' : ''}}">
+  <view wx:if="{{direction === 'horizontal'}}" class="nk-divider__text"><slot /></view>
+</view>

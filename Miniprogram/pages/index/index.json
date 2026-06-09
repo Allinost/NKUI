@@ -1,4 +1,21 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "NKUI"
+  "usingComponents": {
+    "nk-button": "/components/nk-button/nk-button",
+    "nk-input": "/components/nk-input/nk-input",
+    "nk-tag": "/components/nk-tag/nk-tag",
+    "nk-badge": "/components/nk-badge/nk-badge",
+    "nk-switch": "/components/nk-switch/nk-switch",
+    "nk-checkbox": "/components/nk-checkbox/nk-checkbox",
+    "nk-radio": "/components/nk-radio/nk-radio",
+    "nk-select": "/components/nk-select/nk-select",
+    "nk-avatar": "/components/nk-avatar/nk-avatar",
+    "nk-card": "/components/nk-card/nk-card",
+    "nk-divider": "/components/nk-divider/nk-divider",
+    "nk-space": "/components/nk-space/nk-space",
+    "nk-progress": "/components/nk-progress/nk-progress",
+    "nk-loading": "/components/nk-loading/nk-loading",
+    "nk-dialog": "/components/nk-dialog/nk-dialog",
+    "nk-icon": "/components/nk-icon/nk-icon"
+  },
+  "navigationBarTitleText": "NKUI Demo"
 }

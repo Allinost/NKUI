@@ -1,0 +1,29 @@
+@import '../../styles/tokens.wxss';
+
+.nk-badge {
+  position: relative; display: inline-flex; vertical-align: middle;
+}
+
+.nk-badge__content {
+  position: absolute;
+  display: flex; align-items: center; justify-content: center;
+  white-space: nowrap;
+  font-size: 20rpx; font-weight: 700; line-height: 1;
+  padding: 4rpx 10rpx; border-radius: 20rpx;
+  min-width: 36rpx; height: 36rpx;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.nk-badge--dot {
+  min-width: 16rpx; height: 16rpx; padding: 0; border-radius: 50%;
+}
+
+.nk-badge--top-right .nk-badge__content { top: 0; right: 0; }
+.nk-badge--top-left .nk-badge__content { top: 0; left: 0; transform: translate(-50%, -50%); }
+
+.nk-badge--primary { background: #2196F3; color: #fff; }
+.nk-badge--success { background: #4CAF50; color: #fff; }
+.nk-badge--warning { background: #FF9800; color: #fff; }
+.nk-badge--danger  { background: #F44336; color: #fff; }
