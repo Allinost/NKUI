@@ -1,0 +1,5 @@
+<import src="/styles/_tokens.wxss" />
+<view class="page">
+  <text class="title">NKUI Miniprogram</text>
+  <text class="desc">Component library in development</text>
+</view>

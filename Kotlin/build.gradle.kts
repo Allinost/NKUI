@@ -1,0 +1,4 @@
+plugins {
+    kotlin("multiplatform").version("2.1.0").apply(false)
+    id("org.jetbrains.compose").version("1.7.0").apply(false)
+}

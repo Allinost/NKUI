@@ -1,0 +1,21 @@
+@import '/styles/_tokens.wxss';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: $nk-spacing-md;
+}
+
+.title {
+  font-size: $nk-font-size-2xl;
+  font-weight: 700;
+  color: $nk-neutral-900;
+}
+
+.desc {
+  font-size: $nk-font-size-base;
+  color: $nk-neutral-600;
+}

@@ -1,0 +1,10 @@
+{
+  "pages": ["pages/index/index"],
+  "window": {
+    "navigationBarTitleText": "NKUI",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FAFAFA"
+  },
+  "sitemapLocation": "sitemap.json"
+}

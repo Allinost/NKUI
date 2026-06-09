@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+dist/
+build/
+*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Flutter
+Flutter/.dart_tool/
+Flutter/.packages
+Flutter/build/
+Flutter/.flutter-plugins
+Flutter/.flutter-plugins-dependencies
+
+# Kotlin
+Kotlin/.gradle/
+Kotlin/build/
+Kotlin/local.properties
+
+# iOS
+iOS/Pods/
+iOS/.build/
+iOS/*.xcworkspace
+
+# Node
+Vue3/node_modules/
+Vue3/dist/
+
+# Miniprogram
+Miniprogram/node_modules/
+Miniprogram/miniprogram_npm/
