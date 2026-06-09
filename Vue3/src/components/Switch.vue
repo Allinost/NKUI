@@ -44,9 +44,9 @@ function onChange(e: Event) {
 
 <style lang="scss" scoped>
 $sizes: (
-  'sm': (track: 28px 16px, thumb: 12px, gap: 6px),
-  'md': (track: 36px 20px, thumb: 16px, gap: 8px),
-  'lg': (track: 44px 24px, thumb: 20px, gap: 10px),
+  'sm': (track-w: 32px, track-h: 18px, thumb: 14px),
+  'md': (track-w: 44px, track-h: 24px, thumb: 20px),
+  'lg': (track-w: 56px, track-h: 30px, thumb: 26px),
 );
 
 .nk-switch {
@@ -63,12 +63,11 @@ $sizes: (
 
   &__track {
     position: relative;
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    flex-shrink: 0;
     border-radius: $nk-radius-full;
     background: $nk-color-neutral-300;
     transition: background $nk-duration-fast $nk-easing-ease;
-    flex-shrink: 0;
   }
 
   &--checked &__track {
@@ -76,29 +75,33 @@ $sizes: (
   }
 
   &__thumb {
-    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
     border-radius: 50%;
     background: $nk-color-neutral-0;
     box-shadow: $nk-shadow-sm;
-    transition: transform $nk-duration-fast $nk-easing-ease;
+    transition: left $nk-duration-fast $nk-easing-ease;
   }
 
   &--checked &__thumb {
-    transform: translateX(100%);
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
   }
 
   @each $size, $map in $sizes {
     &--#{$size} &__track {
-      $track: map.get($map, track);
-      width: list.nth($track, 1);
-      height: list.nth($track, 2);
+      width: map.get($map, track-w);
+      height: map.get($map, track-h);
     }
     &--#{$size} &__thumb {
       width: map.get($map, thumb);
       height: map.get($map, thumb);
-      margin: 0 map.get($map, gap);
     }
     &--#{$size} &__spinner {
+      position: absolute;
+      top: 2px;
+      left: 2px;
       width: map.get($map, thumb);
       height: map.get($map, thumb);
     }
@@ -109,6 +112,7 @@ $sizes: (
     border-top-color: #fff;
     border-radius: 50%;
     animation: nk-switch-spin 0.6s linear infinite;
+    box-sizing: border-box;
   }
 
   &__label {

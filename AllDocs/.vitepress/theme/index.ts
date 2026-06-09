@@ -37,6 +37,7 @@ import NkRow from '../../../Vue3/src/components/Row.vue'
 import NkCol from '../../../Vue3/src/components/Col.vue'
 import NkProgress from '../../../Vue3/src/components/Progress.vue'
 import { addIcon } from '../../../Vue3/src/utils/icon-registry'
+import { NKMessage, showToast } from '../../../Vue3/src/utils/message'
 import '../../../Vue3/src/styles/_theme.css'
 import DemoBlock from './components/DemoBlock.vue'
 
@@ -71,5 +72,7 @@ export default {
     ]
     componentMap.forEach(([comp, name]) => app.component(name, comp))
     app.component('Demo', DemoBlock)
+    app.config.globalProperties.$NKMessage = NKMessage
+    app.config.globalProperties.$showToast = showToast
   },
 }

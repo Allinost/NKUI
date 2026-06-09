@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <Transition name="nk-toast-fade">
-      <div v-if="visible" class="nk-toast" :class="[`nk-toast--${type}`, `nk-toast--${position}`]">
+      <div v-if="visible" class="nk-toast" :class="[`nk-toast--${type}`, `nk-toast--${position}`]" :style="toastStyle">
         <span v-if="type !== 'loading' && type !== 'text'" class="nk-toast__icon">
           <nk-icon :name="iconName" size="md" />
         </span>
@@ -24,11 +24,13 @@ const props = withDefaults(defineProps<{
   type?: 'info' | 'success' | 'warning' | 'error' | 'loading' | 'text'
   duration?: number
   position?: 'top' | 'center' | 'bottom'
+  top?: number
 }>(), {
   message: '',
   type: 'info',
   duration: 2500,
-  position: 'center',
+  position: 'top',
+  top: 32,
 })
 
 const emit = defineEmits<{ close: [] }>()
@@ -37,6 +39,11 @@ const visible = ref(true)
 const iconName = computed(() => {
   const map: Record<string, string> = { info: 'info', success: 'success', warning: 'warning', error: 'error' }
   return map[props.type] || 'info'
+})
+
+const toastStyle = computed(() => {
+  if (props.position === 'top') return { top: `${props.top}px` }
+  return {}
 })
 
 let timer: ReturnType<typeof setTimeout> | null = null
@@ -65,8 +72,6 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   align-items: center;
   gap: $nk-spacing-sm;
   padding: $nk-spacing-sm $nk-spacing-lg;
-  background: rgba(0,0,0,0.78);
-  color: #fff;
   border-radius: $nk-radius-md;
   font-size: $nk-font-size-sm;
   line-height: 1.4;
@@ -79,11 +84,12 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   &--center { top: 50%; transform: translate(-50%, -50%); }
   &--bottom { bottom: $nk-spacing-2xl; }
 
-  &--success { background: rgba($nk-color-success, 0.9); }
-  &--warning { background: rgba($nk-color-warning, 0.9); }
-  &--error { background: rgba($nk-color-error, 0.9); }
-  &--info { background: rgba($nk-color-info, 0.9); }
-  &--loading { background: rgba(0,0,0,0.78); }
+  &--success { background: rgba(var(--nk-color-success-rgb), 0.9); color: #fff; }
+  &--warning { background: rgba(var(--nk-color-warning-rgb), 0.9); color: #fff; }
+  &--error { background: rgba(var(--nk-color-error-rgb), 0.9); color: #fff; }
+  &--info { background: rgba(var(--nk-color-info-rgb), 0.9); color: #fff; }
+  &--loading { background: rgba(var(--nk-toast-bg-rgb), 0.78); color: var(--nk-toast-text); }
+  &--text { background: rgba(var(--nk-toast-bg-rgb), 0.78); color: var(--nk-toast-text); }
 
   &__icon {
     display: flex;

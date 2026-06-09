@@ -1,4 +1,4 @@
-import { createApp, type Component } from 'vue'
+import { createApp } from 'vue'
 import ToastComp from '../components/Toast.vue'
 
 type MessageType = 'info' | 'success' | 'warning' | 'error' | 'loading' | 'text'
@@ -13,6 +13,20 @@ interface MessageOptions {
 
 type MessageFn = (options: string | MessageOptions) => () => void
 
+interface ToastEntry {
+  id: number
+  close: () => void
+}
+
+let activeToasts: ToastEntry[] = []
+let nextId = 0
+const TOAST_GAP = 12
+const TOAST_HEIGHT = 48
+
+function removeToast(id: number) {
+  activeToasts = activeToasts.filter(t => t.id !== id)
+}
+
 function createMessage(type: MessageType): MessageFn {
   return (options: string | MessageOptions) => {
     const opts = typeof options === 'string' ? { content: options, type } : { ...options, type: options.type || type }
@@ -24,24 +38,32 @@ function showMessage(options: MessageOptions): () => void {
   const container = document.createElement('div')
   document.body.appendChild(container)
 
+  const id = ++nextId
+  const idx = activeToasts.length
+  const topOffset = 32 + idx * (TOAST_HEIGHT + TOAST_GAP)
+
   const app = createApp(ToastComp, {
     message: options.content,
     type: options.type || 'info',
     duration: options.duration ?? 3000,
     position: 'top' as const,
+    top: topOffset,
     onClose: () => {
       options.onClose?.()
-      app.unmount()
-      document.body.removeChild(container)
+      removeToast(id)
+      setTimeout(() => {
+        app.unmount()
+        document.body.removeChild(container)
+      }, 300)
     },
   })
 
   app.mount(container)
 
-  return () => {
-    app.unmount()
-    document.body.removeChild(container)
-  }
+  const entry: ToastEntry = { id, close: () => { removeToast(id); app.unmount(); document.body.removeChild(container) } }
+  activeToasts.push(entry)
+
+  return () => entry.close()
 }
 
 export const NKMessage = {
