@@ -136,6 +136,73 @@
   </view>
 
   <view class="demo-section">
+    <text class="title">Skeleton 骨架屏</text>
+    <nk-skeleton variant="paragraph" rows="3" />
+    <nk-skeleton variant="avatar" size="lg" />
+    <nk-skeleton variant="image" height="300rpx" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Empty 空状态</text>
+    <nk-empty description="暂无数据" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Tabs 标签页</text>
+    <nk-tabs items="{{tabItems}}" variant="line" bind:change="onTabChange">
+      <view>内容 1</view>
+    </nk-tabs>
+    <nk-tabs items="{{tabItems}}" variant="card" />
+    <nk-tabs items="{{tabItems}}" variant="segment" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Breadcrumb 面包屑</text>
+    <nk-breadcrumb items="{{breadcrumbItems}}" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Pagination 分页</text>
+    <nk-pagination total="100" pageSize="10" bind:change="onPageChange" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Tooltip 文字提示</text>
+    <view class="demo-row">
+      <nk-tooltip content="顶部提示" placement="top"><nk-button size="sm">上</nk-button></nk-tooltip>
+      <nk-tooltip content="底部提示" placement="bottom"><nk-button size="sm">下</nk-button></nk-tooltip>
+      <nk-tooltip content="左侧提示" placement="left"><nk-button size="sm">左</nk-button></nk-tooltip>
+      <nk-tooltip content="右侧提示" placement="right"><nk-button size="sm">右</nk-button></nk-tooltip>
+    </view>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Popover 弹出框</text>
+    <nk-popover content="这是一个 Popover 弹出框">
+      <view slot="reference"><nk-button size="sm">点击打开</nk-button></view>
+    </nk-popover>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Drawer 抽屉</text>
+    <nk-button bind:click="openDrawer">打开抽屉</nk-button>
+    <nk-drawer visible="{{drawerVisible}}" title="抽屉标题" bind:close="closeDrawer">
+      <text>这是抽屉内容</text>
+    </nk-drawer>
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Toast 消息提示</text>
+    <view class="demo-row">
+      <nk-button data-type="info" bind:click="showToast">Info</nk-button>
+      <nk-button data-type="success" bind:click="showToast">Success</nk-button>
+      <nk-button data-type="warning" bind:click="showToast">Warning</nk-button>
+      <nk-button data-type="error" bind:click="showToast">Error</nk-button>
+    </view>
+    <nk-toast id="toast" />
+  </view>
+
+  <view class="demo-section">
     <text class="title">Dialog 对话框</text>
     <nk-button bind:click="openDialog">Open Dialog</nk-button>
     <nk-dialog id="dialog" title="确认操作">

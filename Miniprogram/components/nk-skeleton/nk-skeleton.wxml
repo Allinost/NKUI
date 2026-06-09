@@ -1,0 +1,8 @@
+<view class="nk-skeleton {{animated ? 'nk-skeleton--animated' : ''}}">
+  <view wx:if="{{variant === 'avatar'}}" class="nk-skeleton__avatar nk-skeleton__avatar--{{size}} {{round ? 'nk-skeleton--round' : ''}}" />
+  <view wx:elif="{{variant === 'image'}}" class="nk-skeleton__image" style="width:{{width}};height:{{height || '400rpx'}};{{round ? 'border-radius:50%' : ''}}" />
+  <view wx:elif="{{variant === 'paragraph'}}" class="nk-skeleton__paragraph">
+    <view wx:for="{{rows}}" wx:key="index" class="nk-skeleton__line" style="width:{{index === rows - 1 ? '60%' : '100%'}}" />
+  </view>
+  <view wx:else class="nk-skeleton__line" style="width:{{width}};height:{{height || '28rpx'}}" />
+</view>

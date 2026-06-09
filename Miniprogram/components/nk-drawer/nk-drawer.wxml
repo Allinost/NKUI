@@ -1,0 +1,10 @@
+<view wx:if="{{visible}}">
+  <view wx:if="{{showMask}}" class="nk-drawer__overlay" bindtap="onMaskTap" />
+  <view class="nk-drawer nk-drawer--{{direction}}" style="{{drawerStyle}}">
+    <view class="nk-drawer__header">
+      <text class="nk-drawer__title">{{title}}</text>
+      <text wx:if="{{closable}}" class="nk-drawer__close" bindtap="onClose">✕</text>
+    </view>
+    <view class="nk-drawer__body"><slot /></view>
+  </view>
+</view>

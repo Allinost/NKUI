@@ -1,0 +1,7 @@
+<view class="nk-breadcrumb nk-breadcrumb--{{size}}">
+  <view wx:for="{{items}}" wx:key="index" class="nk-breadcrumb__item {{index === items.length - 1 ? 'nk-breadcrumb__item--active' : ''}}">
+    <text wx:if="{{index < items.length - 1 && item.to}}" class="nk-breadcrumb__link" data-to="{{item.to}}">{{item.label}}</text>
+    <text wx:else>{{item.label}}</text>
+    <text wx:if="{{index < items.length - 1}}" class="nk-breadcrumb__separator">{{separator}}</text>
+  </view>
+</view>

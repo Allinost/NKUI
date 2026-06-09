@@ -1,0 +1,14 @@
+<view class="nk-tabs nk-tabs--{{variant}} nk-tabs--{{size}}">
+  <view class="nk-tabs__header nk-tabs--{{align}}">
+    <view
+      wx:for="{{items}}" wx:key="value"
+      class="nk-tabs__tab {{item.value === activeValue ? 'nk-tabs__tab--active' : ''}} {{item.disabled ? 'nk-tabs__tab--disabled' : ''}}"
+      data-value="{{item.value}}" data-disabled="{{item.disabled}}"
+      bindtap="onSelect"
+    >
+      <nk-icon wx:if="{{item.icon}}" name="{{item.icon}}" size="sm" />
+      <text>{{item.label}}</text>
+    </view>
+  </view>
+  <view class="nk-tabs__body"><slot /></view>
+</view>

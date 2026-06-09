@@ -23,7 +23,15 @@
     "nk-toast": "/components/nk-toast/nk-toast",
     "nk-select": "/components/nk-select/nk-select",
     "nk-icon": "/components/nk-icon/nk-icon",
-    "nk-progress": "/components/nk-progress/nk-progress"
+    "nk-progress": "/components/nk-progress/nk-progress",
+    "nk-skeleton": "/components/nk-skeleton/nk-skeleton",
+    "nk-empty": "/components/nk-empty/nk-empty",
+    "nk-tabs": "/components/nk-tabs/nk-tabs",
+    "nk-breadcrumb": "/components/nk-breadcrumb/nk-breadcrumb",
+    "nk-pagination": "/components/nk-pagination/nk-pagination",
+    "nk-popover": "/components/nk-popover/nk-popover",
+    "nk-tooltip": "/components/nk-tooltip/nk-tooltip",
+    "nk-drawer": "/components/nk-drawer/nk-drawer"
   },
   "sitemapLocation": "sitemap.json"
 }

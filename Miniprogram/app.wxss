@@ -3,30 +3,7 @@
 page {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 28rpx;
-  color: #212121;
-  background: #FAFAFA;
+  color: var(--nk-color-neutral-900, #212121);
+  background: var(--nk-color-neutral-50, #FAFAFA);
   box-sizing: border-box;
-}
-
-.demo-section {
-  margin: 32rpx 24rpx;
-  padding: 32rpx;
-  background: #fff;
-  border-radius: 16rpx;
-  border: 2rpx solid #EEEEEE;
-}
-
-.demo-section .title {
-  font-size: 36rpx;
-  font-weight: 600;
-  margin-bottom: 24rpx;
-  display: block;
-}
-
-.demo-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16rpx;
-  align-items: center;
-  margin-bottom: 16rpx;
 }

@@ -1,0 +1,29 @@
+@import '../../styles/tokens.wxss';
+
+.nk-skeleton { display: flex; flex-direction: column; gap: 16rpx; }
+
+.nk-skeleton--animated .nk-skeleton__line,
+.nk-skeleton--animated .nk-skeleton__avatar,
+.nk-skeleton--animated .nk-skeleton__image {
+  background: linear-gradient(90deg, var(--nk-color-neutral-100, #F5F5F5) 25%, var(--nk-color-neutral-200, #EEEEEE) 50%, var(--nk-color-neutral-100, #F5F5F5) 75%);
+  background-size: 200% 100%;
+  animation: nk-skeleton-loading 1.5s ease infinite;
+}
+
+.nk-skeleton__line { height: 28rpx; border-radius: 8rpx; background: var(--nk-color-neutral-100, #F5F5F5); }
+
+.nk-skeleton__paragraph { display: flex; flex-direction: column; gap: 16rpx; }
+
+.nk-skeleton__avatar { border-radius: 8rpx; background: var(--nk-color-neutral-100, #F5F5F5); }
+.nk-skeleton__avatar--sm { width: 64rpx; height: 64rpx; }
+.nk-skeleton__avatar--md { width: 80rpx; height: 80rpx; }
+.nk-skeleton__avatar--lg { width: 112rpx; height: 112rpx; }
+
+.nk-skeleton--round { border-radius: 50% !important; }
+
+.nk-skeleton__image { width: 100%; height: 400rpx; border-radius: 16rpx; background: var(--nk-color-neutral-100, #F5F5F5); }
+
+@keyframes nk-skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

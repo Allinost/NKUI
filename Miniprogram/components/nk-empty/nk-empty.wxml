@@ -1,0 +1,7 @@
+<view class="nk-empty nk-empty--{{size}}">
+  <view class="nk-empty__image">
+    <nk-icon name="info" size="{{size === 'lg' ? 'xl' : size === 'sm' ? 'md' : 'lg'}}" color="#C0C4CC" />
+  </view>
+  <text class="nk-empty__description">{{description}}</text>
+  <view class="nk-empty__actions"><slot /></view>
+</view>

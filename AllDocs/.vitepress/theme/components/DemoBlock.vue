@@ -22,7 +22,7 @@
 
   &-preview {
     padding: $nk-spacing-xl;
-    background: #fff;
+    background: $nk-color-neutral-0;
     border-bottom: 1px solid $nk-color-neutral-100;
   }
 

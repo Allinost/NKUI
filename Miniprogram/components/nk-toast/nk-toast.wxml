@@ -1,0 +1,6 @@
+<view wx:if="{{visible}}" class="nk-toast__overlay">
+  <view class="nk-toast nk-toast--{{type}}">
+    <nk-icon wx:if="{{showIcon}}" name="{{type === 'success' ? 'check' : type === 'error' ? 'error' : type === 'warning' ? 'warning' : 'info'}}" size="md" />
+    <text class="nk-toast__text">{{content}}</text>
+  </view>
+</view>

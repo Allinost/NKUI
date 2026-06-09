@@ -1,0 +1,30 @@
+@import '../../styles/tokens.wxss';
+
+.nk-drawer__overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45); z-index: 1000;
+}
+
+.nk-drawer {
+  position: fixed; background: var(--nk-color-neutral-0, #FFFFFF);
+  display: flex; flex-direction: column; z-index: 1001;
+  box-shadow: 0 20rpx 40rpx rgba(0,0,0,0.15);
+}
+
+.nk-drawer--left, .nk-drawer--right { top: 0; bottom: 0; }
+.nk-drawer--left { left: 0; }
+.nk-drawer--right { right: 0; }
+.nk-drawer--top, .nk-drawer--bottom { left: 0; right: 0; }
+.nk-drawer--top { top: 0; }
+.nk-drawer--bottom { bottom: 0; }
+
+.nk-drawer__header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 32rpx 48rpx; border-bottom: 2rpx solid var(--nk-color-neutral-100, #F5F5F5);
+}
+
+.nk-drawer__title { font-size: 32rpx; font-weight: 600; color: var(--nk-color-neutral-900, #212121); }
+.nk-drawer__close { color: var(--nk-color-neutral-400, #BDBDBD); font-size: 28rpx; padding: 8rpx; }
+
+.nk-drawer__body { flex: 1; overflow-y: auto; padding: 48rpx; }
+.nk-drawer__footer { padding: 32rpx 48rpx; border-top: 2rpx solid var(--nk-color-neutral-100, #F5F5F5); }

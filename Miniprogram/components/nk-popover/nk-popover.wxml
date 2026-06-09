@@ -1,0 +1,17 @@
+<view class="nk-popover">
+  <view
+    class="nk-popover__trigger"
+    bindtap="onTriggerTap"
+    bindmouseenter="onTriggerEnter"
+    bindmouseleave="onTriggerLeave"
+  >
+    <slot name="reference" />
+  </view>
+  <view wx:if="{{visible}}" class="nk-popover__panel" style="width:{{width}}">
+    <view class="nk-popover__arrow" />
+    <view class="nk-popover__content">
+      <slot>{{content}}</slot>
+    </view>
+  </view>
+  <view wx:if="{{visible && trigger === 'click'}}" class="nk-popover__mask" bindtap="hide" />
+</view>

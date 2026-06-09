@@ -1,0 +1,16 @@
+<view wx:if="{{total > 0}}" class="nk-pagination nk-pagination--{{size}}">
+  <view class="nk-pagination__btn {{modelValue <= 1 ? 'nk-pagination__btn--disabled' : ''}}" bindtap="prev">
+    <nk-icon name="arrow-left" size="xs" />
+  </view>
+
+  <view wx:for="{{pageButtons}}" wx:key="index">
+    <text wx:if="{{item === '...'}}" class="nk-pagination__ellipsis">...</text>
+    <view wx:else class="nk-pagination__btn {{item === modelValue ? 'nk-pagination__btn--active' : ''}}" data-page="{{item}}" bindtap="go">{{item}}</view>
+  </view>
+
+  <view class="nk-pagination__btn {{modelValue >= totalPages ? 'nk-pagination__btn--disabled' : ''}}" bindtap="next">
+    <nk-icon name="arrow-right" size="xs" />
+  </view>
+
+  <text wx:if="{{showTotal}}" class="nk-pagination__total">共 {{total}} 条</text>
+</view>

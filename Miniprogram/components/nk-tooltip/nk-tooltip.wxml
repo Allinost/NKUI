@@ -1,0 +1,7 @@
+<view class="nk-tooltip" bindmouseenter="show" bindmouseleave="hide">
+  <slot />
+  <view wx:if="{{visible && content}}" class="nk-tooltip__content nk-tooltip--{{placement}}">
+    <text>{{content}}</text>
+    <view class="nk-tooltip__arrow" />
+  </view>
+</view>

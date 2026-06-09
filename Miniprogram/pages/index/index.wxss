@@ -1,15 +1,13 @@
 @import '/styles/tokens.wxss';
 
-.page {
-  padding: 32rpx 0;
-}
+.page { padding: 32rpx 0; }
 
 .demo-section {
   margin: 32rpx 24rpx;
   padding: 32rpx;
-  background: #fff;
+  background: var(--nk-color-neutral-0, #FFFFFF);
   border-radius: 16rpx;
-  border: 2rpx solid #EEEEEE;
+  border: 2rpx solid var(--nk-color-neutral-200, #EEEEEE);
 }
 
 .demo-section .title {
@@ -17,7 +15,7 @@
   font-weight: 600;
   margin-bottom: 24rpx;
   display: block;
-  color: #212121;
+  color: var(--nk-color-neutral-900, #212121);
 }
 
 .demo-row {
