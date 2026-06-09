@@ -78,7 +78,7 @@ $sizes: (
   &__thumb {
     display: block;
     border-radius: 50%;
-    background: #fff;
+    background: $nk-color-neutral-0;
     box-shadow: $nk-shadow-sm;
     transition: transform $nk-duration-fast $nk-easing-ease;
   }

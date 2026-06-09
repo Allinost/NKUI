@@ -1,8 +1,15 @@
 <template>
   <div class="app">
     <header class="app-header">
-      <h1>NKUI Vue3</h1>
-      <p>版本 1.0.0-alpha · 共 22 个组件</p>
+      <div class="app-header__inner">
+        <div>
+          <h1>NKUI Vue3</h1>
+          <p>版本 1.0.0-alpha · 共 22 个组件</p>
+        </div>
+        <button class="theme-toggle" @click="toggleTheme">
+          <Icon :name="theme === 'dark' ? 'sun' : 'moon'" size="20" />
+        </button>
+      </div>
     </header>
 
     <!-- Button -->
@@ -307,7 +314,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useTheme } from './composables/useTheme'
 import {
+  NkIcon as Icon,
   NkButton as Button,
   NkInput as Input,
   NkTag as Tag,
@@ -335,6 +344,13 @@ import {
   NkPopover as Popover,
   NKMessage,
 } from './components'
+
+import { addIcon } from './utils/icon-registry'
+
+const { theme, toggleTheme } = useTheme()
+
+addIcon('sun', '<svg viewBox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>')
+addIcon('moon', '<svg viewBox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/></svg>')
 
 const types = ['primary', 'success', 'warning', 'danger'] as const
 const v = ref('')
@@ -382,12 +398,39 @@ function showMsg(type: string) {
   max-width: 1000px;
   margin: 0 auto;
   padding: $nk-spacing-3xl $nk-spacing-lg;
+  transition: color 0.3s, background-color 0.3s;
 }
 
 .app-header {
   margin-bottom: $nk-spacing-2xl;
+
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
   h1 { font-size: $nk-font-size-3xl; }
   p { color: $nk-color-neutral-500; margin-top: $nk-spacing-sm; }
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid $nk-color-neutral-200;
+  border-radius: $nk-radius-full;
+  background: $nk-color-neutral-0;
+  cursor: pointer;
+  color: $nk-color-neutral-700;
+  transition: all $nk-duration-fast $nk-easing-ease;
+
+  &:hover {
+    background: $nk-color-neutral-100;
+    color: $nk-color-neutral-900;
+  }
 }
 
 .demo-section {
@@ -395,7 +438,8 @@ function showMsg(type: string) {
   padding: $nk-spacing-xl;
   border: 1px solid $nk-color-neutral-200;
   border-radius: $nk-radius-md;
-  background: #fff;
+  background: $nk-color-neutral-0;
+  transition: all 0.3s;
 
   h2 {
     font-size: $nk-font-size-xl;

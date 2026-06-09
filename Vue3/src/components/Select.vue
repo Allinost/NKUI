@@ -166,7 +166,7 @@ $sizes: (
     display: flex;
     align-items: center;
     border: 1px solid $nk-color-neutral-300;
-    background: #fff;
+    background: $nk-color-neutral-0;
     cursor: pointer;
     gap: $nk-spacing-sm;
     transition: all $nk-duration-fast;
@@ -176,7 +176,7 @@ $sizes: (
 
   &--open &__trigger {
     border-color: $nk-color-primary-500;
-    box-shadow: 0 0 0 3px rgba($nk-color-primary-500, 0.12);
+    box-shadow: 0 0 0 3px rgba(var(--nk-color-primary-500-rgb), 0.12);
   }
 
   &--error &__trigger {
@@ -213,7 +213,7 @@ $sizes: (
     position: absolute;
     top: calc(100% + 4px);
     left: 0;
-    background: #fff;
+    background: $nk-color-neutral-0;
     border: 1px solid $nk-color-neutral-200;
     border-radius: $nk-radius-sm;
     box-shadow: $nk-shadow-md;

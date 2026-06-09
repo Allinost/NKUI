@@ -1,4 +1,4 @@
-@use 'tokens' as *;
+@import './_theme.css';
 
 *,
 *::before,
@@ -15,4 +15,5 @@ html {
   color: $nk-color-neutral-900;
   background-color: $nk-color-neutral-0;
   -webkit-font-smoothing: antialiased;
+  transition: color 0.3s, background-color 0.3s;
 }

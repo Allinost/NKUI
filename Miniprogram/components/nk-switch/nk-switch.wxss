@@ -7,17 +7,17 @@
 
 .nk-switch__track {
   position: relative; display: flex; align-items: center;
-  border-radius: 9999rpx; background: #E0E0E0;
+  border-radius: 9999rpx; background: var(--nk-color-neutral-300, #E0E0E0);
   transition: background 0.2s;
 }
-.nk-switch--checked .nk-switch__track { background: #2196F3; }
+.nk-switch--checked .nk-switch__track { background: var(--nk-color-primary-500, #2196F3); }
 
 .nk-switch--sm .nk-switch__track { width: 56rpx; height: 32rpx; }
 .nk-switch--md .nk-switch__track { width: 72rpx; height: 40rpx; }
 .nk-switch--lg .nk-switch__track { width: 88rpx; height: 48rpx; }
 
 .nk-switch__thumb {
-  display: block; border-radius: 50%; background: #fff;
+  display: block; border-radius: 50%; background: var(--nk-color-neutral-0, #FFFFFF);
   box-shadow: 0 2rpx 4rpx rgba(0,0,0,0.15);
   transition: transform 0.2s;
 }
@@ -40,7 +40,7 @@
 .nk-switch--md .nk-switch__spinner { width: 32rpx; height: 32rpx; margin: 0 4rpx; }
 .nk-switch--lg .nk-switch__spinner { width: 40rpx; height: 40rpx; margin: 0 4rpx; }
 
-.nk-switch__label { font-size: 28rpx; color: #424242; }
+.nk-switch__label { font-size: 28rpx; color: var(--nk-color-neutral-800, #424242); }
 
 @keyframes nk-switch-spin {
   0% { transform: rotate(0deg); }

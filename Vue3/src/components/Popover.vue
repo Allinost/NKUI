@@ -73,7 +73,7 @@ function onLeave() {
 
   &__panel {
     position: fixed;
-    background: #fff;
+    background: $nk-color-neutral-0;
     border: 1px solid $nk-color-neutral-200;
     border-radius: $nk-radius-md;
     box-shadow: $nk-shadow-md;
@@ -87,7 +87,7 @@ function onLeave() {
     position: absolute;
     width: 8px;
     height: 8px;
-    background: #fff;
+    background: $nk-color-neutral-0;
     border: 1px solid $nk-color-neutral-200;
     transform: rotate(45deg);
     z-index: -1;

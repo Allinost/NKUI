@@ -1,10 +1,10 @@
 @import '../../styles/tokens.wxss';
 
 .nk-card {
-  display: flex; flex-direction: column; background: #fff;
+  display: flex; flex-direction: column; background: var(--nk-color-neutral-0, #FFFFFF);
   border-radius: 16rpx; overflow: hidden;
 }
-.nk-card--outlined { border: 2rpx solid #EEEEEE; }
+.nk-card--outlined { border: 2rpx solid var(--nk-color-neutral-200, #EEEEEE); }
 .nk-card--elevated { box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08); }
 .nk-card--flat { border: none; }
 

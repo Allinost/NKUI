@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, onUnmounted } from 'vue'
+import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
 import NkIcon from './Icon.vue'
 import NkLoading from './Loading.vue'
 
@@ -52,7 +52,7 @@ function startTimer() {
 
 watch(visible, (v) => { if (!v) timer = null })
 
-startTimer()
+onMounted(startTimer)
 
 onUnmounted(() => { if (timer) clearTimeout(timer) })
 </script>

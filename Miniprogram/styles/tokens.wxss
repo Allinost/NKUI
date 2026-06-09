@@ -1,29 +1,120 @@
-/* NKUI Design Tokens - Reusable WXSS classes */
-/* Import this file with: @import '../../styles/_tokens.wxss'; */
+/* NKUI Design Tokens - WXSS */
+/* Dark mode via CSS variables + .nk-dark selector + media query */
 
-/* === Utility Classes === */
+/* Light mode CSS variables */
+page {
+  --nk-color-primary-50: #E3F2FD;
+  --nk-color-primary-100: #BBDEFB;
+  --nk-color-primary-200: #90CAF9;
+  --nk-color-primary-300: #64B5F6;
+  --nk-color-primary-400: #42A5F5;
+  --nk-color-primary-500: #2196F3;
+  --nk-color-primary-600: #1E88E5;
+  --nk-color-primary-700: #1976D2;
+  --nk-color-primary-800: #1565C0;
+  --nk-color-primary-900: #0D47A1;
 
-/* Colors */
+  --nk-color-neutral-0: #FFFFFF;
+  --nk-color-neutral-50: #FAFAFA;
+  --nk-color-neutral-100: #F5F5F5;
+  --nk-color-neutral-200: #EEEEEE;
+  --nk-color-neutral-300: #E0E0E0;
+  --nk-color-neutral-400: #BDBDBD;
+  --nk-color-neutral-500: #9E9E9E;
+  --nk-color-neutral-600: #757575;
+  --nk-color-neutral-700: #616161;
+  --nk-color-neutral-800: #424242;
+  --nk-color-neutral-900: #212121;
+  --nk-color-neutral-1000: #000000;
+
+  --nk-color-success: #4CAF50;
+  --nk-color-warning: #FF9800;
+  --nk-color-error: #F44336;
+  --nk-color-info: #2196F3;
+}
+
+/* Dark mode via class */
+.nk-dark {
+  --nk-color-primary-50: #1A237E;
+  --nk-color-primary-100: #283593;
+  --nk-color-primary-200: #303F9F;
+  --nk-color-primary-300: #3949AB;
+  --nk-color-primary-400: #5C6BC0;
+  --nk-color-primary-500: #90CAF9;
+  --nk-color-primary-600: #64B5F6;
+  --nk-color-primary-700: #42A5F5;
+  --nk-color-primary-800: #2196F3;
+  --nk-color-primary-900: #1E88E5;
+
+  --nk-color-neutral-0: #121212;
+  --nk-color-neutral-50: #1A1A1A;
+  --nk-color-neutral-100: #1E1E1E;
+  --nk-color-neutral-200: #2C2C2C;
+  --nk-color-neutral-300: #333333;
+  --nk-color-neutral-400: #424242;
+  --nk-color-neutral-500: #616161;
+  --nk-color-neutral-600: #757575;
+  --nk-color-neutral-700: #9E9E9E;
+  --nk-color-neutral-800: #BDBDBD;
+  --nk-color-neutral-900: #E0E0E0;
+  --nk-color-neutral-1000: #FFFFFF;
+
+  --nk-color-success: #81C784;
+  --nk-color-warning: #FFB74D;
+  --nk-color-error: #E57373;
+  --nk-color-info: #64B5F6;
+}
+
+/* Dark mode via system preference */
+@media (prefers-color-scheme: dark) {
+  page {
+    --nk-color-primary-50: #1A237E;
+    --nk-color-primary-100: #283593;
+    --nk-color-primary-200: #303F9F;
+    --nk-color-primary-300: #3949AB;
+    --nk-color-primary-400: #5C6BC0;
+    --nk-color-primary-500: #90CAF9;
+    --nk-color-primary-600: #64B5F6;
+    --nk-color-primary-700: #42A5F5;
+    --nk-color-primary-800: #2196F3;
+    --nk-color-primary-900: #1E88E5;
+
+    --nk-color-neutral-0: #121212;
+    --nk-color-neutral-50: #1A1A1A;
+    --nk-color-neutral-100: #1E1E1E;
+    --nk-color-neutral-200: #2C2C2C;
+    --nk-color-neutral-300: #333333;
+    --nk-color-neutral-400: #424242;
+    --nk-color-neutral-500: #616161;
+    --nk-color-neutral-600: #757575;
+    --nk-color-neutral-700: #9E9E9E;
+    --nk-color-neutral-800: #BDBDBD;
+    --nk-color-neutral-900: #E0E0E0;
+    --nk-color-neutral-1000: #FFFFFF;
+
+    --nk-color-success: #81C784;
+    --nk-color-warning: #FFB74D;
+    --nk-color-error: #E57373;
+    --nk-color-info: #64B5F6;
+  }
+}
+
+/* === Utility Classes (keep existing) === */
 .nk-color-primary { background: #2196F3; color: #fff; border-color: #2196F3; }
 .nk-color-success { background: #4CAF50; color: #fff; border-color: #4CAF50; }
 .nk-color-warning { background: #FF9800; color: #fff; border-color: #FF9800; }
 .nk-color-danger  { background: #F44336; color: #fff; border-color: #F44336; }
 .nk-color-neutral { background: #424242; color: #fff; border-color: #424242; }
-
-/* Text Colors */
 .nk-text-primary { color: #2196F3; }
 .nk-text-success { color: #4CAF50; }
 .nk-text-warning { color: #FF9800; }
 .nk-text-danger  { color: #F44336; }
 .nk-text-neutral { color: #424242; }
-
-/* Border Colors */
 .nk-border-primary { border-color: #2196F3; }
 .nk-border-success { border-color: #4CAF50; }
 .nk-border-warning { border-color: #FF9800; }
 .nk-border-danger  { border-color: #F44336; }
 
-/* Font Sizes */
 .nk-fs-xs  { font-size: 20rpx; }
 .nk-fs-sm  { font-size: 24rpx; }
 .nk-fs-base { font-size: 28rpx; }
@@ -32,35 +123,27 @@
 .nk-fs-2xl { font-size: 48rpx; }
 .nk-fs-3xl { font-size: 64rpx; }
 
-/* Spacing */
 .nk-p-xs  { padding: 8rpx; }
 .nk-p-sm  { padding: 16rpx; }
 .nk-p-md  { padding: 24rpx; }
 .nk-p-lg  { padding: 32rpx; }
 .nk-p-xl  { padding: 48rpx; }
-
 .nk-m-xs  { margin: 8rpx; }
 .nk-m-sm  { margin: 16rpx; }
 .nk-m-md  { margin: 24rpx; }
 .nk-m-lg  { margin: 32rpx; }
 
-/* Radius */
 .nk-radius-sm  { border-radius: 8rpx; }
 .nk-radius-md  { border-radius: 16rpx; }
 .nk-radius-lg  { border-radius: 24rpx; }
 .nk-radius-full { border-radius: 9999rpx; }
 
-/* Opacity */
 .nk-disabled { opacity: 0.38; }
-
-/* Text */
 .nk-text-center { text-align: center; }
 .nk-text-left   { text-align: left; }
 .nk-text-right  { text-align: right; }
 .nk-font-medium { font-weight: 500; }
 .nk-font-bold   { font-weight: 700; }
-
-/* Flex */
 .nk-flex      { display: flex; }
 .nk-flex-col  { flex-direction: column; }
 .nk-flex-wrap { flex-wrap: wrap; }

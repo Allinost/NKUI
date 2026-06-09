@@ -2,26 +2,26 @@
 
 .nk-input { display: flex; flex-direction: column; gap: 8rpx; width: 100%; }
 
-.nk-input__label { font-size: 24rpx; color: #616161; font-weight: 500; }
+.nk-input__label { font-size: 24rpx; color: var(--nk-color-neutral-700, #616161); font-weight: 500; }
 
 .nk-input__wrapper {
   display: flex; align-items: center;
-  border: 2rpx solid #E0E0E0;
-  background: #fff;
+  border: 2rpx solid var(--nk-color-neutral-300, #E0E0E0);
+  background: var(--nk-color-neutral-0, #FFFFFF);
   border-radius: 8rpx;
   transition: border-color 0.15s;
 }
 
 .nk-input--focused .nk-input__wrapper {
-  border-color: #2196F3;
+  border-color: var(--nk-color-primary-500, #2196F3);
 }
 
-.nk-input--error .nk-input__wrapper { border-color: #F44336; }
-.nk-input--disabled .nk-input__wrapper { background: #F5F5F5; border-color: #EEEEEE; }
+.nk-input--error .nk-input__wrapper { border-color: var(--nk-color-error, #F44336); }
+.nk-input--disabled .nk-input__wrapper { background: var(--nk-color-neutral-100, #F5F5F5); border-color: var(--nk-color-neutral-200, #EEEEEE); }
 
 .nk-input__inner {
   flex: 1; border: none; outline: none; background: transparent;
-  font-family: inherit; color: #212121; min-width: 0; box-sizing: border-box;
+  font-family: inherit; color: var(--nk-color-neutral-900, #212121); min-width: 0; box-sizing: border-box;
 }
 
 .nk-input--sm .nk-input__inner { height: 56rpx; font-size: 24rpx; padding: 0 16rpx; }
@@ -32,4 +32,4 @@
   display: flex; align-items: center; padding: 0 16rpx; flex-shrink: 0;
 }
 
-.nk-input__error { font-size: 20rpx; color: #F44336; }
+.nk-input__error { font-size: 20rpx; color: var(--nk-color-error, #F44336); }

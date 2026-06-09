@@ -75,7 +75,7 @@ $types: (
   outline: none;
 
   &:focus-visible {
-    box-shadow: 0 0 0 2px rgba($nk-color-primary-500, 0.3);
+    box-shadow: 0 0 0 2px rgba(var(--nk-color-primary-500-rgb), 0.3);
   }
 
   &:active {
@@ -131,10 +131,10 @@ $types: (
         border-color: $color;
 
         &:hover:not(:disabled) {
-          background: rgba($color, 0.06);
+          background: color-mix(in srgb, $color 6%, transparent);
         }
         &:active:not(:disabled) {
-          background: rgba($color, 0.12);
+          background: color-mix(in srgb, $color 12%, transparent);
         }
       }
 
@@ -144,10 +144,10 @@ $types: (
         border-color: transparent;
 
         &:hover:not(:disabled) {
-          background: rgba($color, 0.06);
+          background: color-mix(in srgb, $color 6%, transparent);
         }
         &:active:not(:disabled) {
-          background: rgba($color, 0.12);
+          background: color-mix(in srgb, $color 12%, transparent);
         }
       }
 
@@ -158,7 +158,7 @@ $types: (
         padding-inline: 4px;
 
         &:hover:not(:disabled) {
-          color: color.mix($color, #000, 80%);
+          color: color-mix(in srgb, $color 80%, black);
         }
       }
     }

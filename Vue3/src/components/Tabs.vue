@@ -111,7 +111,7 @@ $sizes: (
     background: $nk-color-neutral-50;
 
     &--active {
-      background: #fff;
+      background: $nk-color-neutral-0;
       color: $nk-color-primary-500;
     }
   }

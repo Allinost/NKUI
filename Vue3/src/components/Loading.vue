@@ -97,7 +97,7 @@ $sizes: (
     &--visible { opacity: 1; }
 
     .nk-loading {
-      background: #fff;
+      background: $nk-color-neutral-0;
       padding: $nk-spacing-2xl;
       border-radius: $nk-radius-lg;
       box-shadow: $nk-shadow-lg;

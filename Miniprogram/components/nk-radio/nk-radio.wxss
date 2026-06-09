@@ -7,10 +7,10 @@
 
 .nk-radio__circle {
   display: flex; align-items: center; justify-content: center;
-  border: 3rpx solid #E0E0E0; border-radius: 50%;
-  background: #fff; transition: all 0.15s; flex-shrink: 0;
+  border: 3rpx solid var(--nk-color-neutral-300, #E0E0E0); border-radius: 50%;
+  background: var(--nk-color-neutral-0, #FFFFFF); transition: all 0.15s; flex-shrink: 0;
 }
-.nk-radio--checked .nk-radio__circle { border-color: #2196F3; }
+.nk-radio--checked .nk-radio__circle { border-color: var(--nk-color-primary-500, #2196F3); }
 
 .nk-radio--sm .nk-radio__circle { width: 28rpx; height: 28rpx; }
 .nk-radio--md .nk-radio__circle { width: 32rpx; height: 32rpx; }
@@ -20,13 +20,13 @@
   border-radius: 50%; background: transparent;
   transition: all 0.15s; transform: scale(0);
 }
-.nk-radio--checked .nk-radio__dot { background: #2196F3; transform: scale(1); }
+.nk-radio--checked .nk-radio__dot { background: var(--nk-color-primary-500, #2196F3); transform: scale(1); }
 
 .nk-radio--sm .nk-radio__dot { width: 12rpx; height: 12rpx; }
 .nk-radio--md .nk-radio__dot { width: 16rpx; height: 16rpx; }
 .nk-radio--lg .nk-radio__dot { width: 20rpx; height: 20rpx; }
 
-.nk-radio__label { color: #424242; }
+.nk-radio__label { color: var(--nk-color-neutral-800, #424242); }
 .nk-radio--sm .nk-radio__label { font-size: 24rpx; }
 .nk-radio--md .nk-radio__label { font-size: 28rpx; }
 .nk-radio--lg .nk-radio__label { font-size: 32rpx; }

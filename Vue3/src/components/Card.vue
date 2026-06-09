@@ -36,7 +36,7 @@ withDefaults(defineProps<{
 .nk-card {
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: $nk-color-neutral-0;
   border-radius: $nk-radius-md;
   overflow: hidden;
   transition: box-shadow $nk-duration-fast $nk-easing-ease;

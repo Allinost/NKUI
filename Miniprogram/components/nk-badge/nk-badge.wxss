@@ -23,7 +23,7 @@
 .nk-badge--top-right .nk-badge__content { top: 0; right: 0; }
 .nk-badge--top-left .nk-badge__content { top: 0; left: 0; transform: translate(-50%, -50%); }
 
-.nk-badge--primary { background: #2196F3; color: #fff; }
-.nk-badge--success { background: #4CAF50; color: #fff; }
-.nk-badge--warning { background: #FF9800; color: #fff; }
-.nk-badge--danger  { background: #F44336; color: #fff; }
+.nk-badge--primary { background: var(--nk-color-primary-500, #2196F3); color: #fff; }
+.nk-badge--success { background: var(--nk-color-success, #4CAF50); color: #fff; }
+.nk-badge--warning { background: var(--nk-color-warning, #FF9800); color: #fff; }
+.nk-badge--danger  { background: var(--nk-color-error, #F44336); color: #fff; }

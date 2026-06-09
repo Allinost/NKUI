@@ -129,18 +129,18 @@ $sizes: (
 
   &--focused &__wrapper {
     border-color: $nk-color-primary-500;
-    box-shadow: 0 0 0 3px rgba($nk-color-primary-500, 0.12);
+    box-shadow: 0 0 0 3px rgba(var(--nk-color-primary-500-rgb), 0.12);
   }
 
   &--error &__wrapper {
     border-color: $nk-color-error;
-    background: color.mix($nk-color-error, #fff, 3%);
+    background: color-mix(in srgb, $nk-color-error 3%, white);
 
     &:hover { border-color: $nk-color-error; }
   }
 
   &--focused.nk-input--error &__wrapper {
-    box-shadow: 0 0 0 3px rgba($nk-color-error, 0.12);
+    box-shadow: 0 0 0 3px rgba(var(--nk-color-error-rgb), 0.12);
   }
 
   &--disabled &__wrapper {

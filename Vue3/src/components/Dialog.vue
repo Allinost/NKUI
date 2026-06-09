@@ -84,7 +84,7 @@ function onMaskClick() { if (props.maskClosable) onCancel() }
 }
 
 .nk-dialog {
-  background: #fff;
+  background: $nk-color-neutral-0;
   border-radius: $nk-radius-lg;
   box-shadow: $nk-shadow-lg;
   max-width: 90vw;

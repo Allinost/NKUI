@@ -1,37 +1,37 @@
 // NKUI Design Tokens — SCSS Variables
-// Auto-generated from AllPublic/tokens/design-tokens.json
+// Color & Shadow values reference CSS custom properties for runtime dark mode switching
 
-// Color
-$nk-color-primary-50:   #E3F2FD;
-$nk-color-primary-100:  #BBDEFB;
-$nk-color-primary-200:  #90CAF9;
-$nk-color-primary-300:  #64B5F6;
-$nk-color-primary-400:  #42A5F5;
-$nk-color-primary-500:  #2196F3;
-$nk-color-primary-600:  #1E88E5;
-$nk-color-primary-700:  #1976D2;
-$nk-color-primary-800:  #1565C0;
-$nk-color-primary-900:  #0D47A1;
+// Color (delegated to CSS vars for runtime theme switching)
+$nk-color-primary-50:   var(--nk-color-primary-50);
+$nk-color-primary-100:  var(--nk-color-primary-100);
+$nk-color-primary-200:  var(--nk-color-primary-200);
+$nk-color-primary-300:  var(--nk-color-primary-300);
+$nk-color-primary-400:  var(--nk-color-primary-400);
+$nk-color-primary-500:  var(--nk-color-primary-500);
+$nk-color-primary-600:  var(--nk-color-primary-600);
+$nk-color-primary-700:  var(--nk-color-primary-700);
+$nk-color-primary-800:  var(--nk-color-primary-800);
+$nk-color-primary-900:  var(--nk-color-primary-900);
 
-$nk-color-neutral-0:    #FFFFFF;
-$nk-color-neutral-50:   #FAFAFA;
-$nk-color-neutral-100:  #F5F5F5;
-$nk-color-neutral-200:  #EEEEEE;
-$nk-color-neutral-300:  #E0E0E0;
-$nk-color-neutral-400:  #BDBDBD;
-$nk-color-neutral-500:  #9E9E9E;
-$nk-color-neutral-600:  #757575;
-$nk-color-neutral-700:  #616161;
-$nk-color-neutral-800:  #424242;
-$nk-color-neutral-900:  #212121;
-$nk-color-neutral-1000: #000000;
+$nk-color-neutral-0:    var(--nk-color-neutral-0);
+$nk-color-neutral-50:   var(--nk-color-neutral-50);
+$nk-color-neutral-100:  var(--nk-color-neutral-100);
+$nk-color-neutral-200:  var(--nk-color-neutral-200);
+$nk-color-neutral-300:  var(--nk-color-neutral-300);
+$nk-color-neutral-400:  var(--nk-color-neutral-400);
+$nk-color-neutral-500:  var(--nk-color-neutral-500);
+$nk-color-neutral-600:  var(--nk-color-neutral-600);
+$nk-color-neutral-700:  var(--nk-color-neutral-700);
+$nk-color-neutral-800:  var(--nk-color-neutral-800);
+$nk-color-neutral-900:  var(--nk-color-neutral-900);
+$nk-color-neutral-1000: var(--nk-color-neutral-1000);
 
-$nk-color-success: #4CAF50;
-$nk-color-warning: #FF9800;
-$nk-color-error:   #F44336;
-$nk-color-info:    #2196F3;
+$nk-color-success: var(--nk-color-success);
+$nk-color-warning: var(--nk-color-warning);
+$nk-color-error:   var(--nk-color-error);
+$nk-color-info:    var(--nk-color-info);
 
-// Font
+// Font (unchanged between themes)
 $nk-font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 $nk-font-family-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Courier New', monospace;
 
@@ -52,7 +52,7 @@ $nk-line-height-tight:   1.2;
 $nk-line-height-normal:  1.5;
 $nk-line-height-relaxed: 1.75;
 
-// Spacing
+// Spacing (unchanged)
 $nk-spacing-xs:  4px;
 $nk-spacing-sm:  8px;
 $nk-spacing-md:  12px;
@@ -61,7 +61,7 @@ $nk-spacing-xl:  24px;
 $nk-spacing-2xl: 32px;
 $nk-spacing-3xl: 48px;
 
-// Radius
+// Radius (unchanged)
 $nk-radius-none: 0;
 $nk-radius-sm:   4px;
 $nk-radius-md:   8px;
@@ -69,13 +69,13 @@ $nk-radius-lg:   12px;
 $nk-radius-xl:   16px;
 $nk-radius-full: 9999px;
 
-// Shadow
-$nk-shadow-sm: 0 1px 2px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.1);
-$nk-shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
-$nk-shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
-$nk-shadow-xl: 0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04);
+// Shadow (delegated to CSS vars)
+$nk-shadow-sm: var(--nk-shadow-sm);
+$nk-shadow-md: var(--nk-shadow-md);
+$nk-shadow-lg: var(--nk-shadow-lg);
+$nk-shadow-xl: var(--nk-shadow-xl);
 
-// Z-index
+// Z-index (unchanged)
 $nk-z-dropdown: 1000;
 $nk-z-sticky:   1020;
 $nk-z-fixed:    1030;
@@ -84,13 +84,13 @@ $nk-z-popover:  1050;
 $nk-z-tooltip:  1060;
 $nk-z-toast:    1070;
 
-// Opacity
+// Opacity (unchanged)
 $nk-opacity-disabled: 0.38;
 $nk-opacity-secondary: 0.6;
 $nk-opacity-medium: 0.74;
 $nk-opacity-high: 0.87;
 
-// Transition
+// Transition (unchanged)
 $nk-duration-fast:  150ms;
 $nk-duration-normal: 250ms;
 $nk-duration-slow:  400ms;

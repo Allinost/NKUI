@@ -80,7 +80,7 @@ function onClose() {
 
 .nk-drawer {
   position: fixed;
-  background: #fff;
+  background: $nk-color-neutral-0;
   display: flex;
   flex-direction: column;
   z-index: $nk-z-modal + 1;

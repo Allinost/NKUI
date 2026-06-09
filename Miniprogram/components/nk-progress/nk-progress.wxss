@@ -3,7 +3,7 @@
 .nk-progress { display: flex; align-items: center; gap: 16rpx; width: 100%; }
 
 .nk-progress__track {
-  flex: 1; background: #EEEEEE; border-radius: 99rpx; overflow: hidden;
+  flex: 1; background: var(--nk-color-neutral-200, #EEEEEE); border-radius: 99rpx; overflow: hidden;
 }
 .nk-progress--sm .nk-progress__track { height: 8rpx; }
 .nk-progress--md .nk-progress__track { height: 12rpx; }
@@ -13,7 +13,7 @@
   height: 100%; border-radius: 99rpx; transition: width 0.4s ease;
 }
 
-.nk-progress__text { flex-shrink: 0; color: #757575; }
+.nk-progress__text { flex-shrink: 0; color: var(--nk-color-neutral-600, #757575); }
 .nk-progress--sm .nk-progress__text { font-size: 20rpx; }
 .nk-progress--md .nk-progress__text { font-size: 24rpx; }
 .nk-progress--lg .nk-progress__text { font-size: 28rpx; }
@@ -31,7 +31,7 @@
 .nk-progress-circle--lg { width: 240rpx; height: 240rpx; }
 
 .nk-progress-circle__text {
-  position: absolute; font-weight: 700; color: #424242;
+  position: absolute; font-weight: 700; color: var(--nk-color-neutral-800, #424242);
 }
 .nk-progress-circle--sm .nk-progress-circle__text { font-size: 24rpx; }
 .nk-progress-circle--md .nk-progress-circle__text { font-size: 32rpx; }

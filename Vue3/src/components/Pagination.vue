@@ -110,7 +110,7 @@ $sizes: (
     align-items: center;
     justify-content: center;
     border: 1px solid $nk-color-neutral-200;
-    background: #fff;
+    background: $nk-color-neutral-0;
     cursor: pointer;
     border-radius: $nk-radius-sm;
     transition: all $nk-duration-fast;

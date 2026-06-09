@@ -79,7 +79,7 @@ $types: (
         border: 1px solid $color;
       }
       &.nk-tag--light {
-        background: color.mix($color, #fff, 12%);
+        background: color-mix(in srgb, $color 12%, white);
         color: $color;
       }
     }

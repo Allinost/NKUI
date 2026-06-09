@@ -2,7 +2,7 @@
 
 .nk-loading {
   display: inline-flex; flex-direction: column; align-items: center;
-  justify-content: center; gap: 16rpx; color: #2196F3;
+  justify-content: center; gap: 16rpx; color: var(--nk-color-primary-500, #2196F3);
 }
 
 .nk-loading__spinner {
@@ -20,7 +20,7 @@
   animation: nk-loading-bar 1.2s ease infinite;
 }
 
-.nk-loading__text { color: #9E9E9E; margin: 0; }
+.nk-loading__text { color: var(--nk-color-neutral-500, #9E9E9E); margin: 0; }
 .nk-loading--sm .nk-loading__text { font-size: 20rpx; }
 .nk-loading--md .nk-loading__text { font-size: 24rpx; }
 .nk-loading--lg .nk-loading__text { font-size: 28rpx; }

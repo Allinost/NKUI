@@ -2,7 +2,7 @@
 
 .nk-avatar {
   display: inline-flex; align-items: center; justify-content: center;
-  overflow: hidden; background: #BBDEFB; color: #1976D2; flex-shrink: 0;
+  overflow: hidden; background: var(--nk-color-primary-100, #BBDEFB); color: var(--nk-color-primary-700, #1976D2); flex-shrink: 0;
   vertical-align: middle;
 }
 .nk-avatar--circle { border-radius: 50%; }
