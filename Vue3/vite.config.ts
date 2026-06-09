@@ -12,7 +12,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "sass:map";\n@use "sass:color";\n@use "@/styles/tokens" as *;\n`,
+        additionalData: `@use "sass:map";\n@use "sass:color";\n@use "sass:list";\n@use "@/styles/tokens" as *;\n`,
       },
     },
   },

@@ -2,7 +2,31 @@ import type { App } from 'vue'
 import NkButton from './Button.vue'
 import NkInput from './Input.vue'
 import NkIcon from './Icon.vue'
+import NkTag from './Tag.vue'
+import NkBadge from './Badge.vue'
+import NkLoading from './Loading.vue'
+import NkSwitch from './Switch.vue'
+import NkCheckbox from './Checkbox.vue'
+import NkRadio from './Radio.vue'
+import NkDivider from './Divider.vue'
+import NkSpace from './Space.vue'
+import NkAvatar from './Avatar.vue'
+import NkCard from './Card.vue'
+import NkEmpty from './Empty.vue'
+import NkSkeleton from './Skeleton.vue'
+import NkDialog from './Dialog.vue'
+import NkDrawer from './Drawer.vue'
+import NkSelect from './Select.vue'
+import NkTooltip from './Tooltip.vue'
+import NkPopover from './Popover.vue'
+import NkTabs from './Tabs.vue'
+import NkBreadcrumb from './Breadcrumb.vue'
+import NkPagination from './Pagination.vue'
+import NkRow from './Row.vue'
+import NkCol from './Col.vue'
+import NkProgress from './Progress.vue'
 import { addIcon } from '../utils/icon-registry'
+import { NKMessage, showToast } from '../utils/message'
 
 const icons: Record<string, string> = {
   close: '<svg viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>',
@@ -14,13 +38,27 @@ const icons: Record<string, string> = {
   'arrow-left': '<svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>',
   'arrow-right': '<svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>',
 }
-
 Object.entries(icons).forEach(([name, svg]) => addIcon(name, svg))
 
-const components = [NkButton, NkInput, NkIcon]
+const components = [
+  NkButton, NkInput, NkIcon, NkTag, NkBadge, NkLoading,
+  NkSwitch, NkCheckbox, NkRadio,
+  NkDivider, NkSpace, NkAvatar, NkCard, NkEmpty, NkSkeleton,
+  NkDialog, NkDrawer, NkSelect, NkTooltip, NkPopover,
+  NkTabs, NkBreadcrumb, NkPagination,
+  NkRow, NkCol, NkProgress,
+]
 
 export function install(app: App) {
   components.forEach(c => app.component(c.name ?? c.__name, c))
 }
 
-export { NkButton, NkInput, NkIcon, addIcon }
+export {
+  NkButton, NkInput, NkIcon, NkTag, NkBadge, NkLoading,
+  NkSwitch, NkCheckbox, NkRadio,
+  NkDivider, NkSpace, NkAvatar, NkCard, NkEmpty, NkSkeleton,
+  NkDialog, NkDrawer, NkSelect, NkTooltip, NkPopover,
+  NkTabs, NkBreadcrumb, NkPagination,
+  NkRow, NkCol, NkProgress,
+  addIcon, NKMessage, showToast,
+}
