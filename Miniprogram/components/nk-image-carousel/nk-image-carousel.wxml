@@ -1,0 +1,30 @@
+<view class="nk-image-carousel" style="width:{{width}};height:{{height}}" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+  <view class="nk-image-carousel__track" style="transform:translateX(-{{current * 100}}%);transition:transform {{animating ? '0.4s cubic-bezier(0.25,0.1,0.25,1)' : 'none'}}">
+    <image wx:for="{{resolvedImages}}" wx:key="index" class="nk-image-carousel__img" src="{{item.url}}" mode="aspectFit" catchtap="onImageTap" data-index="{{index}}" />
+  </view>
+
+  <view wx:if="{{showNav}}" class="nk-image-carousel__nav nk-image-carousel__nav--prev" catchtap="prev">
+    <image src="data:image/svg+xml,%3Csvg viewBox='0 0 16 16' width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z' fill='white'/%3E%3C/svg%3E" style="width:20px;height:20px" />
+  </view>
+  <view wx:if="{{showNav}}" class="nk-image-carousel__nav nk-image-carousel__nav--next" catchtap="next">
+    <image src="data:image/svg+xml,%3Csvg viewBox='0 0 16 16' width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z' fill='white'/%3E%3C/svg%3E" style="width:20px;height:20px" />
+  </view>
+
+  <view wx:if="{{showDots}}" class="nk-image-carousel__dots">
+    <view wx:for="{{resolvedImages}}" wx:key="index" class="nk-image-carousel__dot {{index === current ? 'nk-image-carousel__dot--active' : ''}}" catchtap="goTo" data-index="{{index}}" />
+  </view>
+
+  <view wx:if="{{previewVisible}}" class="nk-image-carousel__preview-mask" catchtap="closePreview">
+    <view class="nk-image-carousel__preview-close" catchtap="closePreview">
+      <image src="data:image/svg+xml,%3Csvg viewBox='0 0 16 16' width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z' fill='white'/%3E%3C/svg%3E" style="width:20px;height:20px" />
+    </view>
+    <view class="nk-image-carousel__preview-nav nk-image-carousel__preview-nav--prev" catchtap="prevPreview">
+      <image src="data:image/svg+xml,%3Csvg viewBox='0 0 16 16' width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z' fill='white'/%3E%3C/svg%3E" style="width:24px;height:24px" />
+    </view>
+    <view class="nk-image-carousel__preview-nav nk-image-carousel__preview-nav--next" catchtap="nextPreview">
+      <image src="data:image/svg+xml,%3Csvg viewBox='0 0 16 16' width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z' fill='white'/%3E%3C/svg%3E" style="width:24px;height:24px" />
+    </view>
+    <image class="nk-image-carousel__preview-img" src="{{resolvedImages[previewCurrent].url}}" mode="widthFix" />
+    <view class="nk-image-carousel__preview-counter">{{previewCurrent + 1}} / {{resolvedImages.length}}</view>
+  </view>
+</view>

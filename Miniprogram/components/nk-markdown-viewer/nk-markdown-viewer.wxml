@@ -1,0 +1,10 @@
+<view class="nk-markdown-viewer">
+  <block wx:if="{{error}}">
+    <view class="nk-markdown-viewer__error">
+      <text class="nk-markdown-viewer__error-text">内容加载失败</text>
+    </view>
+  </block>
+  <block wx:else>
+    <rich-text class="nk-markdown-viewer__content" nodes="{{renderedNodes}}" />
+  </block>
+</view>

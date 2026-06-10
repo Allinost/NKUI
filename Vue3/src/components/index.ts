@@ -34,6 +34,10 @@ import NkImageUpload from './ImageUpload.vue'
 import NkVideoPlayer from './VideoPlayer.vue'
 import NkImageGallery from './ImageGallery.vue'
 import NkWeather from './Weather.vue'
+import NkImageCarousel from './ImageCarousel.vue'
+import NkPdfViewer from './PdfViewer.vue'
+import NkMarkdownViewer from './MarkdownViewer.vue'
+import NkMusicPlayer from './MusicPlayer.vue'
 import { addIcon } from '../utils/icon-registry'
 import { NKMessage, showToast } from '../utils/message'
 
@@ -66,6 +70,7 @@ const components = [
   NkRow, NkCol, NkProgress,
   NkProfileCard, NkTopNav, NkBottomTab, NkCalendar, NkFileUpload, NkImageUpload,
   NkVideoPlayer, NkImageGallery, NkWeather,
+  NkImageCarousel, NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
 ]
 
 export function install(app: App) {
@@ -81,5 +86,6 @@ export {
   NkRow, NkCol, NkProgress,
   NkProfileCard, NkTopNav, NkBottomTab, NkCalendar, NkFileUpload, NkImageUpload,
   NkVideoPlayer, NkImageGallery, NkWeather,
+  NkImageCarousel, NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
   addIcon, NKMessage, showToast,
 }

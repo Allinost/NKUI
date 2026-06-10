@@ -1,0 +1,108 @@
+@import '../../styles/tokens.wxss';
+
+.nk-image-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16rpx;
+  background: var(--nk-color-neutral-100, #F5F5F5);
+}
+.nk-image-carousel__track {
+  display: flex;
+  height: 100%;
+}
+.nk-image-carousel__img {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.nk-image-carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999rpx;
+  background: rgba(0,0,0,0.35);
+  z-index: 2;
+}
+.nk-image-carousel__nav--prev { left: 16rpx; }
+.nk-image-carousel__nav--next { right: 16rpx; }
+.nk-image-carousel__dots {
+  position: absolute;
+  bottom: 16rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12rpx;
+  z-index: 2;
+}
+.nk-image-carousel__dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 9999rpx;
+  background: rgba(255,255,255,0.45);
+  transition: background 0.2s, transform 0.2s;
+}
+.nk-image-carousel__dot--active {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+.nk-image-carousel__preview-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.85);
+}
+.nk-image-carousel__preview-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8rpx;
+}
+.nk-image-carousel__preview-close {
+  position: absolute;
+  top: 32rpx;
+  right: 32rpx;
+  width: 72rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999rpx;
+  background: rgba(255,255,255,0.15);
+  z-index: 3;
+}
+.nk-image-carousel__preview-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999rpx;
+  background: rgba(255,255,255,0.15);
+  z-index: 3;
+}
+.nk-image-carousel__preview-nav--prev { left: 32rpx; }
+.nk-image-carousel__preview-nav--next { right: 32rpx; }
+.nk-image-carousel__preview-counter {
+  position: absolute;
+  bottom: 32rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8rpx 24rpx;
+  border-radius: 9999rpx;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 24rpx;
+  z-index: 3;
+}

@@ -1,0 +1,18 @@
+@import '../../styles/tokens.wxss';
+
+.nk-markdown-viewer {
+  padding: 32rpx;
+  border: 2rpx solid var(--nk-color-neutral-200, #EEEEEE);
+  border-radius: 16rpx;
+  background: var(--nk-color-neutral-0, #FFFFFF);
+  font-size: 28rpx;
+  line-height: 1.75;
+  overflow: auto;
+}
+.nk-markdown-viewer__error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 96rpx;
+  color: var(--nk-color-neutral-500, #9E9E9E);
+}

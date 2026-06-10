@@ -1,4 +1,4 @@
-<view class="nk-weather nk-weather--{{size}} {{loading ? 'nk-weather--loading' : ''}}">
+<view class="nk-weather nk-weather--{{size}} nk-weather--{{weatherCondition}} {{loading ? 'nk-weather--loading' : ''}}">
   <block wx:if="{{loading}}">
     <view class="nk-weather__loading">
       <view class="nk-weather__skeleton nk-weather__skeleton--icon" />
@@ -7,17 +7,31 @@
     </view>
   </block>
   <block wx:else>
+    <view class="nk-weather__header">
+      <view wx:if="{{city}}" class="nk-weather__city">{{city}}</view>
+      <view class="nk-weather__time">{{timeText}}</view>
+    </view>
     <view class="nk-weather__main">
-      <image wx:if="{{icon}}" class="nk-weather__icon" src="{{icon}}" mode="aspectFit" />
+      <view class="nk-weather__icon-wrap">
+        <image wx:if="{{icon}}" class="nk-weather__icon-img" src="{{icon}}" mode="aspectFit" />
+        <view wx:else class="nk-weather__icon-svg">
+          <image src="{{builtinIconDataUri}}" mode="aspectFit" style="width:100%;height:100%" />
+        </view>
+      </view>
       <view class="nk-weather__info">
         <view class="nk-weather__temp">{{temperature}}<text class="nk-weather__unit">°{{unit}}</text></view>
-        <view class="nk-weather__desc">{{weather}}</view>
+        <view class="nk-weather__desc">{{weather || weatherLabel}}</view>
+        <view wx:if="{{tempHigh != null || tempLow != null}}" class="nk-weather__range">
+          <text wx:if="{{tempHigh != null}}">{{tempHigh}}°</text>
+          <text wx:if="{{tempHigh != null && tempLow != null}}" class="nk-weather__range-sep">/</text>
+          <text wx:if="{{tempLow != null}}">{{tempLow}}°</text>
+        </view>
       </view>
     </view>
     <view class="nk-weather__meta">
-      <view wx:if="{{city}}" class="nk-weather__city">{{city}}</view>
-      <view wx:if="{{humidity != null}}" class="nk-weather__humidity">{{humidity}}%</view>
-      <view wx:if="{{wind}}" class="nk-weather__wind">{{wind}}</view>
+      <view wx:if="{{humidity != null}}" class="nk-weather__meta-item">{{humidity}}% 湿度</view>
+      <view wx:if="{{wind}}" class="nk-weather__meta-item">{{wind}}</view>
+      <view wx:if="{{pressure != null}}" class="nk-weather__meta-item">{{pressure}} hPa</view>
     </view>
   </block>
 </view>

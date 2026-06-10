@@ -103,9 +103,18 @@ export default defineConfig({
           items: [
             { text: 'VideoPlayer 视频播放', link: '/components/video-player' },
             { text: 'ImageGallery 图片画廊', link: '/components/image-gallery' },
-            { text: 'Weather 天气', link: '/components/weather' },
-          ],
-        },
+          { text: 'Weather 天气', link: '/components/weather' },
+          { text: 'ImageCarousel 图片轮播', link: '/components/image-carousel' },
+          { text: 'MusicPlayer 音乐播放', link: '/components/music-player' },
+        ],
+      },
+      {
+        text: '文档组件',
+        items: [
+          { text: 'PdfViewer PDF阅读', link: '/components/pdf-viewer' },
+          { text: 'MarkdownViewer Markdown阅读', link: '/components/markdown-viewer' },
+        ],
+      },
         {
           text: '反馈组件',
           items: [

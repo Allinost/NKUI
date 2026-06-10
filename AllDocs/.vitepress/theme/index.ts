@@ -46,6 +46,10 @@ import NkImageUpload from '../../../Vue3/src/components/ImageUpload.vue'
 import NkVideoPlayer from '../../../Vue3/src/components/VideoPlayer.vue'
 import NkImageGallery from '../../../Vue3/src/components/ImageGallery.vue'
 import NkWeather from '../../../Vue3/src/components/Weather.vue'
+import NkImageCarousel from '../../../Vue3/src/components/ImageCarousel.vue'
+import NkPdfViewer from '../../../Vue3/src/components/PdfViewer.vue'
+import NkMarkdownViewer from '../../../Vue3/src/components/MarkdownViewer.vue'
+import NkMusicPlayer from '../../../Vue3/src/components/MusicPlayer.vue'
 import { addIcon } from '../../../Vue3/src/utils/icon-registry'
 import { NKMessage, showToast } from '../../../Vue3/src/utils/message'
 import '../../../Vue3/src/styles/_theme.css'
@@ -88,6 +92,8 @@ export default {
       [NkProfileCard, 'ProfileCard'], [NkTopNav, 'TopNav'], [NkBottomTab, 'BottomTab'],
       [NkCalendar, 'Calendar'], [NkFileUpload, 'FileUpload'], [NkImageUpload, 'ImageUpload'],
       [NkVideoPlayer, 'VideoPlayer'], [NkImageGallery, 'ImageGallery'], [NkWeather, 'Weather'],
+      [NkImageCarousel, 'ImageCarousel'], [NkPdfViewer, 'PdfViewer'], [NkMarkdownViewer, 'MarkdownViewer'],
+      [NkMusicPlayer, 'MusicPlayer'],
     ]
     componentMap.forEach(([comp, name]) => app.component(name, comp))
     app.component('Demo', DemoBlock)

@@ -40,7 +40,11 @@
     "nk-image-upload": "/components/nk-image-upload/nk-image-upload",
     "nk-video-player": "/components/nk-video-player/nk-video-player",
     "nk-image-gallery": "/components/nk-image-gallery/nk-image-gallery",
-    "nk-weather": "/components/nk-weather/nk-weather"
+    "nk-weather": "/components/nk-weather/nk-weather",
+    "nk-image-carousel": "/components/nk-image-carousel/nk-image-carousel",
+    "nk-pdf-viewer": "/components/nk-pdf-viewer/nk-pdf-viewer",
+    "nk-markdown-viewer": "/components/nk-markdown-viewer/nk-markdown-viewer",
+    "nk-music-player": "/components/nk-music-player/nk-music-player"
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -4,7 +4,7 @@
       <div class="app-header__inner">
         <div>
           <h1>NKUI Vue3</h1>
-          <p>版本 1.0.0-alpha · 共 25 个组件</p>
+          <p>版本 1.0.0-alpha · 共 29 个组件</p>
         </div>
         <button class="theme-toggle" @click="toggleTheme">
           <Icon :name="theme === 'dark' ? 'sun' : 'moon'" size="20" />
@@ -394,9 +394,10 @@
             city="北京"
             temperature="26"
             weather="晴"
-            icon="https://openweathermap.org/img/wn/01d@2x.png"
             :humidity="60"
             wind="3级 东南风"
+            :temp-high="28"
+            :temp-low="18"
           />
         </Col>
         <Col :span="8">
@@ -404,7 +405,6 @@
             city="上海"
             temperature="22"
             weather="多云"
-            icon="https://openweathermap.org/img/wn/02d@2x.png"
             size="sm"
           />
         </Col>
@@ -412,6 +412,62 @@
           <Weather loading />
         </Col>
       </Row>
+    </section>
+
+    <!-- ImageCarousel -->
+    <section class="demo-section">
+      <h2>ImageCarousel</h2>
+      <ImageCarousel
+        :images="carouselImages"
+        :auto-play="true"
+        :interval="3000"
+        :preview="true"
+        width="100%"
+        height="320px"
+      />
+    </section>
+
+    <!-- PdfViewer -->
+    <section class="demo-section">
+      <h2>PdfViewer</h2>
+      <PdfViewer
+        src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+        height="400px"
+      />
+    </section>
+
+    <!-- MarkdownViewer -->
+    <section class="demo-section">
+      <h2>MarkdownViewer</h2>
+      <MarkdownViewer
+        content="# Hello NKUI\n\nThis is **bold** and *italic* text.\n\n- Item 1\n- Item 2\n- Item 3\n\n> A blockquote example.\n\n`inline code` and a [link](https://example.com)."
+      />
+    </section>
+
+    <!-- MusicPlayer -->
+    <section class="demo-section">
+      <h2>MusicPlayer</h2>
+      <Space vertical>
+        <MusicPlayer
+          title="晴天"
+          artist="周杰伦"
+          size="sm"
+          :duration="120"
+          :current-time="45"
+        />
+        <MusicPlayer
+          title="七里香"
+          artist="周杰伦"
+          size="md"
+          :duration="180"
+        />
+        <MusicPlayer
+          title="夜曲"
+          artist="周杰伦"
+          size="lg"
+          :duration="240"
+        />
+      </Space>
     </section>
   </div>
 </template>
@@ -455,6 +511,10 @@ import {
   NkVideoPlayer as VideoPlayer,
   NkImageGallery as ImageGallery,
   NkWeather as Weather,
+  NkImageCarousel as ImageCarousel,
+  NkPdfViewer as PdfViewer,
+  NkMarkdownViewer as MarkdownViewer,
+  NkMusicPlayer as MusicPlayer,
   NKMessage,
 } from './components'
 
@@ -472,6 +532,13 @@ const sw2 = ref(false)
 const cb = ref(false)
 const rd = ref(1)
 const images = ref<string[]>([])
+const carouselImages = [
+  'https://picsum.photos/id/1/800/500',
+  'https://picsum.photos/id/10/800/500',
+  'https://picsum.photos/id/20/800/500',
+  'https://picsum.photos/id/30/800/500',
+  'https://picsum.photos/id/40/800/500',
+]
 const galleryImages = [
   'https://picsum.photos/id/1/400/400',
   'https://picsum.photos/id/10/400/400',
