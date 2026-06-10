@@ -209,4 +209,34 @@
       <text>确定要执行此操作吗？</text>
     </nk-dialog>
   </view>
+
+  <view class="demo-section">
+    <text class="title">ProfileCard 名片卡</text>
+    <nk-profile-card name="张三" title="高级工程师" description="专注于前端开发与设计系统" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">TopNav 顶部菜单栏</text>
+    <nk-top-nav items="{{navItems}}" logo="NKUI" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">BottomTab 底部导航</text>
+    <nk-bottom-tab items="{{bottomTabItems}}" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Calendar 日历</text>
+    <nk-calendar />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">FileUpload 文件上传</text>
+    <nk-file-upload />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">ImageUpload 图片上传</text>
+    <nk-image-upload imageList="{{images}}" />
+  </view>
 </view>

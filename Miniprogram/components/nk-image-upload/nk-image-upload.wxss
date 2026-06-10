@@ -1,0 +1,49 @@
+@import '../../styles/tokens.wxss';
+
+.nk-image-upload--disabled { opacity: 0.38; pointer-events: none; }
+
+.nk-image-upload__list { display: flex; flex-wrap: wrap; gap: 16rpx; }
+.nk-image-upload__list--picture-list { flex-direction: column; }
+
+.nk-image-upload--sm .nk-image-upload__item { width: 128rpx; height: 128rpx; }
+.nk-image-upload--md .nk-image-upload__item { width: 160rpx; height: 160rpx; }
+.nk-image-upload--lg .nk-image-upload__item { width: 208rpx; height: 208rpx; }
+
+.nk-image-upload__item {
+  position: relative; border: 2rpx solid var(--nk-color-neutral-200, #EEEEEE);
+  border-radius: 8rpx; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+}
+
+.nk-image-upload__item--add {
+  border-style: dashed; color: var(--nk-color-neutral-400, #BDBDBD);
+  background: var(--nk-color-neutral-50, #FAFAFA);
+}
+
+.nk-image-upload__img { width: 100%; height: 100%; object-fit: cover; }
+
+.nk-image-upload__item-mask {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-start; justify-content: flex-end;
+  padding: 8rpx; background: rgba(0,0,0,0.3); opacity: 0;
+  transition: opacity 0.15s;
+}
+.nk-image-upload__item:hover .nk-image-upload__item-mask { opacity: 1; }
+
+.nk-image-upload__item-remove {
+  display: flex; align-items: center; justify-content: center;
+  width: 40rpx; height: 40rpx; border-radius: 50%;
+  background: rgba(0,0,0,0.5); color: #FFFFFF; font-size: 24rpx;
+}
+
+.nk-image-upload__add-icon { font-size: 56rpx; line-height: 1; }
+.nk-image-upload--sm .nk-image-upload__add-text { font-size: 20rpx; }
+.nk-image-upload--md .nk-image-upload__add-text { font-size: 24rpx; }
+.nk-image-upload--lg .nk-image-upload__add-text { font-size: 28rpx; }
+
+.nk-image-upload__add-text { margin-top: 8rpx; }
+
+.nk-image-upload--picture-list .nk-image-upload__item {
+  flex-direction: row; width: 100%; height: auto; padding: 16rpx 24rpx; gap: 16rpx;
+}
+.nk-image-upload--picture-list .nk-image-upload__img { width: 96rpx; height: 96rpx; border-radius: 8rpx; flex-shrink: 0; }

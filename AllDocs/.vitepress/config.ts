@@ -83,6 +83,22 @@ export default defineConfig({
           ],
         },
         {
+          text: '业务组件',
+          items: [
+            { text: 'ProfileCard 名片卡', link: '/components/profile-card' },
+            { text: 'TopNav 顶部导航', link: '/components/top-nav' },
+            { text: 'BottomTab 底部Tab', link: '/components/bottom-tab' },
+            { text: 'Calendar 日历', link: '/components/calendar' },
+          ],
+        },
+        {
+          text: '上传组件',
+          items: [
+            { text: 'FileUpload 文件上传', link: '/components/file-upload' },
+            { text: 'ImageUpload 图片上传', link: '/components/image-upload' },
+          ],
+        },
+        {
           text: '反馈组件',
           items: [
             { text: 'Dialog 对话框', link: '/components/dialog' },

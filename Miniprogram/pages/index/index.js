@@ -17,8 +17,20 @@ Page({
       { label: '组件', to: '' },
       { label: '当前页' },
     ],
+    navItems: [
+      { label: '首页', value: 'home' },
+      { label: '组件', value: 'components' },
+      { label: '关于', value: 'about' },
+    ],
+    bottomTabItems: [
+      { label: '首页', value: 'home', icon: 'home' },
+      { label: '发现', value: 'discover', icon: 'search' },
+      { label: '消息', value: 'messages', icon: 'info', badge: 3 },
+      { label: '我的', value: 'profile', icon: 'user' },
+    ],
     drawerVisible: false,
     toastVisible: false,
+    images: [],
   },
   openDialog() {
     this.selectComponent('#dialog').setData({ visible: true })

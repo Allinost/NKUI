@@ -1,0 +1,4 @@
+{
+  "component": true,
+  "usingComponents": { "nk-avatar": "/components/nk-avatar/nk-avatar" }
+}

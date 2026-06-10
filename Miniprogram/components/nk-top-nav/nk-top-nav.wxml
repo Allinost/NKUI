@@ -1,0 +1,19 @@
+<view class="nk-top-nav nk-top-nav--{{size}} {{fixed ? 'nk-top-nav--fixed' : ''}}">
+  <view class="nk-top-nav__logo">
+    <slot name="logo">
+      <text wx:if="{{logo}}" class="nk-top-nav__logo-text">{{logo}}</text>
+    </slot>
+  </view>
+  <view class="nk-top-nav__menu">
+    <view
+      wx:for="{{items}}" wx:key="value"
+      class="nk-top-nav__item {{item.value === modelValue ? 'nk-top-nav__item--active' : ''}} {{item.disabled ? 'nk-top-nav__item--disabled' : ''}}"
+      data-value="{{item.value}}" data-disabled="{{item.disabled}}"
+      bindtap="onSelect"
+    >
+      <nk-icon wx:if="{{item.icon}}" name="{{item.icon}}" size="sm" />
+      <text>{{item.label}}</text>
+    </view>
+  </view>
+  <view class="nk-top-nav__actions"><slot /></view>
+</view>

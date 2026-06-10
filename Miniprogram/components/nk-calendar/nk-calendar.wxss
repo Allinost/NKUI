@@ -1,0 +1,48 @@
+@import '../../styles/tokens.wxss';
+
+.nk-calendar { display: inline-block; user-select: none; }
+
+.nk-calendar__header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.nk-calendar__title { font-weight: 600; color: var(--nk-color-neutral-900, #212121); }
+
+.nk-calendar__arrow {
+  display: flex; align-items: center; justify-content: center;
+  border: 2rpx solid var(--nk-color-neutral-200, #EEEEEE);
+  background: var(--nk-color-neutral-0, #FFFFFF);
+  border-radius: 8rpx;
+  color: var(--nk-color-neutral-600, #757575);
+}
+
+.nk-calendar--sm .nk-calendar__arrow { width: 48rpx; height: 48rpx; }
+.nk-calendar--md .nk-calendar__arrow { width: 56rpx; height: 56rpx; }
+.nk-calendar--lg .nk-calendar__arrow { width: 64rpx; height: 64rpx; }
+
+.nk-calendar--sm .nk-calendar__title { font-size: 28rpx; }
+.nk-calendar--md .nk-calendar__title { font-size: 32rpx; }
+.nk-calendar--lg .nk-calendar__title { font-size: 36rpx; }
+
+.nk-calendar__weekdays { display: grid; grid-template-columns: repeat(7, 1fr); margin-bottom: 8rpx; }
+.nk-calendar__weekday { text-align: center; color: var(--nk-color-neutral-500, #9E9E9E); font-weight: 500; }
+.nk-calendar--sm .nk-calendar__weekday { font-size: 20rpx; padding: 8rpx 0; }
+.nk-calendar--md .nk-calendar__weekday { font-size: 24rpx; padding: 8rpx 0; }
+.nk-calendar--lg .nk-calendar__weekday { font-size: 28rpx; padding: 8rpx 0; }
+
+.nk-calendar__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4rpx; }
+
+.nk-calendar--sm .nk-calendar__cell { width: 56rpx; height: 56rpx; font-size: 20rpx; }
+.nk-calendar--md .nk-calendar__cell { width: 72rpx; height: 72rpx; font-size: 24rpx; }
+.nk-calendar--lg .nk-calendar__cell { width: 88rpx; height: 88rpx; font-size: 28rpx; }
+
+.nk-calendar__cell {
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8rpx; color: var(--nk-color-neutral-800, #424242);
+}
+.nk-calendar__cell--empty { }
+.nk-calendar__cell--today .nk-calendar__day { font-weight: 700; color: var(--nk-color-primary-500, #2196F3); }
+.nk-calendar__cell--selected { background: var(--nk-color-primary-500, #2196F3); }
+.nk-calendar__cell--selected .nk-calendar__day { color: #FFFFFF; }
+.nk-calendar__cell--disabled { opacity: 0.38; }

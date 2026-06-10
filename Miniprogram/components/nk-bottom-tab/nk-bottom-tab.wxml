@@ -1,0 +1,15 @@
+<view class="nk-bottom-tab nk-bottom-tab--{{size}} nk-bottom-tab--{{variant}} {{fixed ? 'nk-bottom-tab--fixed' : ''}}">
+  <view
+    wx:for="{{items}}" wx:key="value"
+    class="nk-bottom-tab__item {{item.value === modelValue ? 'nk-bottom-tab__item--active' : ''}}"
+    data-value="{{item.value}}" bindtap="onSelect"
+  >
+    <view class="nk-bottom-tab__icon-wrap">
+      <nk-badge wx:if="{{item.badge}}" variant="count" value="{{item.badge}}" size="sm">
+        <nk-icon wx:if="{{item.icon}}" name="{{item.icon}}" />
+      </nk-badge>
+      <nk-icon wx:elif="{{item.icon}}" name="{{item.icon}}" />
+    </view>
+    <text wx:if="{{variant !== 'icon'}}" class="nk-bottom-tab__label">{{item.label}}</text>
+  </view>
+</view>

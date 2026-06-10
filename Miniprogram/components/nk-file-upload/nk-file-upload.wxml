@@ -1,0 +1,18 @@
+<view class="nk-file-upload nk-file-upload--{{size}} nk-file-upload--{{variant}} {{disabled ? 'nk-file-upload--disabled' : ''}}">
+  <view class="nk-file-upload__trigger" bindtap="onChooseFile">
+    <text class="nk-file-upload__text">
+      <template wx:if="{{variant === 'drag'}}">将文件拖拽到此处，或点击上传</template>
+      <template wx:elif="{{variant === 'text'}}">点击上传文件</template>
+      <template wx:else>选择文件</template>
+    </text>
+    <text wx:if="{{accept}}" class="nk-file-upload__hint">支持 {{accept}} 格式</text>
+  </view>
+  <view wx:if="{{files.length > 0}}" class="nk-file-upload__list">
+    <view wx:for="{{files}}" wx:key="index" class="nk-file-upload__file">
+      <text class="nk-file-upload__name">{{item.name}}</text>
+      <text class="nk-file-upload__size">{{formatSize(item.size)}}</text>
+      <text class="nk-file-upload__remove" data-index="{{index}}" bindtap="remove">✕</text>
+    </view>
+  </view>
+  <text wx:if="{{error}}" class="nk-file-upload__error">{{error}}</text>
+</view>

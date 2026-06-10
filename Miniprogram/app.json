@@ -31,7 +31,13 @@
     "nk-pagination": "/components/nk-pagination/nk-pagination",
     "nk-popover": "/components/nk-popover/nk-popover",
     "nk-tooltip": "/components/nk-tooltip/nk-tooltip",
-    "nk-drawer": "/components/nk-drawer/nk-drawer"
+    "nk-drawer": "/components/nk-drawer/nk-drawer",
+    "nk-profile-card": "/components/nk-profile-card/nk-profile-card",
+    "nk-top-nav": "/components/nk-top-nav/nk-top-nav",
+    "nk-bottom-tab": "/components/nk-bottom-tab/nk-bottom-tab",
+    "nk-calendar": "/components/nk-calendar/nk-calendar",
+    "nk-file-upload": "/components/nk-file-upload/nk-file-upload",
+    "nk-image-upload": "/components/nk-image-upload/nk-image-upload"
   },
   "sitemapLocation": "sitemap.json"
 }

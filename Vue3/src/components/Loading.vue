@@ -68,8 +68,8 @@ $sizes: (
   }
 
   &--bar &__spinner {
-    width: 100%;
-    max-width: 200px;
+    width: 200px;
+    max-width: 80vw;
     height: 4px;
     border-radius: 2px;
     border: none;

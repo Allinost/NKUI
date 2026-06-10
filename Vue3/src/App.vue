@@ -309,6 +309,42 @@
         <Loading variant="bar" />
       </Space>
     </section>
+
+    <!-- ProfileCard -->
+    <section class="demo-section">
+      <h2>ProfileCard</h2>
+      <ProfileCard name="张三" title="高级工程师" description="专注于前端开发与设计系统" />
+    </section>
+
+    <!-- TopNav -->
+    <section class="demo-section">
+      <h2>TopNav</h2>
+      <TopNav :items="navItems" logo="NKUI" />
+    </section>
+
+    <!-- BottomTab -->
+    <section class="demo-section">
+      <h2>BottomTab</h2>
+      <BottomTab :items="bottomTabItems" />
+    </section>
+
+    <!-- Calendar -->
+    <section class="demo-section">
+      <h2>Calendar</h2>
+      <Calendar />
+    </section>
+
+    <!-- FileUpload -->
+    <section class="demo-section">
+      <h2>FileUpload</h2>
+      <FileUpload />
+    </section>
+
+    <!-- ImageUpload -->
+    <section class="demo-section">
+      <h2>ImageUpload</h2>
+      <ImageUpload v-model="images" />
+    </section>
   </div>
 </template>
 
@@ -342,6 +378,12 @@ import {
   NkLoading as Loading,
   NkTooltip as Tooltip,
   NkPopover as Popover,
+  NkProfileCard as ProfileCard,
+  NkTopNav as TopNav,
+  NkBottomTab as BottomTab,
+  NkCalendar as Calendar,
+  NkFileUpload as FileUpload,
+  NkImageUpload as ImageUpload,
   NKMessage,
 } from './components'
 
@@ -358,6 +400,18 @@ const sw1 = ref(true)
 const sw2 = ref(false)
 const cb = ref(false)
 const rd = ref(1)
+const images = ref<string[]>([])
+const navItems = [
+  { label: '首页', value: 'home' },
+  { label: '组件', value: 'components' },
+  { label: '关于', value: 'about' },
+]
+const bottomTabItems = [
+  { label: '首页', value: 'home', icon: 'home' },
+  { label: '发现', value: 'discover', icon: 'search' },
+  { label: '消息', value: 'messages', icon: 'info', badge: 3 },
+  { label: '我的', value: 'profile', icon: 'user' },
+]
 const sel = ref()
 const selM = ref([])
 const selOpts = [

@@ -1,0 +1,20 @@
+<view class="nk-calendar nk-calendar--{{size}}">
+  <view class="nk-calendar__header">
+    <view class="nk-calendar__arrow" bindtap="prevMonth"><nk-icon name="arrow-left" size="xs" /></view>
+    <text class="nk-calendar__title">{{year}}年{{month + 1}}月</text>
+    <view class="nk-calendar__arrow" bindtap="nextMonth"><nk-icon name="arrow-right" size="xs" /></view>
+  </view>
+  <view class="nk-calendar__weekdays">
+    <view wx:for="{{weekDays}}" wx:key="index" class="nk-calendar__weekday">{{item}}</view>
+  </view>
+  <view class="nk-calendar__grid">
+    <view
+      wx:for="{{days}}" wx:key="index"
+      class="nk-calendar__cell {{item ? '' : 'nk-calendar__cell--empty'}} {{item && isToday(item.full) ? 'nk-calendar__cell--today' : ''}} {{item && isSelected(item.full) ? 'nk-calendar__cell--selected' : ''}} {{item && isDisabled(item.full) ? 'nk-calendar__cell--disabled' : ''}}"
+      data-ts="{{item ? item.full : ''}}"
+      bindtap="{{item ? 'onSelect' : ''}}"
+    >
+      <text wx:if="{{item}}" class="nk-calendar__day">{{item.date}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,45 @@
+@import '../../styles/tokens.wxss';
+
+.nk-file-upload--disabled { opacity: 0.38; pointer-events: none; }
+
+.nk-file-upload__trigger {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16rpx; border: 4rpx dashed var(--nk-color-neutral-300, #E0E0E0);
+  border-radius: 16rpx; color: var(--nk-color-neutral-500, #9E9E9E);
+  cursor: pointer;
+}
+
+.nk-file-upload--sm .nk-file-upload__trigger { min-height: 160rpx; padding: 24rpx; font-size: 24rpx; }
+.nk-file-upload--md .nk-file-upload__trigger { min-height: 240rpx; padding: 32rpx; font-size: 28rpx; }
+.nk-file-upload--lg .nk-file-upload__trigger { min-height: 320rpx; padding: 48rpx; font-size: 32rpx; }
+
+.nk-file-upload--button .nk-file-upload__trigger {
+  flex-direction: row; min-height: auto; border-style: solid;
+  border-color: var(--nk-color-neutral-200, #EEEEEE);
+  border-radius: 8rpx; padding: 16rpx 32rpx;
+  width: auto; display: inline-flex;
+  background: var(--nk-color-neutral-0, #FFFFFF);
+  font-size: 28rpx;
+}
+
+.nk-file-upload--text .nk-file-upload__trigger {
+  flex-direction: row; min-height: auto; border: none; padding: 0;
+  width: auto; display: inline-flex;
+  color: var(--nk-color-primary-500, #2196F3);
+  text-decoration: underline; font-size: 28rpx;
+}
+
+.nk-file-upload__hint { font-size: 20rpx; color: var(--nk-color-neutral-400, #BDBDBD); }
+
+.nk-file-upload__list { display: flex; flex-direction: column; gap: 8rpx; margin-top: 16rpx; }
+
+.nk-file-upload__file {
+  display: flex; align-items: center; gap: 16rpx;
+  padding: 16rpx 24rpx; background: var(--nk-color-neutral-50, #FAFAFA);
+  border-radius: 8rpx; font-size: 24rpx;
+}
+
+.nk-file-upload__name { flex: 1; color: var(--nk-color-neutral-800, #424242); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nk-file-upload__size { color: var(--nk-color-neutral-400, #BDBDBD); flex-shrink: 0; }
+.nk-file-upload__remove { color: var(--nk-color-neutral-400, #BDBDBD); padding: 4rpx; }
+.nk-file-upload__error { color: var(--nk-color-error, #F44336); font-size: 20rpx; margin-top: 8rpx; }

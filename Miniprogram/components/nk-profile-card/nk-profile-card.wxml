@@ -1,0 +1,15 @@
+<view class="nk-profile-card nk-profile-card--{{variant}} nk-profile-card--{{size}}">
+  <view class="nk-profile-card__top">
+    <view class="nk-profile-card__avatar-wrap">
+      <nk-avatar wx:if="{{avatar}}" src="{{avatar}}" size="{{avatarSize}}" />
+      <nk-avatar wx:else text="{{name.charAt(0)}}" size="{{avatarSize}}" />
+    </view>
+    <view class="nk-profile-card__info">
+      <text class="nk-profile-card__name">{{name}}</text>
+      <text wx:if="{{title}}" class="nk-profile-card__title">{{title}}</text>
+      <text wx:if="{{description}}" class="nk-profile-card__desc">{{description}}</text>
+    </view>
+  </view>
+  <view class="nk-profile-card__actions"><slot name="actions" /></view>
+  <view class="nk-profile-card__extra"><slot /></view>
+</view>
