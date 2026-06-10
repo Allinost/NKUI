@@ -16,7 +16,7 @@
 | modelValue | `string \| number` | `''` | 当前选中 |
 | variant | `'icon-text' \| 'icon' \| 'text'` | `'icon-text'` | 显示变体 |
 | size | `'sm' \| 'md' \| 'lg'` | `'md'` | 尺寸 |
-| fixed | `boolean` | `true` | 固定底部 |
+| fixed | `boolean` | `false` | 固定底部 |
 
 | Event | 说明 |
 |-------|------|

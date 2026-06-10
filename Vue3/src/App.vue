@@ -313,7 +313,11 @@
     <!-- ProfileCard -->
     <section class="demo-section">
       <h2>ProfileCard</h2>
-      <ProfileCard name="张三" title="高级工程师" description="专注于前端开发与设计系统" />
+      <ProfileCard name="张三" title="高级工程师" description="专注于前端开发与设计系统" avatar="" />
+      <Divider />
+      <ProfileCard name="李四" title="产品经理" size="sm" />
+      <Divider />
+      <ProfileCard name="王五" title="设计师" size="lg" variant="elevated" />
     </section>
 
     <!-- TopNav -->
@@ -325,7 +329,18 @@
     <!-- BottomTab -->
     <section class="demo-section">
       <h2>BottomTab</h2>
-      <BottomTab :items="bottomTabItems" />
+      <BottomTab :items="[
+        { key: 'home', label: '首页', icon: 'home' },
+        { key: 'search', label: '搜索', icon: 'search' },
+        { key: 'user', label: '我的', icon: 'user' },
+      ]" />
+      <Divider />
+      <h3>Fixed at bottom</h3>
+      <BottomTab :items="[
+        { key: 'home', label: '首页', icon: 'home' },
+        { key: 'search', label: '搜索', icon: 'search' },
+        { key: 'user', label: '我的', icon: 'user' },
+      ]" fixed />
     </section>
 
     <!-- Calendar -->
@@ -337,13 +352,17 @@
     <!-- FileUpload -->
     <section class="demo-section">
       <h2>FileUpload</h2>
-      <FileUpload />
+      <Space vertical>
+        <FileUpload multiple variant="button" />
+        <FileUpload multiple variant="drag" />
+        <FileUpload variant="text" />
+      </Space>
     </section>
 
     <!-- ImageUpload -->
     <section class="demo-section">
       <h2>ImageUpload</h2>
-      <ImageUpload v-model="images" />
+      <ImageUpload v-model="images" :max-count="9" />
     </section>
   </div>
 </template>

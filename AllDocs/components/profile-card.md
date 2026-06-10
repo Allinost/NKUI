@@ -4,9 +4,11 @@
 
 <ClientOnly>
 <Demo>
-  <ProfileCard name="张三" title="高级工程师" description="专注于前端开发与设计系统">
-    <template #actions><Button size="sm">联系</Button><Button size="sm" variant="outline">详情</Button></template>
-  </ProfileCard>
+  <ProfileCard name="张三" title="高级工程师" description="专注于前端开发与设计系统" />
+  <Divider />
+  <ProfileCard name="李四" title="产品经理" size="sm" />
+  <Divider />
+  <ProfileCard name="王五" title="设计师" size="lg" variant="elevated" />
 </Demo>
 </ClientOnly>
 

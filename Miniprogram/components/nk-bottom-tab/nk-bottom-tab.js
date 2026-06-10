@@ -4,7 +4,7 @@ Component({
     modelValue: { type: String, value: '' },
     variant: { type: String, value: 'icon-text' },
     size: { type: String, value: 'md' },
-    fixed: { type: Boolean, value: true },
+    fixed: { type: Boolean, value: false },
   },
   methods: {
     onSelect(e) {

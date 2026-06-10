@@ -42,7 +42,7 @@ const props = withDefaults(defineProps<{
   modelValue: '',
   variant: 'icon-text',
   size: 'md',
-  fixed: true,
+  fixed: false,
 })
 
 const emit = defineEmits<{ 'update:modelValue': [value: any]; change: [value: any] }>()

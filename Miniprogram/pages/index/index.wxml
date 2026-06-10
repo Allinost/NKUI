@@ -232,7 +232,8 @@
 
   <view class="demo-section">
     <text class="title">FileUpload 文件上传</text>
-    <nk-file-upload />
+    <view style="margin-bottom:16rpx"><nk-file-upload multiple variant="button" /></view>
+    <nk-file-upload multiple variant="drag" />
   </view>
 
   <view class="demo-section">
