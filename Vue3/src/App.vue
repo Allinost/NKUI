@@ -4,7 +4,7 @@
       <div class="app-header__inner">
         <div>
           <h1>NKUI Vue3</h1>
-          <p>版本 1.0.0-alpha · 共 22 个组件</p>
+          <p>版本 1.0.0-alpha · 共 25 个组件</p>
         </div>
         <button class="theme-toggle" @click="toggleTheme">
           <Icon :name="theme === 'dark' ? 'sun' : 'moon'" size="20" />
@@ -364,6 +364,55 @@
       <h2>ImageUpload</h2>
       <ImageUpload v-model="images" :max-count="9" />
     </section>
+
+    <!-- VideoPlayer -->
+    <section class="demo-section">
+      <h2>VideoPlayer</h2>
+      <VideoPlayer
+        src="https://www.w3schools.com/html/mov_bbb.mp4"
+        poster="https://www.w3schools.com/html/img_girl.jpg"
+        width="400px"
+      />
+    </section>
+
+    <!-- ImageGallery -->
+    <section class="demo-section">
+      <h2>ImageGallery</h2>
+      <ImageGallery
+        :images="galleryImages"
+        :columns="5"
+        :max-count="9"
+      />
+    </section>
+
+    <!-- Weather -->
+    <section class="demo-section">
+      <h2>Weather</h2>
+      <Row :gutter="16">
+        <Col :span="8">
+          <Weather
+            city="北京"
+            temperature="26"
+            weather="晴"
+            icon="https://openweathermap.org/img/wn/01d@2x.png"
+            :humidity="60"
+            wind="3级 东南风"
+          />
+        </Col>
+        <Col :span="8">
+          <Weather
+            city="上海"
+            temperature="22"
+            weather="多云"
+            icon="https://openweathermap.org/img/wn/02d@2x.png"
+            size="sm"
+          />
+        </Col>
+        <Col :span="8">
+          <Weather loading />
+        </Col>
+      </Row>
+    </section>
   </div>
 </template>
 
@@ -403,6 +452,9 @@ import {
   NkCalendar as Calendar,
   NkFileUpload as FileUpload,
   NkImageUpload as ImageUpload,
+  NkVideoPlayer as VideoPlayer,
+  NkImageGallery as ImageGallery,
+  NkWeather as Weather,
   NKMessage,
 } from './components'
 
@@ -420,6 +472,18 @@ const sw2 = ref(false)
 const cb = ref(false)
 const rd = ref(1)
 const images = ref<string[]>([])
+const galleryImages = [
+  'https://picsum.photos/id/1/400/400',
+  'https://picsum.photos/id/10/400/400',
+  'https://picsum.photos/id/20/400/400',
+  'https://picsum.photos/id/30/400/400',
+  'https://picsum.photos/id/40/400/400',
+  'https://picsum.photos/id/50/400/400',
+  'https://picsum.photos/id/60/400/400',
+  'https://picsum.photos/id/70/400/400',
+  'https://picsum.photos/id/80/400/400',
+  'https://picsum.photos/id/90/400/400',
+]
 const navItems = [
   { label: '首页', value: 'home' },
   { label: '组件', value: 'components' },

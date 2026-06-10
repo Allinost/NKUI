@@ -1,0 +1,17 @@
+@import '../../styles/tokens.wxss';
+
+.nk-video-player {
+  position: relative;
+  overflow: hidden;
+  background: var(--nk-color-neutral-900, #212121);
+  line-height: 0;
+}
+.nk-video-player__video {
+  width: 100%;
+  display: block;
+}
+.nk-video-player__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}

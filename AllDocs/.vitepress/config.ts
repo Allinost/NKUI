@@ -99,6 +99,14 @@ export default defineConfig({
           ],
         },
         {
+          text: '媒体组件',
+          items: [
+            { text: 'VideoPlayer 视频播放', link: '/components/video-player' },
+            { text: 'ImageGallery 图片画廊', link: '/components/image-gallery' },
+            { text: 'Weather 天气', link: '/components/weather' },
+          ],
+        },
+        {
           text: '反馈组件',
           items: [
             { text: 'Dialog 对话框', link: '/components/dialog' },

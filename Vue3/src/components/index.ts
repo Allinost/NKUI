@@ -31,6 +31,9 @@ import NkBottomTab from './BottomTab.vue'
 import NkCalendar from './Calendar.vue'
 import NkFileUpload from './FileUpload.vue'
 import NkImageUpload from './ImageUpload.vue'
+import NkVideoPlayer from './VideoPlayer.vue'
+import NkImageGallery from './ImageGallery.vue'
+import NkWeather from './Weather.vue'
 import { addIcon } from '../utils/icon-registry'
 import { NKMessage, showToast } from '../utils/message'
 
@@ -62,6 +65,7 @@ const components = [
   NkTabs, NkBreadcrumb, NkPagination,
   NkRow, NkCol, NkProgress,
   NkProfileCard, NkTopNav, NkBottomTab, NkCalendar, NkFileUpload, NkImageUpload,
+  NkVideoPlayer, NkImageGallery, NkWeather,
 ]
 
 export function install(app: App) {
@@ -76,5 +80,6 @@ export {
   NkTabs, NkBreadcrumb, NkPagination,
   NkRow, NkCol, NkProgress,
   NkProfileCard, NkTopNav, NkBottomTab, NkCalendar, NkFileUpload, NkImageUpload,
+  NkVideoPlayer, NkImageGallery, NkWeather,
   addIcon, NKMessage, showToast,
 }

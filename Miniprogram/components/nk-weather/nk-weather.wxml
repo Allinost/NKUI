@@ -1,0 +1,23 @@
+<view class="nk-weather nk-weather--{{size}} {{loading ? 'nk-weather--loading' : ''}}">
+  <block wx:if="{{loading}}">
+    <view class="nk-weather__loading">
+      <view class="nk-weather__skeleton nk-weather__skeleton--icon" />
+      <view class="nk-weather__skeleton nk-weather__skeleton--temp" />
+      <view class="nk-weather__skeleton nk-weather__skeleton--desc" />
+    </view>
+  </block>
+  <block wx:else>
+    <view class="nk-weather__main">
+      <image wx:if="{{icon}}" class="nk-weather__icon" src="{{icon}}" mode="aspectFit" />
+      <view class="nk-weather__info">
+        <view class="nk-weather__temp">{{temperature}}<text class="nk-weather__unit">°{{unit}}</text></view>
+        <view class="nk-weather__desc">{{weather}}</view>
+      </view>
+    </view>
+    <view class="nk-weather__meta">
+      <view wx:if="{{city}}" class="nk-weather__city">{{city}}</view>
+      <view wx:if="{{humidity != null}}" class="nk-weather__humidity">{{humidity}}%</view>
+      <view wx:if="{{wind}}" class="nk-weather__wind">{{wind}}</view>
+    </view>
+  </block>
+</view>

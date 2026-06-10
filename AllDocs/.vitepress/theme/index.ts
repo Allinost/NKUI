@@ -43,6 +43,9 @@ import NkBottomTab from '../../../Vue3/src/components/BottomTab.vue'
 import NkCalendar from '../../../Vue3/src/components/Calendar.vue'
 import NkFileUpload from '../../../Vue3/src/components/FileUpload.vue'
 import NkImageUpload from '../../../Vue3/src/components/ImageUpload.vue'
+import NkVideoPlayer from '../../../Vue3/src/components/VideoPlayer.vue'
+import NkImageGallery from '../../../Vue3/src/components/ImageGallery.vue'
+import NkWeather from '../../../Vue3/src/components/Weather.vue'
 import { addIcon } from '../../../Vue3/src/utils/icon-registry'
 import { NKMessage, showToast } from '../../../Vue3/src/utils/message'
 import '../../../Vue3/src/styles/_theme.css'
@@ -84,6 +87,7 @@ export default {
       [NkRow, 'Row'], [NkCol, 'Col'], [NkProgress, 'Progress'],
       [NkProfileCard, 'ProfileCard'], [NkTopNav, 'TopNav'], [NkBottomTab, 'BottomTab'],
       [NkCalendar, 'Calendar'], [NkFileUpload, 'FileUpload'], [NkImageUpload, 'ImageUpload'],
+      [NkVideoPlayer, 'VideoPlayer'], [NkImageGallery, 'ImageGallery'], [NkWeather, 'Weather'],
     ]
     componentMap.forEach(([comp, name]) => app.component(name, comp))
     app.component('Demo', DemoBlock)

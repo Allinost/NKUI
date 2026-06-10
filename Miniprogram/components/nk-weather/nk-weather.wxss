@@ -1,0 +1,99 @@
+@import '../../styles/tokens.wxss';
+
+.nk-weather {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  padding: 32rpx;
+  background: linear-gradient(135deg, var(--nk-color-primary-500, #2196F3), var(--nk-color-primary-700, #1976D2));
+  border-radius: 24rpx;
+  color: #fff;
+}
+.nk-weather--loading {
+  background: var(--nk-color-neutral-200, #EEEEEE);
+}
+.nk-weather__main {
+  display: flex;
+  align-items: center;
+  gap: 32rpx;
+}
+.nk-weather__icon {
+  width: 96rpx;
+  height: 96rpx;
+  flex-shrink: 0;
+}
+.nk-weather__info {
+  display: flex;
+  flex-direction: column;
+}
+.nk-weather__temp {
+  font-size: 64rpx;
+  font-weight: 700;
+  line-height: 1;
+}
+.nk-weather__unit {
+  font-size: 32rpx;
+  font-weight: 400;
+  opacity: 0.8;
+}
+.nk-weather__desc {
+  font-size: 28rpx;
+  opacity: 0.9;
+  margin-top: 8rpx;
+}
+.nk-weather__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24rpx;
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+.nk-weather__city,
+.nk-weather__humidity,
+.nk-weather__wind {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.nk-weather__loading {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+.nk-weather__skeleton {
+  background: var(--nk-color-neutral-300, #E0E0E0);
+  border-radius: 8rpx;
+  animation: nkWeatherPulse 1.5s ease-in-out infinite;
+}
+.nk-weather__skeleton--icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 9999rpx;
+}
+.nk-weather__skeleton--temp {
+  width: 160rpx;
+  height: 48rpx;
+}
+.nk-weather__skeleton--desc {
+  width: 240rpx;
+  height: 32rpx;
+}
+
+.nk-weather--sm {
+  padding: 24rpx;
+}
+.nk-weather--sm .nk-weather__icon { width: 64rpx; height: 64rpx; }
+.nk-weather--sm .nk-weather__temp { font-size: 40rpx; }
+.nk-weather--sm .nk-weather__desc { font-size: 24rpx; }
+
+.nk-weather--lg {
+  padding: 48rpx;
+}
+.nk-weather--lg .nk-weather__icon { width: 128rpx; height: 128rpx; }
+.nk-weather--lg .nk-weather__temp { font-size: 80rpx; }
+
+@keyframes nkWeatherPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

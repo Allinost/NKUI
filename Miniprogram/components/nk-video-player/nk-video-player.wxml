@@ -1,0 +1,17 @@
+<view class="nk-video-player" style="width:{{width}};border-radius:{{round?'9999rpx':'16rpx'}}">
+  <video
+    class="nk-video-player__video"
+    src="{{src}}"
+    poster="{{poster}}"
+    controls="{{controls}}"
+    autoplay="{{autoplay}}"
+    loop="{{loop}}"
+    muted="{{muted}}"
+    style="height:{{height}}"
+    bindplay="onPlay"
+    bindpause="onPause"
+    bindended="onEnded"
+    binderror="onError"
+  />
+  <view wx:if="{{__slot_default}}" class="nk-video-player__overlay"><slot /></view>
+</view>

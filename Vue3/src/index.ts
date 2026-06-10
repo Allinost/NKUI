@@ -1,1 +1,1 @@
-export { install, NkButton, NkInput, NkIcon, addIcon } from './components'
+export { install, NkButton, NkInput, NkIcon, NkVideoPlayer, NkImageGallery, NkWeather, addIcon } from './components'

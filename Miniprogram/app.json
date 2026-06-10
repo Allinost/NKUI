@@ -37,7 +37,10 @@
     "nk-bottom-tab": "/components/nk-bottom-tab/nk-bottom-tab",
     "nk-calendar": "/components/nk-calendar/nk-calendar",
     "nk-file-upload": "/components/nk-file-upload/nk-file-upload",
-    "nk-image-upload": "/components/nk-image-upload/nk-image-upload"
+    "nk-image-upload": "/components/nk-image-upload/nk-image-upload",
+    "nk-video-player": "/components/nk-video-player/nk-video-player",
+    "nk-image-gallery": "/components/nk-image-gallery/nk-image-gallery",
+    "nk-weather": "/components/nk-weather/nk-weather"
   },
   "sitemapLocation": "sitemap.json"
 }
