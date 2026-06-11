@@ -1,5 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import type { App } from 'vue'
+import './style.css'
 
 // Sync VitePress `.dark` class with NKUI's `data-theme` attribute
 if (typeof window !== 'undefined') {

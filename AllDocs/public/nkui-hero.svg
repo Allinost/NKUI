@@ -1,10 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#646cff"/>
-      <stop offset="100%" stop-color="#42d392"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8b2b7a"/>
+      <stop offset="100%" stop-color="#551a47"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".12"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect width="200" height="200" rx="40" fill="url(#g)"/>
-  <text x="100" y="115" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="52" font-weight="700">NK</text>
+  <rect width="200" height="200" rx="44" fill="url(#bg)"/>
+  <rect width="200" height="200" rx="44" fill="url(#shine)"/>
+  <g transform="translate(100,102)">
+    <text text-anchor="middle" fill="#ffffff" font-family="system-ui,-apple-system,sans-serif" font-size="46" font-weight="800" letter-spacing="2">NKUI</text>
+  </g>
+  <line x1="58" y1="130" x2="142" y2="130" stroke="#ffffff" stroke-opacity=".25" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="100" cy="152" r="3" fill="#ffffff" fill-opacity=".4"/>
+  <circle cx="100" cy="152" r="7" fill="none" stroke="#ffffff" stroke-opacity=".2" stroke-width="1"/>
 </svg>
