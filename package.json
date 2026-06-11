@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "workspaces": [
+    "AllDocs",
+    "Vue3"
+  ],
+  "dependencies": {
+    "marked": "^18.0.5"
+  }
+}

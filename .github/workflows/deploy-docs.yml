@@ -17,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./AllDocs
     steps:
       - uses: actions/checkout@v4
 
@@ -27,12 +24,12 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: './AllDocs/package-lock.json'
 
-      - name: Install dependencies
+      - name: Install dependencies (all workspaces)
         run: npm ci
 
       - name: Build VitePress site
+        working-directory: ./AllDocs
         run: npx vitepress build --base=/NKUI/
 
       - name: Upload Pages artifact
