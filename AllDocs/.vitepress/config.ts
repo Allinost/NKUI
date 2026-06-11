@@ -6,6 +6,9 @@ export default defineConfig({
   description: 'Cross-platform UI Framework with Unified Design System',
   lang: 'zh-CN',
   base: '/',
+  head: [
+    ['link', { rel: 'icon', href: '/nkui-logo.svg', type: 'image/svg+xml' }],
+  ],
   srcExclude: [],
   vite: {
     resolve: {

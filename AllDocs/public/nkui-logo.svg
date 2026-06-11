@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8b2b7a"/>
+      <stop offset="100%" stop-color="#551a47"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="36" fill="url(#bg)"/>
+  <g transform="translate(100,80) scale(1.5,1)">
+    <text x="0" y="0" text-anchor="middle" fill="#ffffff" font-family="system-ui,sans-serif" font-size="52" font-weight="800" letter-spacing="2">NK</text>
+  </g>
+  <line x1="50" y1="108" x2="150" y2="108" stroke="#ffffff" stroke-opacity=".2" stroke-width="2" stroke-linecap="round"/>
+  <g transform="translate(100,158) scale(1.5,1)">
+    <text x="0" y="0" text-anchor="middle" fill="#ffffff" font-family="system-ui,sans-serif" font-size="52" font-weight="800" letter-spacing="6">UI</text>
+  </g>
+</svg>
