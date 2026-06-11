@@ -26,7 +26,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies (all workspaces)
-        run: npm ci
+        run: |
+          npm ci
+          test -d node_modules/@rollup/rollup-linux-x64-gnu || npm install @rollup/rollup-linux-x64-gnu --no-save
 
       - name: Build VitePress site
         working-directory: ./AllDocs
