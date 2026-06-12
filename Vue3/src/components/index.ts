@@ -33,6 +33,8 @@ import NkList from './List.vue'
 import NkListItem from './ListItem.vue'
 import NkProductCard from './ProductCard.vue'
 import NkProductList from './ProductList.vue'
+import NkTodoTask from './TodoTask.vue'
+import NkTodoTaskList from './TodoTaskList.vue'
 import NkTopNav from './TopNav.vue'
 import NkBottomTab from './BottomTab.vue'
 import NkCalendar from './Calendar.vue'
@@ -80,6 +82,7 @@ const components = [
   NkVideoPlayer, NkImageGallery, NkWeather,
   NkImageCarousel,   NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
   NkProductCard, NkProductList,
+  NkTodoTask, NkTodoTaskList,
 ]
 
 export function install(app: App) {
@@ -98,5 +101,6 @@ export {
   NkVideoPlayer, NkImageGallery, NkWeather,
   NkImageCarousel, NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
   NkProductCard, NkProductList,
+  NkTodoTask, NkTodoTaskList,
   addIcon, NKMessage, showToast,
 }

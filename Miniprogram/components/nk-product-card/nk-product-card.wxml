@@ -1,9 +1,7 @@
 <view class="nk-product-card {{clickable ? 'nk-product-card--clickable' : ''}}" bindtap="onClick">
   <view class="nk-product-card__cover">
     <image wx:if="{{cover}}" src="{{cover}}" mode="aspectFill" class="nk-product-card__image" />
-    <view wx:else class="nk-product-card__placeholder">
-      <nk-icon name="image" size="xl" />
-    </view>
+    <view wx:else class="nk-product-card__placeholder" />
   </view>
   <view class="nk-product-card__info">
     <view class="nk-product-card__row">

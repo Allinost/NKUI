@@ -1,0 +1,39 @@
+@import '/styles/tokens.wxss';
+
+.nk-todo-task-list {
+  display: flex;
+  flex-direction: column;
+  background: var(--nk-color-neutral-0, #FFFFFF);
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.nk-todo-task-list--bordered {
+  border: 2rpx solid var(--nk-color-neutral-200, #EEEEEE);
+}
+
+.nk-todo-task-list--loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.nk-todo-task-list__header {
+  padding: 24rpx 32rpx;
+  border-bottom: 2rpx solid var(--nk-color-neutral-200, #EEEEEE);
+  font-weight: 600;
+  color: var(--nk-color-neutral-800, #424242);
+}
+
+.nk-todo-task-list__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+  padding: 16rpx;
+}
+
+.nk-todo-task-list__footer {
+  padding: 24rpx 32rpx;
+  border-top: 2rpx solid var(--nk-color-neutral-200, #EEEEEE);
+  color: var(--nk-color-neutral-600, #757575);
+  font-size: 24rpx;
+}

@@ -1,0 +1,24 @@
+<view class="nk-todo-task-list {{bordered ? 'nk-todo-task-list--bordered' : ''}} {{loading ? 'nk-todo-task-list--loading' : ''}}">
+  <block wx:if="{{loading}}">
+    <slot name="skeleton" />
+  </block>
+  <view wx:elif="{{data && data.length}}" class="nk-todo-task-list__body">
+    <nk-todo-task
+      wx:for="{{data}}" wx:key="index"
+      checked="{{_getItemChecked(item)}}"
+      title="{{_getItemTitle(item)}}"
+      category="{{_getItemCategory(item)}}"
+      color="{{_getItemColor(item)}}"
+      due-date="{{_getItemDueDate(item)}}"
+      start-date="{{_getItemStartDate(item)}}"
+      notes="{{_getItemNotes(item)}}"
+      repeat="{{_getItemRepeat(item)}}"
+      reminder="{{_getItemReminder(item)}}"
+      size="{{itemSize}}"
+      data-index="{{index}}"
+      bind:checkedChange="onCheckedChange"
+      bind:click="onItemClick"
+    />
+  </view>
+  <nk-empty wx:else description="{{emptyText}}" size="sm" />
+</view>

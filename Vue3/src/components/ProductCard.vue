@@ -5,9 +5,9 @@
     @click="onClick"
   >
     <div class="nk-product-card__cover">
-      <image v-if="cover" :src="cover" mode="aspectFill" class="nk-product-card__image" />
+      <img v-if="cover" :src="cover" class="nk-product-card__image" />
       <div v-else class="nk-product-card__placeholder">
-        <nk-icon name="image" size="xl" />
+        <nk-icon name="file" size="xl" />
       </div>
     </div>
     <div class="nk-product-card__info">

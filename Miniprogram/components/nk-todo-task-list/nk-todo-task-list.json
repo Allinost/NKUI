@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "nk-todo-task": "/components/nk-todo-task/nk-todo-task",
+    "nk-empty": "/components/nk-empty/nk-empty"
+  }
+}

@@ -51,7 +51,9 @@
     "nk-list": "/components/nk-list/nk-list",
     "nk-list-item": "/components/nk-list-item/nk-list-item",
     "nk-product-card": "/components/nk-product-card/nk-product-card",
-    "nk-product-list": "/components/nk-product-list/nk-product-list"
+    "nk-product-list": "/components/nk-product-list/nk-product-list",
+    "nk-todo-task": "/components/nk-todo-task/nk-todo-task",
+    "nk-todo-task-list": "/components/nk-todo-task-list/nk-todo-task-list"
   },
   "sitemapLocation": "sitemap.json"
 }

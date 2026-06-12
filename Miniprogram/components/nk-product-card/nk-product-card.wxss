@@ -30,10 +30,7 @@
 .nk-product-card__placeholder {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--nk-color-neutral-400, #BDBDBD);
+  background: var(--nk-color-neutral-200, #EEEEEE);
 }
 
 .nk-product-card__info {

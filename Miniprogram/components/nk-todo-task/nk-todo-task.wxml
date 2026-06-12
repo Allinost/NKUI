@@ -1,0 +1,23 @@
+<view class="nk-todo-task nk-todo-task--{{size}} {{checked ? 'nk-todo-task--done' : ''}}" bindtap="onClick">
+  <view class="nk-todo-task__checkbox" catchtap="toggleCheck">
+    <view class="nk-todo-task__check-icon {{checked ? 'nk-todo-task__check-icon--checked' : ''}}">
+      <text wx:if="{{checked}}" class="nk-todo-task__check-mark">✓</text>
+    </view>
+  </view>
+  <view class="nk-todo-task__body">
+    <view class="nk-todo-task__row">
+      <view class="nk-todo-task__title-area">
+        <view class="nk-todo-task__dot" style="background: {{_categoryColor}};" />
+        <text class="nk-todo-task__title">{{title}}</text>
+      </view>
+      <text wx:if="{{dueDate}}" class="nk-todo-task__due">{{dueDate}}</text>
+    </view>
+    <view wx:if="{{size === 'lg'}}" class="nk-todo-task__row nk-todo-task__row--meta">
+      <text wx:if="{{notes}}" class="nk-todo-task__notes">{{notes}}</text>
+      <view class="nk-todo-task__meta-right">
+        <text wx:if="{{repeat}}" class="nk-todo-task__repeat">↻ {{repeat}}</text>
+        <text wx:if="{{reminder}}" class="nk-todo-task__reminder">⌛ {{reminder}}</text>
+      </view>
+    </view>
+  </view>
+</view>
