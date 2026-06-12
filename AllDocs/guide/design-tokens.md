@@ -17,6 +17,8 @@ NKUI 的设计体系遵循"实用、一致、高效"三大原则：
 | Token | 值 | 用途 |
 |-------|-----|------|
 | `$nk-color-primary-500` | `#2196F3` | 主色 |
+| `$nk-color-accent` | `#701e5f` | 品牌强调色 |
+| `$nk-color-accent-gradient` | `#8b2b7a → #551a47` | 品牌渐变 |
 | `$nk-color-success` | `#4CAF50` | 成功色 |
 | `$nk-color-warning` | `#FF9800` | 警告色 |
 | `$nk-color-error` | `#F44336` | 错误色 |

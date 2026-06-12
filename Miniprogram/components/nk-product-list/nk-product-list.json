@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "nk-product-card": "/components/nk-product-card/nk-product-card",
+    "nk-empty": "/components/nk-empty/nk-empty"
+  }
+}

@@ -1,0 +1,26 @@
+<view class="nk-product-card {{clickable ? 'nk-product-card--clickable' : ''}}" bindtap="onClick">
+  <view class="nk-product-card__cover">
+    <image wx:if="{{cover}}" src="{{cover}}" mode="aspectFill" class="nk-product-card__image" />
+    <view wx:else class="nk-product-card__placeholder">
+      <nk-icon name="image" size="xl" />
+    </view>
+  </view>
+  <view class="nk-product-card__info">
+    <view class="nk-product-card__row">
+      <text class="nk-product-card__title">{{title}}</text>
+      <text wx:if="{{status}}" class="nk-product-card__status">{{status}}</text>
+    </view>
+    <view class="nk-product-card__row">
+      <text class="nk-product-card__description">{{description}}</text>
+      <text wx:if="{{_hasStock}}" class="nk-product-card__stock">{{_stockLabel}}</text>
+    </view>
+    <view class="nk-product-card__row">
+      <view class="nk-product-card__tags">
+        <block wx:for="{{tags}}" wx:key="index">
+          <text class="nk-product-card__tag">{{item}}</text>
+        </block>
+      </view>
+      <text wx:if="{{_hasPrice}}" class="nk-product-card__price">{{_priceLabel}}</text>
+    </view>
+  </view>
+</view>

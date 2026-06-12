@@ -88,8 +88,12 @@ export default defineConfig({
         {
           text: '业务组件',
           items: [
-            { text: 'ProfileCard 名片卡', link: '/components/profile-card' },
-            { text: 'TopNav 顶部导航', link: '/components/top-nav' },
+          { text: 'Login 登录表单', link: '/components/login' },
+          { text: 'Register 注册表单', link: '/components/register' },
+          { text: 'Profile 个人信息', link: '/components/profile' },
+          { text: 'List 列表', link: '/components/list' },
+          { text: 'ProfileCard 名片卡', link: '/components/profile-card' },
+          { text: 'TopNav 顶部导航', link: '/components/top-nav' },
             { text: 'BottomTab 底部Tab', link: '/components/bottom-tab' },
             { text: 'Calendar 日历', link: '/components/calendar' },
           ],

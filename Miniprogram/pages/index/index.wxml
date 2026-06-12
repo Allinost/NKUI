@@ -240,4 +240,26 @@
     <text class="title">ImageUpload 图片上传</text>
     <nk-image-upload imageList="{{images}}" />
   </view>
+
+  <view class="demo-section">
+    <text class="title">Login 登录表单</text>
+    <nk-login size="sm" variant="card" bind:submit="onLoginSubmit" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Register 注册表单</text>
+    <nk-register size="sm" variant="card" bind:submit="onRegisterSubmit" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">Profile 个人信息</text>
+    <nk-profile name="张三" title="高级工程师" email="zhangsan@example.com" size="md" variant="elevated" stats="{{profileStats}}" />
+  </view>
+
+  <view class="demo-section">
+    <text class="title">List 列表</text>
+    <nk-list data="{{listData}}" size="md" bordered="{{true}}" itemArrow="{{true}}" bind:itemClick="onListItemClick" />
+    <nk-divider />
+    <nk-list data="{{emptyData}}" size="sm" emptyText="暂无数据" />
+  </view>
 </view>

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "nk-icon": "/components/nk-icon/nk-icon",
+    "nk-avatar": "/components/nk-avatar/nk-avatar"
+  }
+}

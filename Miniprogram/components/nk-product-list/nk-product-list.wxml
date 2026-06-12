@@ -1,0 +1,29 @@
+<view class="nk-product-list {{bordered ? 'nk-product-list--bordered' : ''}} {{loading ? 'nk-product-list--loading' : ''}} {{layout === 'grid' ? 'nk-product-list--grid' : ''}}">
+  <view wx:if="{{$slots.header}}" class="nk-product-list__header">
+    <slot name="header" />
+  </view>
+  <block wx:if="{{loading}}">
+    <slot name="skeleton" />
+  </block>
+  <view wx:elif="{{data && data.length}}" class="nk-product-list__body nk-product-list__body--{{layout}}">
+    <nk-product-card
+      wx:for="{{data}}" wx:key="index"
+      cover="{{_getItemCover(item)}}"
+      title="{{_getItemTitle(item)}}"
+      status="{{_getItemStatus(item)}}"
+      description="{{_getItemDescription(item)}}"
+      stock="{{_getItemStock(item)}}"
+      tags="{{_getItemTags(item)}}"
+      price="{{_getItemPrice(item)}}"
+      clickable="{{clickable}}"
+      stock-text="{{stockText}}"
+      price-prefix="{{pricePrefix}}"
+      data-index="{{index}}"
+      bind:click="onItemClick"
+    />
+  </view>
+  <nk-empty wx:else description="{{emptyText}}" size="sm" />
+  <view wx:if="{{$slots.footer}}" class="nk-product-list__footer">
+    <slot name="footer" />
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<view class="nk-list-item nk-list-item--{{size}} {{clickable ? 'nk-list-item--clickable' : ''}} {{disabled ? 'nk-list-item--disabled' : ''}}" bindtap="onClick">
+  <view wx:if="{{avatar || icon}}" class="nk-list-item__prefix">
+    <nk-avatar wx:if="{{avatar}}" src="{{avatar}}" size="{{size}}" class="nk-list-item__avatar" />
+    <nk-icon wx:elif="{{icon}}" name="{{icon}}" size="sm" class="nk-list-item__icon" />
+  </view>
+  <view class="nk-list-item__content">
+    <text wx:if="{{title}}" class="nk-list-item__title">{{title}}</text>
+    <text wx:if="{{description}}" class="nk-list-item__description">{{description}}</text>
+    <view class="nk-list-item__extra-content"><slot /></view>
+  </view>
+  <view class="nk-list-item__extra"><slot name="extra" /></view>
+  <view wx:if="{{arrow}}" class="nk-list-item__arrow">
+    <nk-icon name="arrow-right" size="xs" />
+  </view>
+</view>

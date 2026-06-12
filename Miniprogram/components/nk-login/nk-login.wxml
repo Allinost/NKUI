@@ -1,0 +1,38 @@
+<view class="nk-login nk-login--{{size}} nk-login--{{variant}}">
+  <view class="nk-login__header">
+    <text class="nk-login__title">{{title}}</text>
+    <text wx:if="{{subtitle}}" class="nk-login__subtitle">{{subtitle}}</text>
+  </view>
+  <view class="nk-login__form">
+    <view class="nk-login__field">
+      <nk-input
+        value="{{username}}"
+        label="{{usernameLabel}}"
+        placeholder="{{usernamePlaceholder}}"
+        size="{{size}}"
+        prefix-icon="user"
+        error="{{usernameError}}"
+        disabled="{{disabled}}"
+        bind:input="onUsernameInput"
+      />
+    </view>
+    <view class="nk-login__field">
+      <nk-input
+        value="{{password}}"
+        label="{{passwordLabel}}"
+        placeholder="{{passwordPlaceholder}}"
+        size="{{size}}"
+        password="{{true}}"
+        error="{{passwordError}}"
+        disabled="{{disabled}}"
+        bind:input="onPasswordInput"
+      />
+    </view>
+    <view class="nk-login__actions">
+      <nk-button type="{{submitType}}" variant="solid" size="{{size}}" block loading="{{loading}}" disabled="{{disabled}}" bind:click="onSubmit">
+        {{submitText}}
+      </nk-button>
+    </view>
+  </view>
+  <view class="nk-login__footer"><slot name="footer" /></view>
+</view>

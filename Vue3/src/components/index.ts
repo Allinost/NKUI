@@ -26,6 +26,13 @@ import NkRow from './Row.vue'
 import NkCol from './Col.vue'
 import NkProgress from './Progress.vue'
 import NkProfileCard from './ProfileCard.vue'
+import NkLogin from './Login.vue'
+import NkRegister from './Register.vue'
+import NkProfile from './Profile.vue'
+import NkList from './List.vue'
+import NkListItem from './ListItem.vue'
+import NkProductCard from './ProductCard.vue'
+import NkProductList from './ProductList.vue'
 import NkTopNav from './TopNav.vue'
 import NkBottomTab from './BottomTab.vue'
 import NkCalendar from './Calendar.vue'
@@ -68,9 +75,11 @@ const components = [
   NkDialog, NkDrawer, NkSelect, NkTooltip, NkPopover,
   NkTabs, NkBreadcrumb, NkPagination,
   NkRow, NkCol, NkProgress,
-  NkProfileCard, NkTopNav, NkBottomTab, NkCalendar, NkFileUpload, NkImageUpload,
+  NkProfileCard, NkLogin, NkRegister, NkProfile, NkList, NkListItem,
+  NkTopNav, NkBottomTab, NkCalendar, NkFileUpload, NkImageUpload,
   NkVideoPlayer, NkImageGallery, NkWeather,
-  NkImageCarousel, NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
+  NkImageCarousel,   NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
+  NkProductCard, NkProductList,
 ]
 
 export function install(app: App) {
@@ -84,8 +93,10 @@ export {
   NkDialog, NkDrawer, NkSelect, NkTooltip, NkPopover,
   NkTabs, NkBreadcrumb, NkPagination,
   NkRow, NkCol, NkProgress,
-  NkProfileCard, NkTopNav, NkBottomTab, NkCalendar, NkFileUpload, NkImageUpload,
+  NkProfileCard, NkLogin, NkRegister, NkProfile, NkList, NkListItem,
+  NkTopNav, NkBottomTab, NkCalendar, NkFileUpload, NkImageUpload,
   NkVideoPlayer, NkImageGallery, NkWeather,
   NkImageCarousel, NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
+  NkProductCard, NkProductList,
   addIcon, NKMessage, showToast,
 }

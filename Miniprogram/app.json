@@ -44,7 +44,14 @@
     "nk-image-carousel": "/components/nk-image-carousel/nk-image-carousel",
     "nk-pdf-viewer": "/components/nk-pdf-viewer/nk-pdf-viewer",
     "nk-markdown-viewer": "/components/nk-markdown-viewer/nk-markdown-viewer",
-    "nk-music-player": "/components/nk-music-player/nk-music-player"
+    "nk-music-player": "/components/nk-music-player/nk-music-player",
+    "nk-login": "/components/nk-login/nk-login",
+    "nk-register": "/components/nk-register/nk-register",
+    "nk-profile": "/components/nk-profile/nk-profile",
+    "nk-list": "/components/nk-list/nk-list",
+    "nk-list-item": "/components/nk-list-item/nk-list-item",
+    "nk-product-card": "/components/nk-product-card/nk-product-card",
+    "nk-product-list": "/components/nk-product-list/nk-product-list"
   },
   "sitemapLocation": "sitemap.json"
 }

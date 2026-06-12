@@ -28,6 +28,11 @@
   --nk-color-neutral-900:  #212121;
   --nk-color-neutral-1000: #000000;
 
+  --nk-color-accent: #701e5f;
+  --nk-color-accent-light: #8b2b7a;
+  --nk-color-accent-dark: #551a47;
+  --nk-color-accent-gradient: linear-gradient(135deg, #8b2b7a, #551a47);
+
   --nk-color-success: #4CAF50;
   --nk-color-warning: #FF9800;
   --nk-color-error:   #F44336;
@@ -81,6 +86,11 @@
   --nk-color-neutral-800:  #BDBDBD;
   --nk-color-neutral-900:  #E0E0E0;
   --nk-color-neutral-1000: #FFFFFF;
+
+  --nk-color-accent: #c084b6;
+  --nk-color-accent-light: #a84b94;
+  --nk-color-accent-dark: #8b2b7a;
+  --nk-color-accent-gradient: linear-gradient(135deg, #a84b94, #8b2b7a);
 
   --nk-color-success: #81C784;
   --nk-color-warning: #FFB74D;

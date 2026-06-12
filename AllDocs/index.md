@@ -25,10 +25,10 @@ features:
     details: 从色彩、字体、间距到阴影，AllDesign 定义了一致的设计规范，所有平台共用同一套设计 Token。
   - icon: ⚡️
     title: Vue3 组件库
-    details: 基于 Vite + TypeScript + SCSS，已实现 22 个高质量组件，支持按需导入、类型完备。
+    details: 基于 Vite + TypeScript + SCSS，已实现 45 个高质量组件，支持按需导入、类型完备。
   - icon: 📱
     title: 微信小程序支持
-    details: 原生小程序组件，4 文件结构（WXML/WXSS/JS/JSON），15 个组件已完成，全局注册即用。
+    details: 原生小程序组件，4 文件结构（WXML/WXSS/JS/JSON），42 个组件已完成，全局注册即用。
   - icon: 🎯
     title: 多端扩展
     details: Flutter、Kotlin Compose Multiplatform、iOS SwiftUI 均已搭建脚手架，设计 Token 跨平台同步。

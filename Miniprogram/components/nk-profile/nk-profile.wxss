@@ -1,0 +1,75 @@
+@import '/styles/tokens.wxss';
+
+.nk-profile {
+  display: flex;
+  flex-direction: column;
+  background: var(--nk-color-neutral-0, #FFFFFF);
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.nk-profile--outlined { border: 2rpx solid var(--nk-color-neutral-200, #EEEEEE); }
+.nk-profile--elevated { box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.08); }
+.nk-profile--flat { border: none; box-shadow: none; }
+
+.nk-profile--sm { padding: 32rpx; gap: 28rpx; }
+.nk-profile--md { padding: 48rpx; gap: 36rpx; }
+.nk-profile--lg { padding: 64rpx; gap: 48rpx; }
+
+.nk-profile--sm .nk-profile__name { font-size: 32rpx; }
+.nk-profile--md .nk-profile__name { font-size: 40rpx; }
+.nk-profile--lg .nk-profile__name { font-size: 48rpx; }
+.nk-profile--sm .nk-profile__title { font-size: 20rpx; }
+.nk-profile--md .nk-profile__title { font-size: 24rpx; }
+.nk-profile--lg .nk-profile__title { font-size: 28rpx; }
+.nk-profile--sm .nk-profile__email { font-size: 20rpx; }
+.nk-profile--md .nk-profile__email { font-size: 24rpx; }
+.nk-profile--lg .nk-profile__email { font-size: 28rpx; }
+
+.nk-profile__avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 32rpx;
+}
+
+.nk-profile__avatar { flex-shrink: 0; }
+
+.nk-profile__avatar-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+  min-width: 0;
+}
+
+.nk-profile__name { font-weight: 600; color: var(--nk-color-neutral-900, #212121); }
+.nk-profile__title { color: var(--nk-color-neutral-600, #757575); }
+.nk-profile__email { color: var(--nk-color-neutral-500, #9E9E9E); }
+
+.nk-profile__stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 32rpx 0;
+  border-top: 2rpx solid var(--nk-color-neutral-100, #F5F5F5);
+  border-bottom: 2rpx solid var(--nk-color-neutral-100, #F5F5F5);
+}
+
+.nk-profile__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.nk-profile__stat-value {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--nk-color-neutral-900, #212121);
+}
+
+.nk-profile__stat-label {
+  font-size: 20rpx;
+  color: var(--nk-color-neutral-500, #9E9E9E);
+}
+
+.nk-profile__content { display: flex; flex-direction: column; }
+.nk-profile__actions { display: flex; gap: 16rpx; }

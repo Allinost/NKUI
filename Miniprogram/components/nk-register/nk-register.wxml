@@ -1,0 +1,24 @@
+<view class="nk-register nk-register--{{size}} nk-register--{{variant}}">
+  <view class="nk-register__header">
+    <text class="nk-register__title">{{title}}</text>
+    <text wx:if="{{subtitle}}" class="nk-register__subtitle">{{subtitle}}</text>
+  </view>
+  <view class="nk-register__form">
+    <view class="nk-register__field">
+      <nk-input value="{{username}}" label="{{usernameLabel}}" placeholder="{{usernamePlaceholder}}" size="{{size}}" prefix-icon="user" error="{{usernameError}}" disabled="{{disabled}}" bind:input="onUsernameInput" />
+    </view>
+    <view class="nk-register__field">
+      <nk-input value="{{email}}" label="{{emailLabel}}" placeholder="{{emailPlaceholder}}" size="{{size}}" error="{{emailError}}" disabled="{{disabled}}" bind:input="onEmailInput" />
+    </view>
+    <view class="nk-register__field">
+      <nk-input value="{{password}}" label="{{passwordLabel}}" placeholder="{{passwordPlaceholder}}" size="{{size}}" password="{{true}}" error="{{passwordError}}" disabled="{{disabled}}" bind:input="onPasswordInput" />
+    </view>
+    <view class="nk-register__field">
+      <nk-input value="{{confirmPassword}}" label="{{confirmLabel}}" placeholder="{{confirmPlaceholder}}" size="{{size}}" password="{{true}}" error="{{confirmError}}" disabled="{{disabled}}" bind:input="onConfirmInput" />
+    </view>
+    <view class="nk-register__actions">
+      <nk-button type="{{submitType}}" variant="solid" size="{{size}}" block loading="{{loading}}" disabled="{{disabled}}" bind:click="onSubmit">{{submitText}}</nk-button>
+    </view>
+  </view>
+  <view class="nk-register__footer"><slot name="footer" /></view>
+</view>

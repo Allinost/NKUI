@@ -1,0 +1,48 @@
+@import '/styles/tokens.wxss';
+
+.nk-list {
+  display: flex;
+  flex-direction: column;
+  background: var(--nk-color-neutral-0, #FFFFFF);
+  overflow: hidden;
+}
+
+.nk-list--bordered {
+  border: 2rpx solid var(--nk-color-neutral-200, #EEEEEE);
+  border-radius: 16rpx;
+}
+
+.nk-list--sm { font-size: 24rpx; border-radius: 8rpx; }
+.nk-list--md { font-size: 28rpx; border-radius: 16rpx; }
+.nk-list--lg { font-size: 32rpx; border-radius: 16rpx; }
+
+.nk-list__header {
+  padding: 24rpx 32rpx;
+  border-bottom: 2rpx solid var(--nk-color-neutral-200, #EEEEEE);
+  font-weight: 600;
+  color: var(--nk-color-neutral-800, #424242);
+}
+
+.nk-list__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.nk-list__body > .nk-list-item {
+  border-bottom: 2rpx solid var(--nk-color-neutral-100, #F5F5F5);
+}
+.nk-list__body > .nk-list-item:last-child {
+  border-bottom: none;
+}
+
+.nk-list__footer {
+  padding: 24rpx 32rpx;
+  border-top: 2rpx solid var(--nk-color-neutral-200, #EEEEEE);
+  color: var(--nk-color-neutral-600, #757575);
+  font-size: 24rpx;
+}
+
+.nk-list--loading {
+  opacity: 0.7;
+  pointer-events: none;
+}

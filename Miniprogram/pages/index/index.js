@@ -31,6 +31,18 @@ Page({
     drawerVisible: false,
     toastVisible: false,
     images: [],
+    profileStats: [
+      { label: '项目', value: 12 },
+      { label: '团队', value: 3 },
+      { label: '动态', value: 48 },
+    ],
+    listData: [
+      { title: '项目 Alpha', description: '前端重构与设计系统迁移' },
+      { title: '项目 Beta', description: '后端 API 性能优化' },
+      { title: '项目 Gamma', description: '移动端适配与测试' },
+      { title: '项目 Delta', description: '用户反馈收集与分析' },
+    ],
+    emptyData: [],
   },
   openDialog() {
     this.selectComponent('#dialog').setData({ visible: true })
@@ -50,5 +62,14 @@ Page({
   },
   onPageChange(e) {
     console.log('Page changed:', e.detail.page)
+  },
+  onLoginSubmit(e) {
+    console.log('Login:', e.detail)
+  },
+  onRegisterSubmit(e) {
+    console.log('Register:', e.detail)
+  },
+  onListItemClick(e) {
+    console.log('List item clicked:', e.detail)
   },
 })

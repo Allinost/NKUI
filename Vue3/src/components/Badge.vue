@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<{
   variant?: 'dot' | 'count' | 'text'
   value?: string | number
   max?: number
-  type?: 'primary' | 'success' | 'warning' | 'danger' | 'info'
+  type?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'accent'
   position?: 'top-right' | 'top-left'
 }>(), {
   variant: 'dot',
@@ -90,6 +90,7 @@ const displayValue = computed(() => {
     'warning': $nk-color-warning,
     'danger': $nk-color-error,
     'info': $nk-color-info,
+    'accent': $nk-color-accent,
   );
 
   @each $type, $color in $types {

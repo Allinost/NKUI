@@ -22,7 +22,7 @@ import NkIcon from './Icon.vue'
 defineOptions({ name: 'NkButton' })
 
 const props = withDefaults(defineProps<{
-  type?: 'primary' | 'success' | 'warning' | 'danger' | 'neutral'
+  type?: 'primary' | 'success' | 'warning' | 'danger' | 'neutral' | 'accent'
   variant?: 'solid' | 'outline' | 'ghost' | 'text'
   size?: 'sm' | 'md' | 'lg'
   disabled?: boolean
@@ -58,6 +58,7 @@ $types: (
   'warning': $nk-color-warning,
   'danger': $nk-color-error,
   'neutral': $nk-color-neutral-800,
+  'accent': $nk-color-accent,
 );
 
 .nk-btn {

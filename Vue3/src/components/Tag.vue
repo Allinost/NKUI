@@ -16,7 +16,7 @@ import NkIcon from './Icon.vue'
 defineOptions({ name: 'NkTag' })
 
 withDefaults(defineProps<{
-  type?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral'
+  type?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'neutral' | 'accent'
   variant?: 'solid' | 'outline' | 'light'
   size?: 'sm' | 'md' | 'lg'
   closable?: boolean
@@ -46,6 +46,7 @@ $types: (
   'danger': $nk-color-error,
   'info': $nk-color-info,
   'neutral': $nk-color-neutral-600,
+  'accent': $nk-color-accent,
 );
 
 .nk-tag {

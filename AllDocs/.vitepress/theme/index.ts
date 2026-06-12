@@ -39,6 +39,11 @@ import NkRow from '../../../Vue3/src/components/Row.vue'
 import NkCol from '../../../Vue3/src/components/Col.vue'
 import NkProgress from '../../../Vue3/src/components/Progress.vue'
 import NkProfileCard from '../../../Vue3/src/components/ProfileCard.vue'
+import NkLogin from '../../../Vue3/src/components/Login.vue'
+import NkRegister from '../../../Vue3/src/components/Register.vue'
+import NkProfile from '../../../Vue3/src/components/Profile.vue'
+import NkList from '../../../Vue3/src/components/List.vue'
+import NkListItem from '../../../Vue3/src/components/ListItem.vue'
 import NkTopNav from '../../../Vue3/src/components/TopNav.vue'
 import NkBottomTab from '../../../Vue3/src/components/BottomTab.vue'
 import NkCalendar from '../../../Vue3/src/components/Calendar.vue'
@@ -90,6 +95,8 @@ export default {
       [NkSelect, 'Select'], [NkTooltip, 'Tooltip'], [NkPopover, 'Popover'],
       [NkTabs, 'Tabs'], [NkBreadcrumb, 'Breadcrumb'], [NkPagination, 'Pagination'],
       [NkRow, 'Row'], [NkCol, 'Col'], [NkProgress, 'Progress'],
+      [NkLogin, 'Login'], [NkRegister, 'Register'], [NkProfile, 'Profile'],
+      [NkList, 'List'], [NkListItem, 'ListItem'],
       [NkProfileCard, 'ProfileCard'], [NkTopNav, 'TopNav'], [NkBottomTab, 'BottomTab'],
       [NkCalendar, 'Calendar'], [NkFileUpload, 'FileUpload'], [NkImageUpload, 'ImageUpload'],
       [NkVideoPlayer, 'VideoPlayer'], [NkImageGallery, 'ImageGallery'], [NkWeather, 'Weather'],

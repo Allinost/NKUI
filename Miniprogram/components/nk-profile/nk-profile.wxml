@@ -1,0 +1,19 @@
+<view class="nk-profile nk-profile--{{size}} nk-profile--{{variant}}">
+  <view class="nk-profile__avatar-section">
+    <nk-avatar wx:if="{{avatar}}" src="{{avatar}}" size="{{avatarSize}}" variant="{{avatarVariant}}" class="nk-profile__avatar" />
+    <nk-avatar wx:else text="{{name.charAt(0)}}" size="{{avatarSize}}" variant="{{avatarVariant}}" class="nk-profile__avatar" />
+    <view class="nk-profile__avatar-info">
+      <text class="nk-profile__name">{{name}}</text>
+      <text wx:if="{{title}}" class="nk-profile__title">{{title}}</text>
+      <text wx:if="{{email}}" class="nk-profile__email">{{email}}</text>
+    </view>
+  </view>
+  <view wx:if="{{stats && stats.length}}" class="nk-profile__stats">
+    <view wx:for="{{stats}}" wx:key="label" class="nk-profile__stat">
+      <text class="nk-profile__stat-value">{{item.value}}</text>
+      <text class="nk-profile__stat-label">{{item.label}}</text>
+    </view>
+  </view>
+  <view class="nk-profile__content"><slot /></view>
+  <view class="nk-profile__actions"><slot name="actions" /></view>
+</view>

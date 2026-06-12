@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "nk-input": "/components/nk-input/nk-input",
+    "nk-button": "/components/nk-button/nk-button"
+  }
+}

@@ -1,0 +1,17 @@
+<view class="nk-list nk-list--{{size}} {{bordered ? 'nk-list--bordered' : ''}} {{loading ? 'nk-list--loading' : ''}}">
+  <view wx:if="{{data && data.length}}" class="nk-list__body">
+    <nk-list-item
+      wx:for="{{data}}" wx:key="index"
+      title="{{itemTitle ? item[itemTitle] : item.title || item.label || item.name}}"
+      description="{{itemDescription ? item[itemDescription] : item.description}}"
+      avatar="{{itemAvatar ? item[itemAvatar] : item.avatar}}"
+      arrow="{{itemArrow}}"
+      size="{{size}}"
+      clickable="{{clickable}}"
+      data-index="{{index}}"
+      bind:click="onItemClick"
+    />
+  </view>
+  <nk-empty wx:else description="{{emptyText}}" size="{{size === 'lg' ? 'md' : 'sm'}" />
+  <view class="nk-list__footer"><slot name="footer" /></view>
+</view>

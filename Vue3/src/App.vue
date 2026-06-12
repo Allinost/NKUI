@@ -4,7 +4,7 @@
       <div class="app-header__inner">
         <div>
           <h1>NKUI Vue3</h1>
-          <p>版本 1.0.0-alpha · 共 29 个组件</p>
+          <p>版本 1.0.0-alpha · 共 45 个组件</p>
         </div>
         <button class="theme-toggle" @click="toggleTheme">
           <Icon :name="theme === 'dark' ? 'sun' : 'moon'" size="20" />
@@ -320,6 +320,72 @@
       <ProfileCard name="王五" title="设计师" size="lg" variant="elevated" />
     </section>
 
+    <!-- Login -->
+    <section class="demo-section">
+      <h2>Login <Tag>登录表单</Tag></h2>
+      <Row :gutter="16">
+        <Col :span="8">
+          <Login size="sm" variant="card" @submit="onLoginSubmit" />
+        </Col>
+        <Col :span="8">
+          <Login size="md" variant="card" title="欢迎回来" subtitle="请输入您的账号信息" @submit="onLoginSubmit" />
+        </Col>
+        <Col :span="8">
+          <Login size="lg" variant="plain" submit-text="Sign In" submit-type="accent" @submit="onLoginSubmit" />
+        </Col>
+      </Row>
+    </section>
+
+    <!-- Register -->
+    <section class="demo-section">
+      <h2>Register <Tag>注册表单</Tag></h2>
+      <Row :gutter="16">
+        <Col :span="8">
+          <Register size="sm" variant="card" @submit="onRegisterSubmit" />
+        </Col>
+        <Col :span="8">
+          <Register size="md" variant="card" title="创建账号" subtitle="填写信息完成注册" @submit="onRegisterSubmit" />
+        </Col>
+        <Col :span="8">
+          <Register size="lg" variant="plain" submit-text="Sign Up" submit-type="accent" @submit="onRegisterSubmit" />
+        </Col>
+      </Row>
+    </section>
+
+    <!-- Profile -->
+    <section class="demo-section">
+      <h2>Profile <Tag>个人信息</Tag></h2>
+      <Row :gutter="16">
+        <Col :span="8">
+          <Profile name="张三" title="高级工程师" email="zhangsan@example.com" size="sm" />
+        </Col>
+        <Col :span="8">
+          <Profile name="李四" title="产品经理" email="lisi@example.com" size="md" variant="elevated"
+            :stats="[{label:'项目',value:12},{label:'团队',value:3},{label:'动态',value:48}]" />
+        </Col>
+        <Col :span="8">
+          <Profile name="王五" title="UI 设计师" email="wangwu@example.com" size="lg" variant="flat"
+            :stats="[{label:'作品',value:86},{label:'粉丝',value:234},{label:'点赞',value:1024}]" />
+        </Col>
+      </Row>
+    </section>
+
+    <!-- List -->
+    <section class="demo-section">
+      <h2>List <Tag>列表组件</Tag></h2>
+      <Row :gutter="16">
+        <Col :span="8">
+          <List :data="listData" size="sm" @item-click="onListItemClick" />
+        </Col>
+        <Col :span="8">
+          <List :data="listData" size="md" bordered :item-avatar="'avatar'" :item-arrow="true" @item-click="onListItemClick" />
+        </Col>
+        <Col :span="8">
+          <List :data="[]" empty-text="暂无数据，请稍后再试" />
+        </Col>
+      </Row>
+    </section>
+
     <!-- TopNav -->
     <section class="demo-section">
       <h2>TopNav</h2>
@@ -503,6 +569,10 @@ import {
   NkTooltip as Tooltip,
   NkPopover as Popover,
   NkProfileCard as ProfileCard,
+  NkLogin as Login,
+  NkRegister as Register,
+  NkProfile as Profile,
+  NkList as List,
   NkTopNav as TopNav,
   NkBottomTab as BottomTab,
   NkCalendar as Calendar,
@@ -594,6 +664,25 @@ function openDrawer(dir: string) {
 function showMsg(type: string) {
   const fn = (NKMessage as any)[type]
   if (fn) fn(`这是一条 ${type} 消息`)
+}
+
+const listData = [
+  { title: '项目 Alpha', description: '前端重构与设计系统迁移', avatar: '' },
+  { title: '项目 Beta', description: '后端 API 性能优化', avatar: '' },
+  { title: '项目 Gamma', description: '移动端适配与测试', avatar: '' },
+  { title: '项目 Delta', description: '用户反馈收集与分析', avatar: '' },
+]
+
+function onLoginSubmit(data: any) {
+  NKMessage.info(`登录: ${data.username}`)
+}
+
+function onRegisterSubmit(data: any) {
+  NKMessage.success(`注册成功: ${data.username}`)
+}
+
+function onListItemClick(item: any, index: number) {
+  NKMessage.info(`点击: ${item.title}`)
 }
 </script>
 

@@ -14,6 +14,7 @@
       <input
         ref="inputRef"
         class="nk-input__inner"
+        :type="type"
         :value="modelValue"
         :placeholder="placeholder"
         :disabled="disabled"
@@ -46,6 +47,7 @@ defineOptions({ name: 'NkInput' })
 
 const props = withDefaults(defineProps<{
   modelValue?: string
+  type?: 'text' | 'password'
   size?: 'sm' | 'md' | 'lg'
   placeholder?: string
   disabled?: boolean
@@ -58,6 +60,7 @@ const props = withDefaults(defineProps<{
   maxlength?: number
 }>(), {
   modelValue: '',
+  type: 'text',
   size: 'md',
   placeholder: '',
   disabled: false,

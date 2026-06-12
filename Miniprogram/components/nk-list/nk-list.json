@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "nk-list-item": "/components/nk-list-item/nk-list-item",
+    "nk-empty": "/components/nk-empty/nk-empty"
+  }
+}
