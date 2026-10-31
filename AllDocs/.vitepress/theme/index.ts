@@ -14,6 +14,7 @@ if (typeof window !== 'undefined') {
 
 import NkButton from '../../../Vue3/src/components/Button.vue'
 import NkInput from '../../../Vue3/src/components/Input.vue'
+import NkTextarea from '../../../Vue3/src/components/Textarea.vue'
 import NkIcon from '../../../Vue3/src/components/Icon.vue'
 import NkTag from '../../../Vue3/src/components/Tag.vue'
 import NkBadge from '../../../Vue3/src/components/Badge.vue'
@@ -92,7 +93,7 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }: { app: App }) {
     const componentMap: [any, string][] = [
-      [NkButton, 'Button'], [NkInput, 'Input'], [NkIcon, 'Icon'],
+      [NkButton, 'Button'],       [NkInput, 'Input'], [NkTextarea, 'Textarea'], [NkIcon, 'Icon'],
       [NkTag, 'Tag'], [NkBadge, 'Badge'], [NkLoading, 'Loading'],
       [NkSwitch, 'Switch'], [NkCheckbox, 'Checkbox'], [NkRadio, 'Radio'],
       [NkDivider, 'Divider'], [NkSpace, 'Space'],
