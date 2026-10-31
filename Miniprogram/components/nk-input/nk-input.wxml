@@ -11,6 +11,7 @@
       bindinput="onInput"
       bindfocus="onFocus"
       bindblur="onBlur"
+      bindconfirm="onConfirm"
     />
     <view wx:if="{{clearable && (inputValue || value) && !disabled}}" class="nk-input__clear" bindtap="onClear">
       <nk-icon name="close" size="xs" />

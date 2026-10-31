@@ -55,6 +55,32 @@
   flex-direction: column;
 }
 
+.nk-login__options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nk-login__remember {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.nk-login__checkbox {
+  transform: scale(0.8);
+}
+
+.nk-login__remember-text {
+  font-size: 24rpx;
+  color: var(--nk-color-neutral-600, #757575);
+}
+
+.nk-login__extra {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .nk-login__actions {
   display: flex;
   flex-direction: column;

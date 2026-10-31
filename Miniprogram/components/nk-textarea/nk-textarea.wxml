@@ -1,0 +1,20 @@
+<view class="nk-textarea nk-textarea--{{size}} {{disabled ? 'nk-textarea--disabled' : ''}} {{error ? 'nk-textarea--error' : ''}} {{focused ? 'nk-textarea--focused' : ''}}">
+  <text wx:if="{{label}}" class="nk-textarea__label">{{label}}</text>
+  <view class="nk-textarea__wrapper">
+    <textarea
+      class="nk-textarea__inner"
+      value="{{inputValue || value}}"
+      placeholder="{{placeholder}}"
+      disabled="{{disabled}}"
+      maxlength="{{maxlength}}"
+      auto-height="{{autoHeight}}"
+      bindinput="onInput"
+      bindfocus="onFocus"
+      bindblur="onBlur"
+    />
+    <view wx:if="{{clearable && (inputValue || value) && !disabled}}" class="nk-textarea__clear" bindtap="onClear">
+      <nk-icon name="close" size="xs" />
+    </view>
+  </view>
+  <text wx:if="{{error}}" class="nk-textarea__error">{{error}}</text>
+</view>

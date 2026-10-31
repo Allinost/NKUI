@@ -6,11 +6,29 @@ Component({
     disabled: { type: Boolean, value: false },
     size: { type: String, value: 'md' },
   },
-  data: { isOpen: false, displayText: '' },
+  data: { isOpen: false, displayText: '', openUp: false, dropdownMaxHeight: '' },
   methods: {
     onToggle() {
       if (this.data.disabled) return
-      this.setData({ isOpen: !this.data.isOpen })
+      const next = !this.data.isOpen
+      this.setData({ isOpen: next })
+      if (next) this.updatePlacement()
+    },
+    updatePlacement() {
+      this.createSelectorQuery()
+        .select('.nk-select')
+        .boundingClientRect(rect => {
+          if (!rect) return
+          const win = wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync()
+          const dropdownHeight = (512 / 750) * win.windowWidth
+          const spaceBelow = win.windowHeight - rect.bottom
+          const spaceAbove = rect.top
+          const openUp = spaceBelow < dropdownHeight && spaceAbove > spaceBelow
+          const space = openUp ? spaceAbove : spaceBelow
+          const maxHeight = Math.max(120, Math.min(dropdownHeight, space - 8))
+          this.setData({ openUp, dropdownMaxHeight: `${maxHeight}px` })
+        })
+        .exec()
     },
     onSelect(e) {
       const { value, label } = e.currentTarget.dataset

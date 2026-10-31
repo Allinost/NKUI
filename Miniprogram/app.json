@@ -9,6 +9,7 @@
   "usingComponents": {
     "nk-button": "/components/nk-button/nk-button",
     "nk-input": "/components/nk-input/nk-input",
+    "nk-textarea": "/components/nk-textarea/nk-textarea",
     "nk-tag": "/components/nk-tag/nk-tag",
     "nk-badge": "/components/nk-badge/nk-badge",
     "nk-loading": "/components/nk-loading/nk-loading",

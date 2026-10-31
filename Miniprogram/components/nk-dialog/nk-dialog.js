@@ -9,7 +9,12 @@ Component({
     loading: { type: Boolean, value: false },
   },
   methods: {
-    onMaskTap() { if (this.data.maskClosable) this.close() },
+    onMaskTap(e) {
+      // Tap events bubble, so only treat taps that land directly on the mask
+      // (not on the dialog content) as mask clicks.
+      if (e.target !== e.currentTarget) return
+      if (this.data.maskClosable) this.close()
+    },
     onConfirm() { this.triggerEvent('confirm') },
     onCancel() { this.close() },
     close() {

@@ -32,6 +32,9 @@ Component({
       this.setData({ isFocused: false, focused: false })
       this.triggerEvent('blur', e)
     },
+    onConfirm(e) {
+      this.triggerEvent('confirm', e)
+    },
     onClear() {
       this.setData({ inputValue: '' })
       this.triggerEvent('input', { value: '' })

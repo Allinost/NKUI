@@ -24,6 +24,9 @@
   box-shadow: 0 8rpx 24rpx rgba(0,0,0,0.1);
   max-height: 512rpx; overflow-y: auto; z-index: 500;
 }
+.nk-select--open-up .nk-select__dropdown {
+  top: auto; bottom: calc(100% + 8rpx);
+}
 
 .nk-select__option {
   display: flex; align-items: center; justify-content: space-between;

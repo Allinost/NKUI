@@ -1,0 +1,36 @@
+@import '/styles/tokens.wxss';
+
+.nk-textarea { display: flex; flex-direction: column; gap: 8rpx; width: 100%; }
+
+.nk-textarea__label { font-size: 24rpx; color: var(--nk-color-neutral-700, #616161); font-weight: 500; }
+
+.nk-textarea__wrapper {
+  display: flex; align-items: flex-start;
+  border: 2rpx solid var(--nk-color-neutral-300, #E0E0E0);
+  background: var(--nk-color-neutral-0, #FFFFFF);
+  border-radius: 8rpx;
+  transition: border-color 0.15s;
+}
+
+.nk-textarea--focused .nk-textarea__wrapper {
+  border-color: var(--nk-color-primary-500, #2196F3);
+}
+
+.nk-textarea--error .nk-textarea__wrapper { border-color: var(--nk-color-error, #F44336); }
+.nk-textarea--disabled .nk-textarea__wrapper { background: var(--nk-color-neutral-100, #F5F5F5); border-color: var(--nk-color-neutral-200, #EEEEEE); }
+
+.nk-textarea__inner {
+  flex: 1; border: none; outline: none; background: transparent;
+  font-family: inherit; color: var(--nk-color-neutral-900, #212121); min-width: 0;
+  box-sizing: border-box; line-height: 1.5; min-height: 120rpx;
+}
+
+.nk-textarea--sm .nk-textarea__inner { font-size: 24rpx; padding: 12rpx 16rpx; }
+.nk-textarea--md .nk-textarea__inner { font-size: 28rpx; padding: 16rpx 24rpx; }
+.nk-textarea--lg .nk-textarea__inner { font-size: 32rpx; padding: 20rpx 32rpx; }
+
+.nk-textarea__clear {
+  display: flex; align-items: center; padding: 16rpx; flex-shrink: 0;
+}
+
+.nk-textarea__error { font-size: 20rpx; color: var(--nk-color-error, #F44336); }

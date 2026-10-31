@@ -14,6 +14,7 @@
         error="{{usernameError}}"
         disabled="{{disabled}}"
         bind:input="onUsernameInput"
+        bind:confirm="onSubmit"
       />
     </view>
     <view class="nk-login__field">
@@ -26,7 +27,15 @@
         error="{{passwordError}}"
         disabled="{{disabled}}"
         bind:input="onPasswordInput"
+        bind:confirm="onSubmit"
       />
+    </view>
+    <view class="nk-login__options">
+      <label class="nk-login__remember">
+        <checkbox class="nk-login__checkbox" checked="{{rememberMe}}" bindchange="onRememberChange" />
+        <text class="nk-login__remember-text">{{rememberMeLabel}}</text>
+      </label>
+      <view class="nk-login__extra"><slot name="extra" /></view>
     </view>
     <view class="nk-login__actions">
       <nk-button type="{{submitType}}" variant="solid" size="{{size}}" block loading="{{loading}}" disabled="{{disabled}}" bind:click="onSubmit">

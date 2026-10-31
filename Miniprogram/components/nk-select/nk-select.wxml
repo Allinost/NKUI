@@ -1,9 +1,9 @@
-<view class="nk-select nk-select--{{size}} {{disabled ? 'nk-select--disabled' : ''}}">
+<view class="nk-select nk-select--{{size}} {{openUp ? 'nk-select--open-up' : ''}} {{disabled ? 'nk-select--disabled' : ''}}">
   <view class="nk-select__trigger" bindtap="onToggle">
     <text class="nk-select__value {{displayText ? '' : 'nk-select--placeholder'}}">{{displayText || placeholder}}</text>
     <nk-icon name="arrow-left" size="xs" class="nk-select__arrow {{isOpen ? 'nk-select__arrow--open' : ''}}" />
   </view>
-  <view wx:if="{{isOpen}}" class="nk-select__dropdown">
+  <view wx:if="{{isOpen}}" class="nk-select__dropdown" style="max-height: {{dropdownMaxHeight}};">
     <view
       wx:for="{{options}}" wx:key="value"
       class="nk-select__option {{item.value === value ? 'nk-select__option--selected' : ''}} {{item.disabled ? 'nk-select__option--disabled' : ''}}"
