@@ -14,7 +14,7 @@
         v-else
         class="nk-pagination__btn"
         :class="{ 'nk-pagination__btn--active': page === modelValue }"
-        @click="go(page)"
+        @click="go(Number(page))"
       >{{ page }}</button>
     </template>
 

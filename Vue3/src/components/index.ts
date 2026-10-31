@@ -85,8 +85,15 @@ const components = [
   NkTodoTask, NkTodoTaskList,
 ]
 
-export function install(app: App) {
-  components.forEach(c => app.component(c.name ?? c.__name, c))
+type AppLike = {
+  component: (name: string, component: any) => any
+}
+
+export function install(app: AppLike) {
+  components.forEach(c => {
+    const name = c.name ?? c.__name
+    if (name) app.component(name, c)
+  })
 }
 
 export {
