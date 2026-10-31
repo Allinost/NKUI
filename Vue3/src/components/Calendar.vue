@@ -199,10 +199,10 @@ $sizes: (
 
     &--selected {
       background: $nk-color-primary-500;
-      color: #fff;
+      color: $nk-color-on-primary;
     }
 
-    &--selected &__day { color: #fff; }
+    &--selected &__day { color: $nk-color-on-primary; }
 
     &--disabled {
       opacity: $nk-opacity-disabled;

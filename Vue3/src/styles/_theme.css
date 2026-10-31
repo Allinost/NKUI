@@ -43,6 +43,14 @@
   --nk-color-error-rgb:   244, 67, 54;
   --nk-color-info-rgb:    33, 150, 243;
 
+  --nk-color-on-primary: #FFFFFF;
+  --nk-color-on-success: #FFFFFF;
+  --nk-color-on-warning: #FFFFFF;
+  --nk-color-on-error: #FFFFFF;
+  --nk-color-on-info: #FFFFFF;
+  --nk-color-on-accent: #FFFFFF;
+  --nk-color-on-neutral: #FFFFFF;
+
   --nk-toast-bg-rgb: 0, 0, 0;
   --nk-toast-text: #FFFFFF;
 
@@ -101,6 +109,14 @@
   --nk-color-warning-rgb: 255, 183, 77;
   --nk-color-error-rgb:   229, 115, 115;
   --nk-color-info-rgb:    100, 181, 246;
+
+  --nk-color-on-primary: #121212;
+  --nk-color-on-success: #121212;
+  --nk-color-on-warning: #121212;
+  --nk-color-on-error: #121212;
+  --nk-color-on-info: #121212;
+  --nk-color-on-accent: #121212;
+  --nk-color-on-neutral: #121212;
 
   --nk-toast-bg-rgb: 255, 255, 255;
   --nk-toast-text: #212121;

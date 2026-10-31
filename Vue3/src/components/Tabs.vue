@@ -131,7 +131,7 @@ $sizes: (
 
       &--active {
         background: $nk-color-primary-500;
-        color: #fff;
+        color: $nk-color-on-primary;
       }
     }
   }

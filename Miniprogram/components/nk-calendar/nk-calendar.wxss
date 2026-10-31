@@ -44,5 +44,5 @@
 .nk-calendar__cell--empty { }
 .nk-calendar__cell--today .nk-calendar__day { font-weight: 700; color: var(--nk-color-primary-500, #2196F3); }
 .nk-calendar__cell--selected { background: var(--nk-color-primary-500, #2196F3); }
-.nk-calendar__cell--selected .nk-calendar__day { color: #FFFFFF; }
+.nk-calendar__cell--selected .nk-calendar__day { color: var(--nk-color-on-primary, #FFFFFF); }
 .nk-calendar__cell--disabled { opacity: 0.38; }

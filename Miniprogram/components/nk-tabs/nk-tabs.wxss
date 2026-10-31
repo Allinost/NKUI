@@ -41,7 +41,7 @@
   background: var(--nk-color-neutral-50, #FAFAFA);
 }
 .nk-tabs--segment .nk-tabs__tab--active {
-  background: var(--nk-color-primary-500, #2196F3); color: #FFFFFF;
+  background: var(--nk-color-primary-500, #2196F3); color: var(--nk-color-on-primary, #FFFFFF);
 }
 
 .nk-tabs__body { padding-top: 32rpx; }

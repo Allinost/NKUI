@@ -14,7 +14,7 @@
   box-shadow: 0 8rpx 24rpx rgba(0,0,0,0.15);
 }
 
-.nk-toast--info { background: var(--nk-color-neutral-900, #212121); color: #FFFFFF; }
-.nk-toast--success { background: #4CAF50; color: #FFFFFF; }
-.nk-toast--warning { background: #FF9800; color: #FFFFFF; }
-.nk-toast--error { background: #F44336; color: #FFFFFF; }
+.nk-toast--info { background: var(--nk-color-neutral-900, #212121); color: var(--nk-color-on-neutral, #FFFFFF); }
+.nk-toast--success { background: var(--nk-color-success, #4CAF50); color: var(--nk-color-on-success, #FFFFFF); }
+.nk-toast--warning { background: var(--nk-color-warning, #FF9800); color: var(--nk-color-on-warning, #FFFFFF); }
+.nk-toast--error { background: var(--nk-color-error, #F44336); color: var(--nk-color-on-error, #FFFFFF); }

@@ -79,7 +79,7 @@ $sizes: (
   }
 
   &__icon {
-    color: #fff;
+    color: $nk-color-on-primary;
     font-size: 12px;
     font-weight: $nk-font-weight-bold;
     line-height: 1;

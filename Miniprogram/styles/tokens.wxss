@@ -31,6 +31,14 @@ page {
   --nk-color-warning: #FF9800;
   --nk-color-error: #F44336;
   --nk-color-info: #2196F3;
+
+  --nk-color-on-primary: #FFFFFF;
+  --nk-color-on-success: #FFFFFF;
+  --nk-color-on-warning: #FFFFFF;
+  --nk-color-on-error: #FFFFFF;
+  --nk-color-on-info: #FFFFFF;
+  --nk-color-on-accent: #FFFFFF;
+  --nk-color-on-neutral: #FFFFFF;
 }
 
 /* Dark mode via class */
@@ -63,6 +71,14 @@ page {
   --nk-color-warning: #FFB74D;
   --nk-color-error: #E57373;
   --nk-color-info: #64B5F6;
+
+  --nk-color-on-primary: #121212;
+  --nk-color-on-success: #121212;
+  --nk-color-on-warning: #121212;
+  --nk-color-on-error: #121212;
+  --nk-color-on-info: #121212;
+  --nk-color-on-accent: #121212;
+  --nk-color-on-neutral: #121212;
 }
 
 /* Dark mode via system preference */

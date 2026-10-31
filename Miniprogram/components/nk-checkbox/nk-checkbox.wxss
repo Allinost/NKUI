@@ -18,7 +18,7 @@
 .nk-checkbox--md .nk-checkbox__box { width: 32rpx; height: 32rpx; }
 .nk-checkbox--lg .nk-checkbox__box { width: 40rpx; height: 40rpx; }
 
-.nk-checkbox__icon { color: #fff; font-size: 20rpx; font-weight: 700; line-height: 1; }
+.nk-checkbox__icon { color: var(--nk-color-on-primary, #FFFFFF); font-size: 20rpx; font-weight: 700; line-height: 1; }
 .nk-checkbox__label { color: var(--nk-color-neutral-800, #424242); }
 
 .nk-checkbox--sm .nk-checkbox__label { font-size: 24rpx; }

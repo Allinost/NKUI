@@ -84,10 +84,10 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   &--center { top: 50%; transform: translate(-50%, -50%); }
   &--bottom { bottom: $nk-spacing-2xl; }
 
-  &--success { background: rgba(var(--nk-color-success-rgb), 0.9); color: #fff; }
-  &--warning { background: rgba(var(--nk-color-warning-rgb), 0.9); color: #fff; }
-  &--error { background: rgba(var(--nk-color-error-rgb), 0.9); color: #fff; }
-  &--info { background: rgba(var(--nk-color-info-rgb), 0.9); color: #fff; }
+  &--success { background: rgba(var(--nk-color-success-rgb), 0.9); color: $nk-color-on-success; }
+  &--warning { background: rgba(var(--nk-color-warning-rgb), 0.9); color: $nk-color-on-warning; }
+  &--error { background: rgba(var(--nk-color-error-rgb), 0.9); color: $nk-color-on-error; }
+  &--info { background: rgba(var(--nk-color-info-rgb), 0.9); color: $nk-color-on-info; }
   &--loading { background: rgba(var(--nk-toast-bg-rgb), 0.78); color: var(--nk-toast-text); }
   &--text { background: rgba(var(--nk-toast-bg-rgb), 0.78); color: var(--nk-toast-text); }
 

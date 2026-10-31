@@ -85,18 +85,18 @@ const displayValue = computed(() => {
   }
 
   $types: (
-    'primary': $nk-color-primary-500,
-    'success': $nk-color-success,
-    'warning': $nk-color-warning,
-    'danger': $nk-color-error,
-    'info': $nk-color-info,
-    'accent': $nk-color-accent,
+    'primary': (bg: $nk-color-primary-500, on: $nk-color-on-primary),
+    'success': (bg: $nk-color-success, on: $nk-color-on-success),
+    'warning': (bg: $nk-color-warning, on: $nk-color-on-warning),
+    'danger': (bg: $nk-color-error, on: $nk-color-on-error),
+    'info': (bg: $nk-color-info, on: $nk-color-on-info),
+    'accent': (bg: $nk-color-accent, on: $nk-color-on-accent),
   );
 
-  @each $type, $color in $types {
+  @each $type, $map in $types {
     &--#{$type} {
-      background: $color;
-      color: #fff;
+      background: map.get($map, bg);
+      color: map.get($map, on);
     }
   }
 }

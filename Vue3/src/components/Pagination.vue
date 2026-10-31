@@ -111,6 +111,7 @@ $sizes: (
     justify-content: center;
     border: 1px solid $nk-color-neutral-200;
     background: $nk-color-neutral-0;
+    color: $nk-color-neutral-800;
     cursor: pointer;
     border-radius: $nk-radius-sm;
     transition: all $nk-duration-fast;
@@ -123,7 +124,7 @@ $sizes: (
 
     &--active {
       background: $nk-color-primary-500;
-      color: #fff;
+      color: $nk-color-on-primary;
       border-color: $nk-color-primary-500;
     }
 

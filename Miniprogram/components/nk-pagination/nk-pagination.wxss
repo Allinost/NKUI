@@ -19,7 +19,7 @@
 .nk-pagination--lg .nk-pagination__btn { min-width: 80rpx; height: 80rpx; font-size: 28rpx; }
 
 .nk-pagination__btn--active {
-  background: var(--nk-color-primary-500, #2196F3); color: #FFFFFF; border-color: var(--nk-color-primary-500, #2196F3);
+  background: var(--nk-color-primary-500, #2196F3); color: var(--nk-color-on-primary, #FFFFFF); border-color: var(--nk-color-primary-500, #2196F3);
 }
 .nk-pagination__btn--disabled { opacity: 0.38; }
 

@@ -53,12 +53,12 @@ $sizes: (
 );
 
 $types: (
-  'primary': $nk-color-primary-500,
-  'success': $nk-color-success,
-  'warning': $nk-color-warning,
-  'danger': $nk-color-error,
-  'neutral': $nk-color-neutral-800,
-  'accent': $nk-color-accent,
+  'primary': (bg: $nk-color-primary-500, on: $nk-color-on-primary),
+  'success': (bg: $nk-color-success, on: $nk-color-on-success),
+  'warning': (bg: $nk-color-warning, on: $nk-color-on-warning),
+  'danger': (bg: $nk-color-error, on: $nk-color-on-error),
+  'neutral': (bg: $nk-color-neutral-800, on: $nk-color-on-neutral),
+  'accent': (bg: $nk-color-accent, on: $nk-color-on-accent),
 );
 
 .nk-btn {
@@ -111,11 +111,14 @@ $types: (
     }
   }
 
-  @each $type, $color in $types {
+  @each $type, $map in $types {
+    $color: map.get($map, bg);
+    $on-color: map.get($map, on);
+
     &--#{$type} {
       &.nk-btn--solid {
         background: $color;
-        color: #fff;
+        color: $on-color;
         border-color: $color;
 
         &:hover:not(:disabled) {
