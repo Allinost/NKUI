@@ -1,7 +1,7 @@
 <template>
   <label
     class="nk-radio"
-    :class="[`nk-radio--${size}`, { 'nk-radio--checked': modelValue, 'nk-radio--disabled': disabled }]"
+    :class="[`nk-radio--${size}`, { 'nk-radio--checked': isChecked, 'nk-radio--disabled': disabled }]"
   >
     <span class="nk-radio__circle">
       <span class="nk-radio__dot" />
@@ -10,7 +10,7 @@
     <input
       type="radio"
       class="nk-radio__input"
-      :checked="modelValue"
+      :checked="isChecked"
       :disabled="disabled"
       :value="value"
       @change="onChange"
@@ -19,26 +19,37 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
 defineOptions({ name: 'NkRadio' })
 
 const props = withDefaults(defineProps<{
-  modelValue?: boolean
+  modelValue?: string | number | boolean
   disabled?: boolean
   size?: 'sm' | 'md' | 'lg'
   label?: string
-  value?: any
+  value?: string | number | boolean
 }>(), {
   modelValue: false,
   disabled: false,
   size: 'md',
 })
 
-const emit = defineEmits<{ 'update:modelValue': [value: boolean]; change: [value: boolean] }>()
+const isChecked = computed(() =>
+  props.value === undefined ? !!props.modelValue : props.modelValue === props.value
+)
+
+const emit = defineEmits<{
+  'update:modelValue': [value: string | number | boolean]
+  change: [value: string | number | boolean]
+}>()
 
 function onChange(e: Event) {
   const checked = (e.target as HTMLInputElement).checked
-  emit('update:modelValue', checked)
-  emit('change', checked)
+  if (!checked) return
+  const next = props.value === undefined ? true : props.value
+  emit('update:modelValue', next)
+  emit('change', next)
 }
 </script>
 

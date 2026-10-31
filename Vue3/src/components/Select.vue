@@ -22,7 +22,7 @@
       </span>
     </div>
     <Transition name="nk-select-dropdown">
-      <div v-if="isOpen" class="nk-select__dropdown" :style="dropdownStyle">
+      <div v-if="isOpen" class="nk-select__dropdown" :class="{ 'nk-select__dropdown--up': placement.up }" :style="dropdownStyle">
         <div
           v-for="opt in filteredOptions"
           :key="opt.value"
@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import NkIcon from './Icon.vue'
 
 export interface SelectOption {
@@ -99,9 +99,46 @@ const filteredOptions = computed(() => {
   return props.options.filter(o => o.label.toLowerCase().includes(q))
 })
 
+const dropdownMaxHeight = 256
+const tick = ref(0)
+
+function recompute() {
+  if (isOpen.value) tick.value++
+}
+
+// Flip the dropdown upward when there is not enough space below the trigger,
+// and cap its height to the available space so it is never clipped.
+const placement = computed(() => {
+  if (!isOpen.value || !triggerRef.value) return { up: false, maxHeight: dropdownMaxHeight }
+  void tick.value
+  const rect = triggerRef.value.getBoundingClientRect()
+  const spaceBelow = window.innerHeight - rect.bottom
+  const spaceAbove = rect.top
+  const up = spaceBelow < dropdownMaxHeight && spaceAbove > spaceBelow
+  const maxHeight = Math.max(80, Math.min(dropdownMaxHeight, (up ? spaceAbove : spaceBelow) - 8))
+  return { up, maxHeight }
+})
+
 const dropdownStyle = computed(() => {
-  if (!triggerRef.value) return {}
-  return { minWidth: `${triggerRef.value.offsetWidth}px` }
+  if (!triggerRef.value || !isOpen.value) return {}
+  const p = placement.value
+  return {
+    minWidth: `${triggerRef.value.offsetWidth}px`,
+    maxHeight: `${p.maxHeight}px`,
+    ...(p.up ? { bottom: 'calc(100% + 4px)' } : {}),
+  }
+})
+
+watch(isOpen, (v) => { if (v) nextTick(recompute) })
+
+onMounted(() => {
+  window.addEventListener('resize', recompute)
+  window.addEventListener('scroll', recompute, true)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', recompute)
+  window.removeEventListener('scroll', recompute, true)
 })
 
 function toggle() {
@@ -222,6 +259,11 @@ $sizes: (
     z-index: $nk-z-dropdown;
   }
 
+  &__dropdown--up {
+    top: auto;
+    bottom: calc(100% + 4px);
+  }
+
   &__option {
     display: flex;
     align-items: center;
@@ -249,4 +291,6 @@ $sizes: (
 .nk-select-dropdown-leave-active { transition: all 0.2s ease; }
 .nk-select-dropdown-enter-from,
 .nk-select-dropdown-leave-to { opacity: 0; transform: translateY(-4px); }
+.nk-select__dropdown--up.nk-select-dropdown-enter-from,
+.nk-select__dropdown--up.nk-select-dropdown-leave-to { transform: translateY(4px); }
 </style>

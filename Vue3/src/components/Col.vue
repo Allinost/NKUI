@@ -63,16 +63,29 @@ const colStyle = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  'xxl': 1536px,
+);
+
 .nk-col {
   box-sizing: border-box;
+  padding-left: calc(var(--nk-row-gutter, 0px) / 2);
+  padding-right: calc(var(--nk-row-gutter, 0px) / 2);
 
+  // Default (xs, <640px) row/col behavior
   @for $i from 0 through 24 {
-    &--#{$i} {
+    &--#{$i},
+    &--xs-#{$i} {
       flex: 0 0 calc(100% / 24 * #{$i});
       max-width: calc(100% / 24 * #{$i});
     }
 
-    &--offset-#{$i} {
+    &--offset-#{$i},
+    &--offset-xs-#{$i} {
       margin-left: calc(100% / 24 * #{$i});
     }
 
@@ -84,6 +97,22 @@ const colStyle = computed(() => {
     &--pull-#{$i} {
       position: relative;
       right: calc(100% / 24 * #{$i});
+    }
+  }
+
+  // Responsive breakpoints: sm ≥640px, md ≥768px, lg ≥1024px, xl ≥1280px, xxl ≥1536px
+  @each $bp, $min-width in $breakpoints {
+    @media (min-width: #{$min-width}) {
+      @for $i from 0 through 24 {
+        &--#{$bp}-#{$i} {
+          flex: 0 0 calc(100% / 24 * #{$i});
+          max-width: calc(100% / 24 * #{$i});
+        }
+
+        &--offset-#{$bp}-#{$i} {
+          margin-left: calc(100% / 24 * #{$i});
+        }
+      }
     }
   }
 }

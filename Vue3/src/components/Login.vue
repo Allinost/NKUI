@@ -6,10 +6,12 @@
       </slot>
       <p v-if="subtitle" class="nk-login__subtitle">{{ subtitle }}</p>
     </div>
-    <div class="nk-login__form">
+    <form class="nk-login__form" @submit.prevent="onSubmit">
       <div class="nk-login__field">
         <Input
           v-model="formData.username"
+          name="username"
+          autocomplete="username"
           :placeholder="usernamePlaceholder"
           :size="inputSize"
           :label="usernameLabel"
@@ -23,6 +25,8 @@
         <Input
           v-model="formData.password"
           type="password"
+          name="current-password"
+          autocomplete="current-password"
           :placeholder="passwordPlaceholder"
           :size="inputSize"
           :label="passwordLabel"
@@ -32,8 +36,19 @@
           @update:model-value="onFieldChange('password', $event)"
         />
       </div>
-      <div v-if="$slots.extra" class="nk-login__extra">
-        <slot name="extra" />
+      <div class="nk-login__options">
+        <label class="nk-login__remember">
+          <input
+            type="checkbox"
+            class="nk-login__checkbox"
+            :checked="rememberMe"
+            @change="onRememberChange"
+          />
+          <span class="nk-login__remember-text">{{ rememberMeLabel }}</span>
+        </label>
+        <div v-if="$slots.extra" class="nk-login__extra">
+          <slot name="extra" />
+        </div>
       </div>
       <div class="nk-login__actions">
         <Button
@@ -48,7 +63,7 @@
           {{ submitText }}
         </Button>
       </div>
-    </div>
+    </form>
     <div v-if="$slots.footer" class="nk-login__footer">
       <slot name="footer" />
     </div>
@@ -78,6 +93,8 @@ const props = withDefaults(defineProps<{
   passwordLabel?: string
   passwordPlaceholder?: string
   passwordIcon?: string
+  rememberMe?: boolean
+  rememberMeLabel?: string
   rules?: { username?: (v: string) => string | true; password?: (v: string) => string | true }
 }>(), {
   modelValue: () => ({ username: '', password: '' }),
@@ -95,12 +112,15 @@ const props = withDefaults(defineProps<{
   passwordLabel: '密码',
   passwordPlaceholder: '请输入密码',
   passwordIcon: '',
+  rememberMe: false,
+  rememberMeLabel: '记住密码',
   rules: () => ({}),
 })
 
 const emit = defineEmits<{
   'update:modelValue': [value: { username: string; password: string }]
-  submit: [value: { username: string; password: string }]
+  'update:rememberMe': [value: boolean]
+  submit: [value: { username: string; password: string; rememberMe: boolean }]
 }>()
 
 const formData = reactive({ ...props.modelValue })
@@ -136,9 +156,14 @@ function onFieldChange(field: 'username' | 'password', value: string) {
   emit('update:modelValue', { ...formData })
 }
 
+function onRememberChange(e: Event) {
+  const checked = (e.target as HTMLInputElement).checked
+  emit('update:rememberMe', checked)
+}
+
 function onSubmit() {
   if (!validate()) return
-  emit('submit', { ...formData })
+  emit('submit', { ...formData, rememberMe: props.rememberMe })
 }
 </script>
 
@@ -202,6 +227,33 @@ $sizes: (
   &__field {
     display: flex;
     flex-direction: column;
+  }
+
+  &__options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__remember {
+    display: flex;
+    align-items: center;
+    gap: $nk-spacing-xs;
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    width: 16px;
+    height: 16px;
+    accent-color: $nk-color-primary-500;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  &__remember-text {
+    font-size: $nk-font-size-sm;
+    color: $nk-color-neutral-600;
+    user-select: none;
   }
 
   &__extra {

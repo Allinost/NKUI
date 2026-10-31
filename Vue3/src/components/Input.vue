@@ -6,12 +6,13 @@
       { 'nk-input--disabled': disabled, 'nk-input--error': !!error, 'nk-input--focused': isFocused }
     ]"
   >
-    <label v-if="label" class="nk-input__label">{{ label }}</label>
+    <label v-if="label" class="nk-input__label" :for="inputId">{{ label }}</label>
     <div class="nk-input__wrapper">
       <span v-if="prefixIcon" class="nk-input__prefix">
         <nk-icon :name="prefixIcon" size="sm" />
       </span>
       <input
+        :id="inputId"
         ref="inputRef"
         class="nk-input__inner"
         :type="type"
@@ -20,6 +21,8 @@
         :disabled="disabled"
         :readonly="readonly"
         :maxlength="maxlength"
+        :name="name"
+        :autocomplete="autocomplete"
         @input="onInput"
         @focus="onFocus"
         @blur="onBlur"
@@ -45,9 +48,11 @@ import NkIcon from './Icon.vue'
 
 defineOptions({ name: 'NkInput' })
 
+let inputIdCounter = 0
+
 const props = withDefaults(defineProps<{
   modelValue?: string
-  type?: 'text' | 'password'
+  type?: 'text' | 'password' | 'number'
   size?: 'sm' | 'md' | 'lg'
   placeholder?: string
   disabled?: boolean
@@ -58,6 +63,8 @@ const props = withDefaults(defineProps<{
   prefixIcon?: string
   suffixIcon?: string
   maxlength?: number
+  name?: string
+  autocomplete?: string
 }>(), {
   modelValue: '',
   type: 'text',
@@ -66,6 +73,8 @@ const props = withDefaults(defineProps<{
   disabled: false,
   readonly: false,
   clearable: false,
+  name: '',
+  autocomplete: '',
 })
 
 const emit = defineEmits<{
@@ -77,6 +86,7 @@ const emit = defineEmits<{
 
 const isFocused = ref(false)
 const inputRef = ref<HTMLInputElement>()
+const inputId = `nk-input-${++inputIdCounter}`
 
 function onInput(e: Event) {
   emit('update:modelValue', (e.target as HTMLInputElement).value)

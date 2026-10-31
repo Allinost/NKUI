@@ -7,7 +7,7 @@
           <p>版本 1.0.0-alpha · 共 45 个组件</p>
         </div>
         <button class="theme-toggle" @click="toggleTheme">
-          <Icon :name="theme === 'dark' ? 'sun' : 'moon'" size="20" />
+          <Icon :name="theme === 'dark' ? 'sun' : 'moon'" size="md" />
         </button>
       </div>
     </header>
@@ -48,12 +48,12 @@
     <section class="demo-section">
       <h2>Input</h2>
       <Row :gutter="16">
-        <Col :span="8"><Input v-model="v" placeholder="Basic" /></Col>
-        <Col :span="8"><Input v-model="v" label="用户名" placeholder="With label" /></Col>
-        <Col :span="8"><Input v-model="v" placeholder="Clearable" clearable /></Col>
-        <Col :span="8"><Input v-model="v" placeholder="With prefix" prefix-icon="search" /></Col>
-        <Col :span="8"><Input v-model="v" placeholder="Error" error="请输入有效内容" /></Col>
-        <Col :span="8"><Input v-model="v" placeholder="Disabled" disabled /></Col>
+        <Col :span="24" :sm="12" :lg="8"><Input v-model="v" placeholder="Basic" /></Col>
+        <Col :span="24" :sm="12" :lg="8"><Input v-model="v" label="用户名" placeholder="With label" /></Col>
+        <Col :span="24" :sm="12" :lg="8"><Input v-model="v" placeholder="Clearable" clearable /></Col>
+        <Col :span="24" :sm="12" :lg="8"><Input v-model="v" placeholder="With prefix" prefix-icon="search" /></Col>
+        <Col :span="24" :sm="12" :lg="8"><Input v-model="v" placeholder="Error" error="请输入有效内容" /></Col>
+        <Col :span="24" :sm="12" :lg="8"><Input v-model="v" placeholder="Disabled" disabled /></Col>
       </Row>
     </section>
 
@@ -115,13 +115,13 @@
     <section class="demo-section">
       <h2>Select</h2>
       <Row :gutter="16">
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Select v-model="sel" :options="selOpts" placeholder="Basic select" />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Select v-model="selM" :options="selOpts" multiple placeholder="Multiple" />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Select v-model="sel" :options="selOpts" filterable placeholder="Searchable" />
         </Col>
       </Row>
@@ -142,17 +142,17 @@
     <section class="demo-section">
       <h2>Card</h2>
       <Row :gutter="16">
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Card variant="outlined">
             <p>Outlined card with some content</p>
           </Card>
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Card variant="elevated" hoverable>
             <p>Elevated hoverable card</p>
           </Card>
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Card variant="flat" hoverable>
             <template #header>卡片标题</template>
             <p>Card with header and footer</p>
@@ -175,19 +175,19 @@
       </Space>
     </section>
 
-    <!-- Row/Col -->
+<!-- Row/Col -->
     <section class="demo-section">
-      <h2>Grid (Row/Col)</h2>
+      <h2>Grid (Row/Col) <Tag>响应式</Tag></h2>
       <Row :gutter="16">
-        <Col :span="6"><div class="grid-box">6</div></Col>
-        <Col :span="6"><div class="grid-box">6</div></Col>
-        <Col :span="6"><div class="grid-box">6</div></Col>
-        <Col :span="6"><div class="grid-box">6</div></Col>
+        <Col :span="24" :sm="12" :md="6"><div class="grid-box">xs 24 · sm 12 · md 6</div></Col>
+        <Col :span="24" :sm="12" :md="6"><div class="grid-box">xs 24 · sm 12 · md 6</div></Col>
+        <Col :span="24" :sm="12" :md="6"><div class="grid-box">xs 24 · sm 12 · md 6</div></Col>
+        <Col :span="24" :sm="12" :md="6"><div class="grid-box">xs 24 · sm 12 · md 6</div></Col>
       </Row>
       <Row :gutter="16" style="margin-top:8px">
-        <Col :span="8"><div class="grid-box">8</div></Col>
-        <Col :span="8"><div class="grid-box">8</div></Col>
-        <Col :span="8"><div class="grid-box">8</div></Col>
+        <Col :span="24" :sm="8"><div class="grid-box">xs 24 · sm 8</div></Col>
+        <Col :span="24" :sm="8"><div class="grid-box">xs 24 · sm 8</div></Col>
+        <Col :span="24" :sm="8"><div class="grid-box">xs 24 · sm 8</div></Col>
       </Row>
     </section>
 
@@ -211,9 +211,9 @@
     <section class="demo-section">
       <h2>Skeleton</h2>
       <Row :gutter="16">
-        <Col :span="8"><Skeleton variant="paragraph" :rows="4" /></Col>
-        <Col :span="4"><Skeleton variant="avatar" size="lg" /></Col>
-        <Col :span="8"><Skeleton variant="image" height="120px" /></Col>
+        <Col :span="24" :md="8"><Skeleton variant="paragraph" :rows="4" /></Col>
+        <Col :span="24" :md="4"><Skeleton variant="avatar" size="lg" /></Col>
+        <Col :span="24" :md="8"><Skeleton variant="image" height="120px" /></Col>
       </Row>
     </section>
 
@@ -324,13 +324,13 @@
     <section class="demo-section">
       <h2>Login <Tag>登录表单</Tag></h2>
       <Row :gutter="16">
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Login size="sm" variant="card" @submit="onLoginSubmit" />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Login size="md" variant="card" title="欢迎回来" subtitle="请输入您的账号信息" @submit="onLoginSubmit" />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Login size="lg" variant="plain" submit-text="Sign In" submit-type="accent" @submit="onLoginSubmit" />
         </Col>
       </Row>
@@ -340,13 +340,13 @@
     <section class="demo-section">
       <h2>Register <Tag>注册表单</Tag></h2>
       <Row :gutter="16">
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Register size="sm" variant="card" @submit="onRegisterSubmit" />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Register size="md" variant="card" title="创建账号" subtitle="填写信息完成注册" @submit="onRegisterSubmit" />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Register size="lg" variant="plain" submit-text="Sign Up" submit-type="accent" @submit="onRegisterSubmit" />
         </Col>
       </Row>
@@ -356,14 +356,14 @@
     <section class="demo-section">
       <h2>Profile <Tag>个人信息</Tag></h2>
       <Row :gutter="16">
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Profile name="张三" title="高级工程师" email="zhangsan@example.com" size="sm" />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Profile name="李四" title="产品经理" email="lisi@example.com" size="md" variant="elevated"
             :stats="[{label:'项目',value:12},{label:'团队',value:3},{label:'动态',value:48}]" />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Profile name="王五" title="UI 设计师" email="wangwu@example.com" size="lg" variant="flat"
             :stats="[{label:'作品',value:86},{label:'粉丝',value:234},{label:'点赞',value:1024}]" />
         </Col>
@@ -374,13 +374,13 @@
     <section class="demo-section">
       <h2>List <Tag>列表组件</Tag></h2>
       <Row :gutter="16">
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <List :data="listData" size="sm" @item-click="onListItemClick" />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <List :data="listData" size="md" bordered :item-avatar="'avatar'" :item-arrow="true" @item-click="onListItemClick" />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <List :data="[]" empty-text="暂无数据，请稍后再试" />
         </Col>
       </Row>
@@ -396,16 +396,16 @@
     <section class="demo-section">
       <h2>BottomTab</h2>
       <BottomTab :items="[
-        { key: 'home', label: '首页', icon: 'home' },
-        { key: 'search', label: '搜索', icon: 'search' },
-        { key: 'user', label: '我的', icon: 'user' },
+        { value: 'home', label: '首页', icon: 'home' },
+        { value: 'search', label: '搜索', icon: 'search' },
+        { value: 'user', label: '我的', icon: 'user' },
       ]" />
       <Divider />
       <h3>Fixed at bottom</h3>
       <BottomTab :items="[
-        { key: 'home', label: '首页', icon: 'home' },
-        { key: 'search', label: '搜索', icon: 'search' },
-        { key: 'user', label: '我的', icon: 'user' },
+        { value: 'home', label: '首页', icon: 'home' },
+        { value: 'search', label: '搜索', icon: 'search' },
+        { value: 'user', label: '我的', icon: 'user' },
       ]" fixed />
     </section>
 
@@ -455,7 +455,7 @@
     <section class="demo-section">
       <h2>Weather</h2>
       <Row :gutter="16">
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Weather
             city="北京"
             temperature="26"
@@ -466,7 +466,7 @@
             :temp-low="18"
           />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Weather
             city="上海"
             temperature="22"
@@ -474,7 +474,7 @@
             size="sm"
           />
         </Col>
-        <Col :span="8">
+        <Col :span="24" :sm="12" :lg="8">
           <Weather loading />
         </Col>
       </Row>

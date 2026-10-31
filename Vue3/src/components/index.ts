@@ -1,6 +1,6 @@
-import type { App } from 'vue'
 import NkButton from './Button.vue'
 import NkInput from './Input.vue'
+import NkTextarea from './Textarea.vue'
 import NkIcon from './Icon.vue'
 import NkTag from './Tag.vue'
 import NkBadge from './Badge.vue'
@@ -71,7 +71,7 @@ const icons: Record<string, string> = {
 Object.entries(icons).forEach(([name, svg]) => addIcon(name, svg))
 
 const components = [
-  NkButton, NkInput, NkIcon, NkTag, NkBadge, NkLoading,
+  NkButton, NkInput, NkTextarea, NkIcon, NkTag, NkBadge, NkLoading,
   NkSwitch, NkCheckbox, NkRadio,
   NkDivider, NkSpace, NkAvatar, NkCard, NkEmpty, NkSkeleton,
   NkDialog, NkDrawer, NkSelect, NkTooltip, NkPopover,
@@ -97,7 +97,7 @@ export function install(app: AppLike) {
 }
 
 export {
-  NkButton, NkInput, NkIcon, NkTag, NkBadge, NkLoading,
+  NkButton, NkInput, NkTextarea, NkIcon, NkTag, NkBadge, NkLoading,
   NkSwitch, NkCheckbox, NkRadio,
   NkDivider, NkSpace, NkAvatar, NkCard, NkEmpty, NkSkeleton,
   NkDialog, NkDrawer, NkSelect, NkTooltip, NkPopover,

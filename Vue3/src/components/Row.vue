@@ -27,6 +27,7 @@ const margin = computed(() => {
     marginLeft: `${-g[0] / 2}px`,
     marginRight: `${-g[0] / 2}px`,
     rowGap: `${g[1]}px`,
+    '--nk-row-gutter': `${g[0]}px`,
   }
 })
 

@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <Transition name="nk-dialog-fade">
-      <div v-if="visible" class="nk-dialog__overlay" @click.self="onMaskClick">
+      <div v-if="visible" class="nk-dialog__overlay" @mousedown.self="onMaskMouseDown" @click.self="onMaskClick">
         <div class="nk-dialog" :class="[`nk-dialog--${size}`]" :style="dialogStyle">
           <div class="nk-dialog__header">
             <slot name="title">
@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import NkIcon from './Icon.vue'
 import NkButton from './Button.vue'
 
@@ -69,7 +69,16 @@ const dialogStyle = computed(() => ({
 
 function onConfirm() { emit('confirm') }
 function onCancel() { emit('cancel'); emit('update:visible', false) }
-function onMaskClick() { if (props.maskClosable) onCancel() }
+
+// Only treat a click as a mask click when the pointer press also started on the
+// mask. This prevents closing the dialog when text is selected inside the dialog
+// and the mouse is released outside of it.
+const maskPressed = ref(false)
+function onMaskMouseDown() { maskPressed.value = true }
+function onMaskClick() {
+  if (props.maskClosable && maskPressed.value) onCancel()
+  maskPressed.value = false
+}
 </script>
 
 <style lang="scss" scoped>

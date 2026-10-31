@@ -6,10 +6,12 @@
       </slot>
       <p v-if="subtitle" class="nk-register__subtitle">{{ subtitle }}</p>
     </div>
-    <div class="nk-register__form">
+    <form class="nk-register__form" @submit.prevent="onSubmit">
       <div class="nk-register__field">
         <Input
           v-model="formData.username"
+          name="username"
+          autocomplete="username"
           :placeholder="usernamePlaceholder"
           :size="inputSize"
           :label="usernameLabel"
@@ -22,6 +24,8 @@
       <div class="nk-register__field">
         <Input
           v-model="formData.email"
+          name="email"
+          autocomplete="email"
           :placeholder="emailPlaceholder"
           :size="inputSize"
           :label="emailLabel"
@@ -35,6 +39,8 @@
         <Input
           v-model="formData.password"
           type="password"
+          name="new-password"
+          autocomplete="new-password"
           :placeholder="passwordPlaceholder"
           :size="inputSize"
           :label="passwordLabel"
@@ -48,6 +54,8 @@
         <Input
           v-model="formData.confirmPassword"
           type="password"
+          name="new-password"
+          autocomplete="new-password"
           :placeholder="confirmPlaceholder"
           :size="inputSize"
           :label="confirmLabel"
@@ -73,7 +81,7 @@
           {{ submitText }}
         </Button>
       </div>
-    </div>
+    </form>
     <div v-if="$slots.footer" class="nk-register__footer">
       <slot name="footer" />
     </div>
