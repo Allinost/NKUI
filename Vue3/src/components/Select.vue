@@ -191,16 +191,17 @@ watch(filteredOptions, () => {
 onMounted(() => {
   window.addEventListener('resize', recompute)
   window.addEventListener('scroll', recompute, true)
-  document.addEventListener('mousedown', onDocumentPointerDown)
+  // pointerdown 同时覆盖鼠标、触屏与触控笔。
+  document.addEventListener('pointerdown', onDocumentPointerDown)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', recompute)
   window.removeEventListener('scroll', recompute, true)
-  document.removeEventListener('mousedown', onDocumentPointerDown)
+  document.removeEventListener('pointerdown', onDocumentPointerDown)
 })
 
-function onDocumentPointerDown(event: MouseEvent) {
+function onDocumentPointerDown(event: PointerEvent) {
   if (!isOpen.value) return
   const root = triggerRef.value
   if (root && !root.contains(event.target as Node)) close()
