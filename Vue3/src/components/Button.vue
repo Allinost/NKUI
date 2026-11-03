@@ -7,7 +7,10 @@
       `nk-btn--${size}`,
       { 'nk-btn--block': block, 'nk-btn--round': round, 'nk-btn--loading': loading }
     ]"
+    :type="nativeType"
     :disabled="disabled || loading"
+    :aria-busy="loading || undefined"
+    :aria-disabled="disabled || loading || undefined"
     @click="$emit('click', $event)"
   >
     <span v-if="loading" class="nk-btn__spinner" />
@@ -30,6 +33,7 @@ const props = withDefaults(defineProps<{
   block?: boolean
   round?: boolean
   icon?: string
+  nativeType?: 'button' | 'submit' | 'reset'
 }>(), {
   type: 'primary',
   variant: 'solid',
@@ -38,6 +42,7 @@ const props = withDefaults(defineProps<{
   loading: false,
   block: false,
   round: false,
+  nativeType: 'button',
 })
 
 defineEmits<{

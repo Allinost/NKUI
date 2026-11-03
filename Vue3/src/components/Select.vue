@@ -4,7 +4,16 @@
     :class="[`nk-select--${size}`, { 'nk-select--disabled': disabled, 'nk-select--open': isOpen, 'nk-select--error': !!error }]"
     ref="triggerRef"
   >
-    <div class="nk-select__trigger" @click="toggle">
+    <div
+      class="nk-select__trigger"
+      role="combobox"
+      aria-haspopup="listbox"
+      :aria-expanded="isOpen"
+      :aria-controls="listboxId"
+      :tabindex="disabled ? -1 : filterable ? undefined : 0"
+      @click="toggle"
+      @keydown="onTriggerKeydown"
+    >
       <input
         v-if="filterable"
         class="nk-select__search"
@@ -17,18 +26,43 @@
       <span v-else class="nk-select__value" :class="{ 'nk-select__placeholder': !displayText }">
         {{ displayText || placeholder }}
       </span>
+      <button
+        v-if="clearable && hasValue && !disabled"
+        type="button"
+        class="nk-select__clear"
+        aria-label="清空选择"
+        @click.stop="clear"
+      >
+        <nk-icon name="close" size="xs" />
+      </button>
       <span class="nk-select__arrow" :class="{ 'nk-select__arrow--open': isOpen }">
         <nk-icon name="arrow-left" size="xs" />
       </span>
     </div>
     <Transition name="nk-select-dropdown">
-      <div v-if="isOpen" class="nk-select__dropdown" :class="{ 'nk-select__dropdown--up': placement.up }" :style="dropdownStyle">
+      <div
+        v-if="isOpen"
+        :id="listboxId"
+        class="nk-select__dropdown"
+        :class="{ 'nk-select__dropdown--up': placement.up }"
+        :style="dropdownStyle"
+        role="listbox"
+        :aria-multiselectable="multiple || undefined"
+      >
         <div
-          v-for="opt in filteredOptions"
+          v-for="(opt, index) in filteredOptions"
           :key="opt.value"
           class="nk-select__option"
-          :class="{ 'nk-select__option--selected': isSelected(opt.value), 'nk-select__option--disabled': opt.disabled }"
+          :class="{
+            'nk-select__option--selected': isSelected(opt.value),
+            'nk-select__option--disabled': opt.disabled,
+            'nk-select__option--active': index === activeIndex,
+          }"
+          role="option"
+          :aria-selected="isSelected(opt.value)"
+          :aria-disabled="opt.disabled || undefined"
           @click="select(opt)"
+          @mouseenter="activeIndex = index"
         >
           <span>{{ opt.label }}</span>
           <nk-icon v-if="isSelected(opt.value)" name="check" size="sm" color="#2196F3" />
@@ -40,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, nextTick, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, watch, nextTick, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue'
 import NkIcon from './Icon.vue'
 
 export interface SelectOption {
@@ -83,6 +117,16 @@ const emit = defineEmits<{
 const isOpen = ref(false)
 const searchText = ref('')
 const triggerRef = ref<HTMLElement>()
+const activeIndex = ref(-1)
+
+let uid = 0
+const instance = getCurrentInstance()
+const listboxId = `nk-select-listbox-${instance ? instance.uid : ++uid}`
+
+const hasValue = computed(() => {
+  if (props.multiple) return (props.modelValue || []).length > 0
+  return props.modelValue !== undefined && props.modelValue !== null && props.modelValue !== ''
+})
 
 const displayText = computed(() => {
   if (props.multiple) {
@@ -129,23 +173,68 @@ const dropdownStyle = computed(() => {
   }
 })
 
-watch(isOpen, (v) => { if (v) nextTick(recompute) })
+watch(isOpen, (v) => {
+  if (v) {
+    nextTick(() => {
+      recompute()
+      moveActiveToSelected()
+    })
+  }
+})
+
+watch(filteredOptions, () => {
+  if (activeIndex.value >= filteredOptions.value.length) {
+    activeIndex.value = filteredOptions.value.length - 1
+  }
+})
 
 onMounted(() => {
   window.addEventListener('resize', recompute)
   window.addEventListener('scroll', recompute, true)
+  document.addEventListener('mousedown', onDocumentPointerDown)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', recompute)
   window.removeEventListener('scroll', recompute, true)
+  document.removeEventListener('mousedown', onDocumentPointerDown)
 })
+
+function onDocumentPointerDown(event: MouseEvent) {
+  if (!isOpen.value) return
+  const root = triggerRef.value
+  if (root && !root.contains(event.target as Node)) close()
+}
+
+function open() {
+  if (props.disabled || isOpen.value) return
+  isOpen.value = true
+  emit('visible-change', true)
+  moveActiveToSelected()
+}
+
+function close() {
+  if (!isOpen.value) return
+  isOpen.value = false
+  emit('visible-change', false)
+  searchText.value = ''
+  activeIndex.value = -1
+}
 
 function toggle() {
   if (props.disabled) return
-  isOpen.value = !isOpen.value
-  emit('visible-change', isOpen.value)
-  if (!isOpen.value) searchText.value = ''
+  if (isOpen.value) close()
+  else open()
+}
+
+function moveActiveToSelected() {
+  const options = filteredOptions.value
+  if (!options.length) {
+    activeIndex.value = -1
+    return
+  }
+  const selected = options.findIndex((opt) => isSelected(opt.value))
+  activeIndex.value = selected >= 0 ? selected : options.findIndex((opt) => !opt.disabled)
 }
 
 function isSelected(value: any) {
@@ -165,15 +254,75 @@ function select(opt: SelectOption) {
   } else {
     emit('update:modelValue', opt.value)
     emit('change', opt.value)
-    isOpen.value = false
-    emit('visible-change', false)
-    searchText.value = ''
+    close()
   }
 }
 
-function onSearch() { /* just reactively filter */ }
+function clear() {
+  const empty = props.multiple
+    ? []
+    : props.options.some((opt) => opt.value === '')
+      ? ''
+      : null
+  emit('update:modelValue', empty)
+  emit('change', empty)
+  activeIndex.value = -1
+}
 
-watch(() => props.disabled, (v) => { if (v) isOpen.value = false })
+function onSearch() {
+  activeIndex.value = filteredOptions.value.length ? 0 : -1
+}
+
+function scrollActiveIntoView() {
+  nextTick(() => {
+    const root = triggerRef.value
+    if (!root || activeIndex.value < 0) return
+    const options = root.querySelectorAll<HTMLElement>('.nk-select__option')
+    options[activeIndex.value]?.scrollIntoView({ block: 'nearest' })
+  })
+}
+
+function onTriggerKeydown(event: KeyboardEvent) {
+  if (props.disabled) return
+  const key = event.key
+  if (key === 'Escape') {
+    if (!isOpen.value) return
+    event.stopPropagation()
+    close()
+    return
+  }
+  if (key === 'ArrowDown' || key === 'ArrowUp') {
+    event.preventDefault()
+    if (!isOpen.value) {
+      open()
+      return
+    }
+    const total = filteredOptions.value.length
+    if (!total) return
+    const step = key === 'ArrowDown' ? 1 : -1
+    let next = activeIndex.value + step
+    if (next < 0) next = total - 1
+    if (next >= total) next = 0
+    activeIndex.value = next
+    scrollActiveIntoView()
+    return
+  }
+  if (key === 'Enter' || key === ' ') {
+    // 过滤输入框内的空格用于输入关键词，不拦截。
+    if (key === ' ' && props.filterable) return
+    event.preventDefault()
+    if (!isOpen.value) {
+      open()
+      return
+    }
+    const opt = filteredOptions.value[activeIndex.value]
+    if (opt) select(opt)
+  }
+}
+
+watch(() => props.disabled, (v) => {
+  if (v) close()
+})
 </script>
 
 <style lang="scss" scoped>
@@ -209,6 +358,11 @@ $sizes: (
     transition: all $nk-duration-fast;
 
     &:hover { border-color: $nk-color-neutral-400; }
+
+    &:focus-visible {
+      outline: 2px solid $nk-color-primary-400;
+      outline-offset: 2px;
+    }
   }
 
   &--open &__trigger {
@@ -222,6 +376,30 @@ $sizes: (
 
   &__value { flex: 1; color: $nk-color-neutral-900; }
   &__placeholder { color: $nk-color-neutral-400; }
+
+  &__clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    padding: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: $nk-color-neutral-400;
+    transition: all $nk-duration-fast;
+    flex-shrink: 0;
+
+    &:hover {
+      background: $nk-color-neutral-100;
+      color: $nk-color-neutral-600;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $nk-color-primary-400;
+      outline-offset: 1px;
+    }
+  }
 
   &__search {
     flex: 1;
@@ -275,6 +453,7 @@ $sizes: (
     gap: $nk-spacing-sm;
 
     &:hover { background: $nk-color-neutral-50; }
+    &--active { background: $nk-color-neutral-100; }
     &--selected { color: $nk-color-primary-500; font-weight: $nk-font-weight-medium; }
     &--disabled { opacity: $nk-opacity-disabled; cursor: not-allowed; }
   }
