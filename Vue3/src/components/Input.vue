@@ -29,7 +29,9 @@
       />
       <button
         v-if="clearable && modelValue && !disabled"
+        type="button"
         class="nk-input__clear"
+        aria-label="清空"
         @click="onClear"
       >
         <nk-icon name="close" size="xs" />
@@ -43,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 import NkIcon from './Icon.vue'
 
 defineOptions({ name: 'NkInput' })
@@ -86,7 +88,8 @@ const emit = defineEmits<{
 
 const isFocused = ref(false)
 const inputRef = ref<HTMLInputElement>()
-const inputId = `nk-input-${++inputIdCounter}`
+const instance = getCurrentInstance()
+const inputId = `nk-input-${instance ? instance.uid : ++inputIdCounter}`
 
 function onInput(e: Event) {
   emit('update:modelValue', (e.target as HTMLInputElement).value)

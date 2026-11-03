@@ -44,6 +44,7 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, nextTick, onBeforeUnmount, ref, useSlots, watch } from 'vue'
 import NkIcon from './Icon.vue'
+import { isTopOverlay, popOverlay, pushOverlay } from '../utils/overlay-stack'
 
 defineOptions({ name: 'NkDrawer' })
 
@@ -91,6 +92,7 @@ const titleId = `nk-drawer-title-${instance ? instance.uid : ++uid}`
 
 const drawerRef = ref<HTMLElement | null>(null)
 let previouslyFocused: HTMLElement | null = null
+const overlayId = Symbol('nk-drawer')
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
@@ -105,6 +107,7 @@ function focusableItems(): HTMLElement[] {
 
 function onKeydown(event: KeyboardEvent) {
   if (!props.visible) return
+  if (!isTopOverlay(overlayId)) return
   if (event.key === 'Escape') {
     if (!props.closeOnEsc) return
     event.stopPropagation()
@@ -130,12 +133,9 @@ function onKeydown(event: KeyboardEvent) {
   }
 }
 
-let previousOverflow = ''
-
 function activate() {
   previouslyFocused = document.activeElement as HTMLElement | null
-  previousOverflow = document.body.style.overflow
-  document.body.style.overflow = 'hidden'
+  pushOverlay(overlayId)
   nextTick(() => {
     const root = drawerRef.value
     if (!root) return
@@ -149,7 +149,7 @@ function activate() {
 }
 
 function deactivate() {
-  document.body.style.overflow = previousOverflow
+  popOverlay(overlayId)
   document.removeEventListener('keydown', onKeydown, true)
   const target = previouslyFocused
   previouslyFocused = null

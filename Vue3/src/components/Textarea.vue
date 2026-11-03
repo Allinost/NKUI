@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 import NkIcon from './Icon.vue'
 
 defineOptions({ name: 'NkTextarea' })
@@ -78,7 +78,7 @@ const emit = defineEmits<{
 
 const isFocused = ref(false)
 const textareaRef = ref<HTMLTextAreaElement>()
-const textareaId = `nk-textarea-${++textareaIdCounter}`
+const textareaId = `nk-textarea-${getCurrentInstance() ? getCurrentInstance()!.uid : ++textareaIdCounter}`
 
 function onInput(e: Event) {
   emit('update:modelValue', (e.target as HTMLTextAreaElement).value)

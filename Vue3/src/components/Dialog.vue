@@ -52,6 +52,7 @@
 import { computed, getCurrentInstance, nextTick, onBeforeUnmount, ref, useSlots, watch } from 'vue'
 import NkIcon from './Icon.vue'
 import NkButton from './Button.vue'
+import { isTopOverlay, popOverlay, pushOverlay } from '../utils/overlay-stack'
 
 defineOptions({ name: 'NkDialog' })
 
@@ -104,6 +105,7 @@ const titleId = `nk-dialog-title-${instance ? instance.uid : ++uid}`
 
 const dialogRef = ref<HTMLElement | null>(null)
 let previouslyFocused: HTMLElement | null = null
+const overlayId = Symbol('nk-dialog')
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
@@ -118,10 +120,10 @@ function focusableItems(): HTMLElement[] {
 
 function onKeydown(event: KeyboardEvent) {
   if (!props.visible) return
+  // 多层浮层叠加时只有最上层响应 Esc / Tab。
+  if (!isTopOverlay(overlayId)) return
   if (event.key === 'Escape') {
     if (!props.closeOnEsc) return
-    // 只关闭最上层弹窗：后打开的先响应。
-    if (dialogRef.value && dialogRef.value.dataset.topmost !== 'true') return
     event.stopPropagation()
     onCancel()
     return
@@ -145,22 +147,12 @@ function onKeydown(event: KeyboardEvent) {
   }
 }
 
-let openCount = 0
-let previousOverflow = ''
-
 function activate() {
   previouslyFocused = document.activeElement as HTMLElement | null
-  openCount++
-  if (openCount === 1) {
-    previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-  }
-  const all = Array.from(document.querySelectorAll<HTMLElement>('.nk-dialog'))
-  all.forEach((el) => delete el.dataset.topmost)
+  pushOverlay(overlayId)
   nextTick(() => {
     const root = dialogRef.value
     if (!root) return
-    root.dataset.topmost = 'true'
     // 优先聚焦内容区首个控件，避免默认聚焦到右上角关闭按钮。
     const target =
       root.querySelector<HTMLElement>(`.nk-dialog__body ${FOCUSABLE.split(',').join(', .nk-dialog__body ')}`) ||
@@ -172,19 +164,8 @@ function activate() {
 }
 
 function deactivate() {
-  openCount = Math.max(0, openCount - 1)
-  if (openCount === 0) {
-    document.body.style.overflow = previousOverflow
-  }
+  popOverlay(overlayId)
   document.removeEventListener('keydown', onKeydown, true)
-  const root = dialogRef.value
-  if (root) delete root.dataset.topmost
-  // 关闭上层弹窗后，把焦点标记交还给仍在打开的最上层弹窗。
-  const remaining = Array.from(document.querySelectorAll<HTMLElement>('.nk-dialog')).filter(
-    (el) => el !== root,
-  )
-  const topmost = remaining[remaining.length - 1]
-  if (topmost) topmost.dataset.topmost = 'true'
   const target = previouslyFocused
   previouslyFocused = null
   nextTick(() => {
