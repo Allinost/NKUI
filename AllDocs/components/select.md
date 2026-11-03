@@ -29,10 +29,13 @@ const opts = [
 |------|------|--------|------|
 | modelValue | `any \| any[]` | — | 绑定值 |
 | options | `SelectOption[]` | `[]` | 选项列表 |
-| placeholder | `string` | `''` | 占位文本 |
+| placeholder | `string` | `'请选择'` | 占位文本 |
 | multiple | `boolean` | `false` | 多选 |
 | filterable | `boolean` | `false` | 可搜索 |
+| clearable | `boolean` | `false` | 显示清空按钮（单选清空为 `''` 或 `null`，多选清空为 `[]`） |
 | disabled | `boolean` | `false` | 禁用 |
+| size | `'sm' \| 'md' \| 'lg'` | `'md'` | 尺寸 |
+| error | `string` | — | 错误态提示样式 |
 
 ```ts
 interface SelectOption {
@@ -45,3 +48,11 @@ interface SelectOption {
 | Event | 参数 | 说明 |
 |-------|------|------|
 | update:modelValue | `(val: any)` | 值变化 |
+| change | `(val: any)` | 选中项变化 |
+| visible-change | `(visible: boolean)` | 下拉展开/收起 |
+
+## 交互
+
+- 点击组件外部或按 Esc 收起下拉；再次点击触发器收起。
+- 触发器支持键盘：`↑` / `↓` 移动高亮项，`Enter` 选中，`Esc` 收起。
+- 触发器带 `role="combobox"`、`aria-expanded`，下拉为 `role="listbox"`，选项为 `role="option"`。

@@ -24,15 +24,29 @@ const dlgOpen = ref(false)
 |------|------|--------|------|
 | visible | `boolean` | `false` | 显示状态（v-model） |
 | title | `string` | `''` | 标题 |
-| width | `string` | `'420px'` | 宽度 |
+| width | `string \| number` | `'420px'` | 宽度，数字按 px 处理 |
+| size | `'sm' \| 'md' \| 'lg'` | `'md'` | 未传 width 时使用的预设宽度 |
 | closable | `boolean` | `true` | 显示关闭按钮 |
 | mask-closable | `boolean` | `true` | 点击遮罩关闭 |
+| close-on-esc | `boolean` | `true` | 按 Esc 关闭 |
+| confirm-text / cancel-text | `string` | `'确认'` / `'取消'` | 默认底部按钮文案（使用 footer 插槽时不生效） |
+| loading | `boolean` | `false` | 确认按钮 loading |
 
 | Slot | 说明 |
 |------|------|
 | default | 内容区 |
+| title | 自定义标题 |
 | footer | 底部操作区 |
 
 | Event | 参数 | 说明 |
 |-------|------|------|
 | update:visible | `(v: boolean)` | 显示状态变化 |
+| confirm / cancel | `()` | 默认底部按钮或关闭动作 |
+| close | `()` | 关闭（含取消与 Esc） |
+
+## 可访问性
+
+- 根节点带 `role="dialog"`、`aria-modal="true"`，并通过 `aria-labelledby` 关联标题。
+- 打开时锁定页面滚动并把焦点移入内容区第一个控件；关闭后恢复原焦点。
+- Tab / Shift+Tab 在弹窗内循环，Esc 触发关闭（可用 `close-on-esc` 关闭该行为）。
+- 关闭按钮带 `aria-label="关闭"`，按钮默认 `type="button"`。

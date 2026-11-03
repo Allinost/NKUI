@@ -62,6 +62,8 @@
 | disabled | `boolean` | `false` | 禁用状态 |
 | round | `boolean` | `false` | 圆角按钮 |
 | block | `boolean` | `false` | 块级按钮（100% 宽度） |
+| native-type | `'button' \| 'submit' \| 'reset'` | `'button'` | 原生 `type`，默认不触发表单提交 |
+| icon | `string` | — | 左侧图标名 |
 
 | Event | 参数 | 说明 |
 |-------|------|------|
