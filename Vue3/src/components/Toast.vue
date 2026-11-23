@@ -72,24 +72,29 @@ onUnmounted(() => { if (timer) clearTimeout(timer) })
   align-items: center;
   gap: $nk-spacing-sm;
   padding: $nk-spacing-sm $nk-spacing-lg;
-  border-radius: $nk-radius-md;
+  border-radius: $nk-radius-full;
   font-size: $nk-font-size-sm;
   line-height: 1.4;
   z-index: $nk-z-toast;
   transform: translateX(-50%);
   pointer-events: none;
   max-width: 80vw;
+  box-shadow: 0 10px 30px color-mix(in srgb, #0f172a 22%, transparent);
+  backdrop-filter: blur(6px);
 
   &--top { top: $nk-spacing-2xl; }
   &--center { top: 50%; transform: translate(-50%, -50%); }
   &--bottom { bottom: $nk-spacing-2xl; }
 
-  &--success { background: rgba(var(--nk-color-success-rgb), 0.9); color: $nk-color-on-success; }
-  &--warning { background: rgba(var(--nk-color-warning-rgb), 0.9); color: $nk-color-on-warning; }
-  &--error { background: rgba(var(--nk-color-error-rgb), 0.9); color: $nk-color-on-error; }
-  &--info { background: rgba(var(--nk-color-info-rgb), 0.9); color: $nk-color-on-info; }
-  &--loading { background: rgba(var(--nk-toast-bg-rgb), 0.78); color: var(--nk-toast-text); }
-  &--text { background: rgba(var(--nk-toast-bg-rgb), 0.78); color: var(--nk-toast-text); }
+  &--success { background: color-mix(in srgb, $nk-color-success 92%, transparent); color: $nk-color-on-success; }
+  &--warning { background: color-mix(in srgb, $nk-color-warning 92%, transparent); color: $nk-color-on-warning; }
+  &--error { background: color-mix(in srgb, $nk-color-error 92%, transparent); color: $nk-color-on-error; }
+  &--info { background: color-mix(in srgb, $nk-color-info 92%, transparent); color: $nk-color-on-info; }
+  &--loading,
+  &--text {
+    background: color-mix(in srgb, $nk-color-neutral-900 88%, transparent);
+    color: $nk-color-neutral-0;
+  }
 
   &__icon {
     display: flex;
