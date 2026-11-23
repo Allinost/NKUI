@@ -59,16 +59,17 @@ function hide() {
 
   &__content {
     position: fixed;
-    padding: 6px 10px;
+    padding: 7px 10px;
     background: $nk-color-neutral-900;
-    color: #fff;
+    color: $nk-color-neutral-0;
     font-size: $nk-font-size-sm;
-    border-radius: 4px;
+    border-radius: $nk-radius-md;
     white-space: nowrap;
     pointer-events: none;
     z-index: $nk-z-tooltip;
     line-height: 1.4;
-    max-width: 200px;
+    max-width: 220px;
+    box-shadow: 0 8px 24px color-mix(in srgb, #0f172a 20%, transparent);
   }
 }
 
