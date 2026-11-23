@@ -328,9 +328,9 @@ watch(() => props.disabled, (v) => {
 
 <style lang="scss" scoped>
 $sizes: (
-  'sm': (height: 28px, font: $nk-font-size-sm, padding: 0 8px, radius: $nk-radius-sm),
-  'md': (height: 36px, font: $nk-font-size-base, padding: 0 12px, radius: $nk-radius-sm),
-  'lg': (height: 44px, font: $nk-font-size-lg, padding: 0 16px, radius: $nk-radius-md),
+  'sm': (height: 30px, font: $nk-font-size-sm, padding: 0 10px, radius: $nk-radius-md),
+  'md': (height: 38px, font: $nk-font-size-base, padding: 0 12px, radius: $nk-radius-md),
+  'lg': (height: 46px, font: $nk-font-size-lg, padding: 0 16px, radius: $nk-radius-lg),
 );
 
 .nk-select {
@@ -356,26 +356,27 @@ $sizes: (
     background: $nk-color-neutral-0;
     cursor: pointer;
     gap: $nk-spacing-sm;
-    transition: all $nk-duration-fast;
+    transition: border-color $nk-duration-fast, box-shadow $nk-duration-fast, background $nk-duration-fast;
 
     &:hover { border-color: $nk-color-neutral-400; }
 
     &:focus-visible {
-      outline: 2px solid $nk-color-primary-400;
-      outline-offset: 2px;
+      outline: none;
+      border-color: $nk-color-primary-500;
+      box-shadow: 0 0 0 3px color-mix(in srgb, $nk-color-primary-500 14%, transparent);
     }
   }
 
   &--open &__trigger {
     border-color: $nk-color-primary-500;
-    box-shadow: 0 0 0 3px rgba(var(--nk-color-primary-500-rgb), 0.12);
+    box-shadow: 0 0 0 3px color-mix(in srgb, $nk-color-primary-500 14%, transparent);
   }
 
   &--error &__trigger {
     border-color: $nk-color-error;
   }
 
-  &__value { flex: 1; color: $nk-color-neutral-900; }
+  &__value { flex: 1; color: $nk-color-neutral-900; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   &__placeholder { color: $nk-color-neutral-400; }
 
   &__clear {
@@ -427,35 +428,43 @@ $sizes: (
 
   &__dropdown {
     position: absolute;
-    top: calc(100% + 4px);
+    top: calc(100% + 6px);
     left: 0;
     background: $nk-color-neutral-0;
-    border: 1px solid $nk-color-neutral-200;
-    border-radius: $nk-radius-sm;
-    box-shadow: $nk-shadow-md;
+    border: 1px solid color-mix(in srgb, $nk-color-neutral-300 60%, transparent);
+    border-radius: $nk-radius-lg;
+    box-shadow:
+      0 18px 48px color-mix(in srgb, #0f172a 18%, transparent),
+      0 4px 12px color-mix(in srgb, #0f172a 8%, transparent);
     max-height: 256px;
     overflow-y: auto;
+    padding: 6px;
     z-index: $nk-z-dropdown;
   }
 
   &__dropdown--up {
     top: auto;
-    bottom: calc(100% + 4px);
+    bottom: calc(100% + 6px);
   }
 
   &__option {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: $nk-spacing-sm $nk-spacing-md;
+    padding: 8px 10px;
     font-size: $nk-font-size-sm;
     cursor: pointer;
-    transition: background $nk-duration-fast;
+    border-radius: $nk-radius-md;
+    transition: background $nk-duration-fast, color $nk-duration-fast;
     gap: $nk-spacing-sm;
 
-    &:hover { background: $nk-color-neutral-50; }
+    &:hover { background: $nk-color-neutral-100; }
     &--active { background: $nk-color-neutral-100; }
-    &--selected { color: $nk-color-primary-500; font-weight: $nk-font-weight-medium; }
+    &--selected {
+      color: $nk-color-primary-600;
+      font-weight: $nk-font-weight-medium;
+      background: color-mix(in srgb, $nk-color-primary-500 10%, transparent);
+    }
     &--disabled { opacity: $nk-opacity-disabled; cursor: not-allowed; }
   }
 
@@ -468,9 +477,9 @@ $sizes: (
 }
 
 .nk-select-dropdown-enter-active,
-.nk-select-dropdown-leave-active { transition: all 0.2s ease; }
+.nk-select-dropdown-leave-active { transition: opacity 0.16s ease, transform 0.16s ease; }
 .nk-select-dropdown-enter-from,
-.nk-select-dropdown-leave-to { opacity: 0; transform: translateY(-4px); }
+.nk-select-dropdown-leave-to { opacity: 0; transform: translateY(-6px) scale(0.98); }
 .nk-select__dropdown--up.nk-select-dropdown-enter-from,
-.nk-select__dropdown--up.nk-select-dropdown-leave-to { transform: translateY(4px); }
+.nk-select__dropdown--up.nk-select-dropdown-leave-to { transform: translateY(6px) scale(0.98); }
 </style>

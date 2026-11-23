@@ -114,9 +114,9 @@ function onClear() {
 
 <style lang="scss" scoped>
 $sizes: (
-  'sm': (height: 28px, font: $nk-font-size-sm, padding: 0 8px, radius: $nk-radius-sm),
-  'md': (height: 36px, font: $nk-font-size-base, padding: 0 12px, radius: $nk-radius-sm),
-  'lg': (height: 44px, font: $nk-font-size-lg, padding: 0 16px, radius: $nk-radius-md),
+  'sm': (height: 30px, font: $nk-font-size-sm, padding: 0 10px, radius: $nk-radius-md),
+  'md': (height: 38px, font: $nk-font-size-base, padding: 0 12px, radius: $nk-radius-md),
+  'lg': (height: 46px, font: $nk-font-size-lg, padding: 0 16px, radius: $nk-radius-lg),
 );
 
 .nk-input {
@@ -135,8 +135,8 @@ $sizes: (
     align-items: center;
     border: 1px solid $nk-color-neutral-300;
     background: $nk-color-neutral-0;
-    border-radius: $nk-radius-sm;
-    transition: all $nk-duration-fast $nk-easing-ease;
+    border-radius: $nk-radius-md;
+    transition: border-color $nk-duration-fast $nk-easing-ease, box-shadow $nk-duration-fast $nk-easing-ease, background $nk-duration-fast;
 
     &:hover {
       border-color: $nk-color-neutral-400;
@@ -145,18 +145,18 @@ $sizes: (
 
   &--focused &__wrapper {
     border-color: $nk-color-primary-500;
-    box-shadow: 0 0 0 3px rgba(var(--nk-color-primary-500-rgb), 0.12);
+    box-shadow: 0 0 0 3px color-mix(in srgb, $nk-color-primary-500 14%, transparent);
   }
 
   &--error &__wrapper {
     border-color: $nk-color-error;
-    background: color-mix(in srgb, $nk-color-error 3%, white);
+    background: color-mix(in srgb, $nk-color-error 3%, $nk-color-neutral-0);
 
     &:hover { border-color: $nk-color-error; }
   }
 
   &--focused.nk-input--error &__wrapper {
-    box-shadow: 0 0 0 3px rgba(var(--nk-color-error-rgb), 0.12);
+    box-shadow: 0 0 0 3px color-mix(in srgb, $nk-color-error 14%, transparent);
   }
 
   &--disabled &__wrapper {

@@ -144,9 +144,13 @@ $sizes: (
   &__header {
     display: flex;
     position: relative;
-    border-bottom: 1px solid $nk-color-neutral-200;
-    gap: 0;
+    border-bottom: 1px solid color-mix(in srgb, $nk-color-neutral-300 55%, transparent);
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
+
+  &__header::-webkit-scrollbar { display: none; }
 
   &--center &__header { justify-content: center; }
   &--full &__header { justify-content: stretch; }
@@ -167,18 +171,19 @@ $sizes: (
     cursor: pointer;
     color: $nk-color-neutral-600;
     white-space: nowrap;
-    transition: color $nk-duration-fast;
+    transition: color $nk-duration-fast, background $nk-duration-fast;
     border-bottom: 2px solid transparent;
     margin-bottom: -1px;
+    border-radius: $nk-radius-md $nk-radius-md 0 0;
 
-    &:hover { color: $nk-color-neutral-900; }
-    &--active { color: $nk-color-primary-500; font-weight: $nk-font-weight-medium; }
+    &:hover { color: $nk-color-neutral-900; background: color-mix(in srgb, $nk-color-neutral-100 65%, transparent); }
+    &--active { color: $nk-color-primary-600; font-weight: $nk-font-weight-medium; }
     &--disabled { opacity: $nk-opacity-disabled; cursor: not-allowed; }
 
     &:focus-visible {
       outline: 2px solid $nk-color-primary-400;
       outline-offset: -2px;
-      border-radius: $nk-radius-sm $nk-radius-sm 0 0;
+      border-radius: $nk-radius-md $nk-radius-md 0 0;
     }
   }
 
@@ -186,8 +191,8 @@ $sizes: (
     position: absolute;
     bottom: -1px;
     height: 2px;
-    border-radius: 1px;
-    background: $nk-color-primary-500;
+    border-radius: 2px;
+    background: linear-gradient(90deg, $nk-color-primary-500, $nk-color-accent);
     pointer-events: none;
     transition: left $nk-duration-normal ease, width $nk-duration-normal ease;
   }

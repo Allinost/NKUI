@@ -37,12 +37,12 @@ withDefaults(defineProps<{
   display: flex;
   flex-direction: column;
   background: $nk-color-neutral-0;
-  border-radius: $nk-radius-md;
+  border-radius: $nk-radius-xl;
   overflow: hidden;
-  transition: box-shadow $nk-duration-fast $nk-easing-ease;
+  transition: box-shadow $nk-duration-fast $nk-easing-ease, transform $nk-duration-fast $nk-easing-ease, border-color $nk-duration-fast;
 
   &--outlined {
-    border: 1px solid $nk-color-neutral-200;
+    border: 1px solid color-mix(in srgb, $nk-color-neutral-300 55%, transparent);
   }
 
   &--elevated {
@@ -55,7 +55,9 @@ withDefaults(defineProps<{
   }
 
   &--hoverable:hover {
-    box-shadow: $nk-shadow-md;
+    box-shadow: 0 16px 40px color-mix(in srgb, #0f172a 10%, transparent);
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, $nk-color-primary-500 22%, transparent);
   }
 
   &__cover {

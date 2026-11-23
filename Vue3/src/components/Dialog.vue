@@ -214,56 +214,68 @@ function onMaskClick() {
 .nk-dialog__overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: color-mix(in srgb, #0f172a 55%, transparent);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 24px;
   z-index: $nk-z-modal;
 }
 
 .nk-dialog {
   background: $nk-color-neutral-0;
-  border-radius: $nk-radius-lg;
-  box-shadow: $nk-shadow-lg;
+  border: 1px solid color-mix(in srgb, $nk-color-neutral-300 55%, transparent);
+  border-radius: $nk-radius-xl;
+  box-shadow:
+    0 24px 80px color-mix(in srgb, #0f172a 28%, transparent),
+    0 8px 24px color-mix(in srgb, #0f172a 18%, transparent);
   max-width: 90vw;
-  max-height: 85vh;
+  max-height: 86vh;
   display: flex;
   flex-direction: column;
   outline: none;
+  overflow: hidden;
 
   &:focus-visible {
-    box-shadow: $nk-shadow-lg, 0 0 0 3px $nk-color-primary-200;
+    box-shadow: 0 24px 80px color-mix(in srgb, #0f172a 28%, transparent), 0 0 0 3px $nk-color-primary-200;
   }
 
   &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: $nk-spacing-lg $nk-spacing-xl;
-    border-bottom: 1px solid $nk-color-neutral-100;
+    gap: $nk-spacing-md;
+    padding: 18px 24px;
+    border-bottom: 1px solid color-mix(in srgb, $nk-color-neutral-200 75%, transparent);
+    background: linear-gradient(180deg, color-mix(in srgb, $nk-color-primary-50 42%, $nk-color-neutral-0), $nk-color-neutral-0);
   }
 
   &__title-text {
     font-size: $nk-font-size-lg;
     font-weight: $nk-font-weight-semibold;
     color: $nk-color-neutral-900;
+    letter-spacing: -0.01em;
   }
 
   &__close {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 32px;
+    height: 32px;
     border: none;
-    background: none;
+    background: transparent;
     cursor: pointer;
     color: $nk-color-neutral-400;
-    padding: 4px;
-    border-radius: $nk-radius-sm;
+    border-radius: $nk-radius-full;
     transition: all $nk-duration-fast;
 
     &:hover {
       background: $nk-color-neutral-100;
       color: $nk-color-neutral-700;
+      transform: rotate(90deg);
     }
 
     &:focus-visible {
@@ -273,8 +285,9 @@ function onMaskClick() {
   }
 
   &__body {
-    padding: $nk-spacing-xl;
+    padding: 20px 24px;
     overflow-y: auto;
+    overscroll-behavior: contain;
     flex: 1;
     color: $nk-color-neutral-700;
     font-size: $nk-font-size-base;
@@ -284,19 +297,21 @@ function onMaskClick() {
   &__footer {
     display: flex;
     justify-content: flex-end;
-    gap: $nk-spacing-sm;
-    padding: $nk-spacing-lg $nk-spacing-xl;
-    border-top: 1px solid $nk-color-neutral-100;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-top: 1px solid color-mix(in srgb, $nk-color-neutral-200 75%, transparent);
+    background: color-mix(in srgb, $nk-color-neutral-50 70%, $nk-color-neutral-0);
   }
 }
 
-.nk-dialog-fade-enter-active { transition: opacity 0.25s; }
-.nk-dialog-fade-leave-active { transition: opacity 0.2s; }
+.nk-dialog-fade-enter-active { transition: opacity 0.22s ease; }
+.nk-dialog-fade-leave-active { transition: opacity 0.18s ease; }
 .nk-dialog-fade-enter-from,
 .nk-dialog-fade-leave-to { opacity: 0; }
 
 .nk-dialog-fade-enter-active .nk-dialog {
-  animation: nk-dialog-enter 0.25s ease;
+  animation: nk-dialog-enter 0.24s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -311,7 +326,7 @@ function onMaskClick() {
 }
 
 @keyframes nk-dialog-enter {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from { transform: translateY(12px) scale(0.97); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
 }
 </style>

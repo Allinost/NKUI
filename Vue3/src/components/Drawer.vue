@@ -71,8 +71,8 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{ 'update:visible': [value: boolean]; open: []; close: [] }>()
 
 const sizeMap: Record<string, Record<string, string>> = {
-  left: { sm: '300px', md: '400px', lg: '600px' },
-  right: { sm: '300px', md: '400px', lg: '600px' },
+  left: { sm: '300px', md: '420px', lg: '680px' },
+  right: { sm: '300px', md: '420px', lg: '680px' },
   top: { sm: '200px', md: '300px', lg: '450px' },
   bottom: { sm: '200px', md: '300px', lg: '450px' },
 }
@@ -186,7 +186,9 @@ function onClose() {
 .nk-drawer__overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: color-mix(in srgb, #0f172a 52%, transparent);
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
   z-index: $nk-z-modal;
 }
 
@@ -196,44 +198,54 @@ function onClose() {
   display: flex;
   flex-direction: column;
   z-index: $nk-z-modal + 1;
-  box-shadow: $nk-shadow-lg;
+  border: 1px solid color-mix(in srgb, $nk-color-neutral-300 55%, transparent);
+  box-shadow:
+    0 24px 80px color-mix(in srgb, #0f172a 30%, transparent),
+    0 8px 24px color-mix(in srgb, #0f172a 18%, transparent);
   outline: none;
+  overflow: hidden;
 
   &:focus-visible {
-    box-shadow: $nk-shadow-lg, 0 0 0 3px $nk-color-primary-200;
+    box-shadow: 0 24px 80px color-mix(in srgb, #0f172a 30%, transparent), 0 0 0 3px $nk-color-primary-200;
   }
 
   &--left, &--right { top: 0; bottom: 0; }
-  &--left { left: 0; }
-  &--right { right: 0; }
+  &--left { left: 0; border-radius: 0 $nk-radius-xl $nk-radius-xl 0; border-left: none; }
+  &--right { right: 0; border-radius: $nk-radius-xl 0 0 $nk-radius-xl; border-right: none; }
   &--top, &--bottom { left: 0; right: 0; }
-  &--top { top: 0; }
-  &--bottom { bottom: 0; }
+  &--top { top: 0; border-radius: 0 0 $nk-radius-xl $nk-radius-xl; border-top: none; }
+  &--bottom { bottom: 0; border-radius: $nk-radius-xl $nk-radius-xl 0 0; border-bottom: none; }
 
   &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: $nk-spacing-lg $nk-spacing-xl;
-    border-bottom: 1px solid $nk-color-neutral-100;
+    gap: $nk-spacing-md;
+    padding: 18px 24px;
+    border-bottom: 1px solid color-mix(in srgb, $nk-color-neutral-200 75%, transparent);
+    background: linear-gradient(180deg, color-mix(in srgb, $nk-color-primary-50 40%, $nk-color-neutral-0), $nk-color-neutral-0);
   }
 
   &__title-text {
     font-size: $nk-font-size-lg;
     font-weight: $nk-font-weight-semibold;
+    letter-spacing: -0.01em;
   }
 
   &__close {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
     border: none;
-    background: none;
+    background: transparent;
     cursor: pointer;
     color: $nk-color-neutral-400;
-    padding: 4px;
-    border-radius: $nk-radius-sm;
+    border-radius: $nk-radius-full;
     transition: all $nk-duration-fast;
 
-    &:hover { background: $nk-color-neutral-100; color: $nk-color-neutral-700; }
+    &:hover { background: $nk-color-neutral-100; color: $nk-color-neutral-700; transform: rotate(90deg); }
 
     &:focus-visible {
       outline: 2px solid $nk-color-primary-400;
@@ -241,8 +253,12 @@ function onClose() {
     }
   }
 
-  &__body { flex: 1; overflow-y: auto; padding: $nk-spacing-xl; }
-  &__footer { padding: $nk-spacing-lg $nk-spacing-xl; border-top: 1px solid $nk-color-neutral-100; }
+  &__body { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 20px 24px; }
+  &__footer {
+    padding: 14px 24px;
+    border-top: 1px solid color-mix(in srgb, $nk-color-neutral-200 75%, transparent);
+    background: color-mix(in srgb, $nk-color-neutral-50 70%, $nk-color-neutral-0);
+  }
 }
 
 // Transitions
@@ -285,6 +301,16 @@ function onClose() {
   .nk-drawer-slide-bottom-enter-active,
   .nk-drawer-slide-bottom-leave-active {
     transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .nk-drawer--left,
+  .nk-drawer--right {
+    width: 100vw !important;
+    max-width: 100vw;
+    border-radius: 0;
+    border: none;
   }
 }
 </style>

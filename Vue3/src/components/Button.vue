@@ -81,7 +81,7 @@ $types: (
   outline: none;
 
   &:focus-visible {
-    box-shadow: 0 0 0 2px rgba(var(--nk-color-primary-500-rgb), 0.3);
+    box-shadow: 0 0 0 3px color-mix(in srgb, $nk-color-primary-500 22%, transparent);
   }
 
   &:active {
@@ -122,15 +122,18 @@ $types: (
 
     &--#{$type} {
       &.nk-btn--solid {
-        background: $color;
+        background: linear-gradient(180deg, color-mix(in srgb, $color 88%, white), $color);
         color: $on-color;
-        border-color: $color;
+        border-color: color-mix(in srgb, $color 82%, black);
+        box-shadow: 0 1px 2px color-mix(in srgb, $color 22%, transparent);
 
         &:hover:not(:disabled) {
-          filter: brightness(0.9);
+          filter: brightness(0.96);
+          box-shadow: 0 4px 12px color-mix(in srgb, $color 24%, transparent);
         }
         &:active:not(:disabled) {
-          filter: brightness(0.8);
+          filter: brightness(0.9);
+          box-shadow: none;
         }
       }
 
