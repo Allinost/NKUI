@@ -15,7 +15,7 @@
   </div>
   <div v-else class="nk-progress-circle" :class="[`nk-progress-circle--${size}`, `nk-progress-circle--${status}`]">
     <svg :width="circleSize" :height="circleSize" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" :r="46" fill="none" stroke="#eee" :stroke-width="strokeW" />
+      <circle cx="50" cy="50" :r="46" fill="none" stroke="var(--nk-color-neutral-200)" :stroke-width="strokeW" />
       <circle
         cx="50" cy="50" :r="46" fill="none"
         stroke="currentColor" :stroke-width="strokeW"
