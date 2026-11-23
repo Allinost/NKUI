@@ -86,7 +86,9 @@ $sizes: (
   &__mask {
     position: fixed;
     inset: 0;
-    background: rgba(255,255,255,0.85);
+    background: color-mix(in srgb, $nk-color-neutral-0 82%, transparent);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,9 +100,10 @@ $sizes: (
 
     .nk-loading {
       background: $nk-color-neutral-0;
+      border: 1px solid color-mix(in srgb, $nk-color-neutral-300 50%, transparent);
       padding: $nk-spacing-2xl;
-      border-radius: $nk-radius-lg;
-      box-shadow: $nk-shadow-lg;
+      border-radius: $nk-radius-xl;
+      box-shadow: 0 20px 60px color-mix(in srgb, #0f172a 22%, transparent);
     }
   }
 }
