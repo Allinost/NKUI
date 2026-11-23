@@ -2,7 +2,7 @@
   <div class="nk-empty" :class="`nk-empty--${size}`">
     <div class="nk-empty__image">
       <slot name="image">
-        <nk-icon :name="imageIcon" :size="iconSize" color="#C0C4CC" />
+        <nk-icon :name="imageIcon" :size="iconSize" color="var(--nk-color-neutral-400)" />
       </slot>
     </div>
     <p class="nk-empty__description">

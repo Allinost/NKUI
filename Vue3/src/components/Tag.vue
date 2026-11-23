@@ -79,12 +79,12 @@ $types: (
       }
       &.nk-tag--outline {
         background: transparent;
-        color: $color;
-        border: 1px solid $color;
+        color: color-mix(in srgb, $color 68%, $nk-color-neutral-900);
+        border: 1px solid color-mix(in srgb, $color 60%, $nk-color-neutral-300);
       }
       &.nk-tag--light {
         background: color-mix(in srgb, $color 14%, $nk-color-neutral-0);
-        color: $color;
+        color: color-mix(in srgb, $color 62%, $nk-color-neutral-900);
       }
     }
   }

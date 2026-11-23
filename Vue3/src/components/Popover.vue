@@ -74,9 +74,11 @@ function onLeave() {
   &__panel {
     position: fixed;
     background: $nk-color-neutral-0;
-    border: 1px solid $nk-color-neutral-200;
-    border-radius: $nk-radius-md;
-    box-shadow: $nk-shadow-md;
+    border: 1px solid color-mix(in srgb, $nk-color-neutral-300 55%, transparent);
+    border-radius: $nk-radius-lg;
+    box-shadow:
+      0 18px 48px color-mix(in srgb, #0f172a 18%, transparent),
+      0 4px 12px color-mix(in srgb, #0f172a 8%, transparent);
     z-index: $nk-z-popover;
     padding: $nk-spacing-md $nk-spacing-lg;
     font-size: $nk-font-size-sm;
@@ -88,7 +90,7 @@ function onLeave() {
     width: 8px;
     height: 8px;
     background: $nk-color-neutral-0;
-    border: 1px solid $nk-color-neutral-200;
+    border: 1px solid color-mix(in srgb, $nk-color-neutral-300 55%, transparent);
     transform: rotate(45deg);
     z-index: -1;
   }
