@@ -109,23 +109,25 @@ $sizes: (
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid $nk-color-neutral-200;
+    border: 1px solid color-mix(in srgb, $nk-color-neutral-300 55%, transparent);
     background: $nk-color-neutral-0;
     color: $nk-color-neutral-800;
     cursor: pointer;
-    border-radius: $nk-radius-sm;
+    border-radius: $nk-radius-md;
     transition: all $nk-duration-fast;
     font-family: inherit;
 
     &:hover:not(:disabled):not(&--active) {
-      color: $nk-color-primary-500;
-      border-color: $nk-color-primary-500;
+      color: $nk-color-primary-600;
+      border-color: color-mix(in srgb, $nk-color-primary-500 55%, transparent);
+      background: color-mix(in srgb, $nk-color-primary-500 8%, transparent);
     }
 
     &--active {
-      background: $nk-color-primary-500;
+      background: linear-gradient(180deg, $nk-color-primary-500, $nk-color-primary-600);
       color: $nk-color-on-primary;
-      border-color: $nk-color-primary-500;
+      border-color: $nk-color-primary-600;
+      box-shadow: 0 2px 8px color-mix(in srgb, $nk-color-primary-500 25%, transparent);
     }
 
     &:disabled { opacity: $nk-opacity-disabled; cursor: not-allowed; }
