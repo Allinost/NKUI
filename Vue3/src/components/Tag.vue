@@ -34,9 +34,9 @@ defineEmits<{ close: [] }>()
 
 <style lang="scss" scoped>
 $sizes: (
-  'sm': (height: 20px, font: $nk-font-size-xs, padding: 0 6px, gap: 2px, radius: 3px),
-  'md': (height: 24px, font: $nk-font-size-sm, padding: 0 8px, gap: 4px, radius: 4px),
-  'lg': (height: 32px, font: $nk-font-size-base, padding: 0 12px, gap: 4px, radius: 6px),
+  'sm': (height: 20px, font: $nk-font-size-xs, padding: 0 7px, gap: 2px, radius: 5px),
+  'md': (height: 24px, font: $nk-font-size-sm, padding: 0 9px, gap: 4px, radius: 6px),
+  'lg': (height: 32px, font: $nk-font-size-base, padding: 0 12px, gap: 4px, radius: 8px),
 );
 
 $types: (
@@ -83,7 +83,7 @@ $types: (
         border: 1px solid $color;
       }
       &.nk-tag--light {
-        background: color-mix(in srgb, $color 12%, white);
+        background: color-mix(in srgb, $color 14%, $nk-color-neutral-0);
         color: $color;
       }
     }
