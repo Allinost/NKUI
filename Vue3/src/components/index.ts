@@ -47,8 +47,12 @@ import NkImageCarousel from './ImageCarousel.vue'
 import NkPdfViewer from './PdfViewer.vue'
 import NkMarkdownViewer from './MarkdownViewer.vue'
 import NkMusicPlayer from './MusicPlayer.vue'
+import NkTable from './Table.vue'
+import NkForm from './Form.vue'
+import NkFormItem from './FormItem.vue'
 import { addIcon } from '../utils/icon-registry'
 import { NKMessage, showToast } from '../utils/message'
+export type { NkTableColumn } from '../utils/table'
 
 const icons: Record<string, string> = {
   star: '<svg viewBox="0 0 16 16"><path d="M8 1.5l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.3l-3.8 2 .7-4.3-3.1-3 4.3-.6L8 1.5z"/></svg>',
@@ -104,6 +108,7 @@ const components = [
   NkImageCarousel,   NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
   NkProductCard, NkProductList,
   NkTodoTask, NkTodoTaskList,
+  NkTable, NkForm, NkFormItem,
 ]
 
 type AppLike = {
@@ -130,5 +135,6 @@ export {
   NkImageCarousel, NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
   NkProductCard, NkProductList,
   NkTodoTask, NkTodoTaskList,
+  NkTable, NkForm, NkFormItem,
   addIcon, NKMessage, showToast,
 }

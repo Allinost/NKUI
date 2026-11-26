@@ -45,7 +45,7 @@ function showMessage(options: MessageOptions): () => void {
   const app = createApp(ToastComp, {
     message: options.content,
     type: options.type || 'info',
-    duration: options.duration ?? 3000,
+    duration: options.duration ?? (options.type === 'error' || options.type === 'warning' ? 5000 : 3000),
     position: 'top' as const,
     top: topOffset,
     onClose: () => {

@@ -1,1 +1,5 @@
 export { install, NkButton, NkInput, NkIcon, NkVideoPlayer, NkImageGallery, NkWeather, addIcon } from './components'
+export { NKMessage, showToast } from './utils/message'
+export { NkTable, NkForm, NkFormItem } from './components'
+export type { NkTableColumn } from './utils/table'
+export type { FormRule, FormRules } from './utils/form'
