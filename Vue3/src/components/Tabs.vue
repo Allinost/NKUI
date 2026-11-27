@@ -62,6 +62,13 @@ const inkStyle = ref<Record<string, string>>({})
 watch(() => props.modelValue, (v) => { if (v !== undefined) activeValue.value = v })
 watch(activeValue, (v) => { emit('update:modelValue', v); emit('change', v) })
 
+// 窄屏下标签横向滚动时，保证当前激活项始终可见
+watch(activeValue, () => {
+  nextTick(() => {
+    headerRef.value?.querySelector<HTMLElement>('.nk-tabs__tab--active')?.scrollIntoView({ block: 'nearest', inline: 'nearest' })
+  })
+})
+
 watch(
   [activeValue, () => props.items.length, () => props.variant],
   () => {
@@ -152,7 +159,7 @@ $sizes: (
 
   &__header::-webkit-scrollbar { display: none; }
 
-  &--center &__header { justify-content: center; }
+  &--center &__header { justify-content: center; justify-content: safe center; }
   &--full &__header { justify-content: stretch; }
   &--full &__tab { flex: 1; text-align: center; justify-content: center; }
 
