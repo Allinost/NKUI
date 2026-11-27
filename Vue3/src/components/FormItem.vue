@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div
     class="nk-form-item"
     :class="{
@@ -110,6 +110,18 @@ function onInput() {
     font-size: $nk-font-size-sm;
     color: $nk-color-neutral-500;
     margin: 0;
+  }
+
+  @include respond-to(sm) {
+    &--left {
+      flex-direction: column;
+      gap: $nk-spacing-xs;
+    }
+
+    &--left &__label {
+      width: auto !important;
+      line-height: 1.4;
+    }
   }
 }
 </style>

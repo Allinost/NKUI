@@ -50,6 +50,8 @@ import NkMusicPlayer from './MusicPlayer.vue'
 import NkTable from './Table.vue'
 import NkForm from './Form.vue'
 import NkFormItem from './FormItem.vue'
+import NkPageHeader from './PageHeader.vue'
+import NkToolbar from './Toolbar.vue'
 import { addIcon } from '../utils/icon-registry'
 import { NKMessage, showToast } from '../utils/message'
 export type { NkTableColumn } from '../utils/table'
@@ -108,7 +110,7 @@ const components = [
   NkImageCarousel,   NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
   NkProductCard, NkProductList,
   NkTodoTask, NkTodoTaskList,
-  NkTable, NkForm, NkFormItem,
+  NkTable, NkForm, NkFormItem, NkPageHeader, NkToolbar,
 ]
 
 type AppLike = {
@@ -135,6 +137,6 @@ export {
   NkImageCarousel, NkPdfViewer, NkMarkdownViewer, NkMusicPlayer,
   NkProductCard, NkProductList,
   NkTodoTask, NkTodoTaskList,
-  NkTable, NkForm, NkFormItem,
+  NkTable, NkForm, NkFormItem, NkPageHeader, NkToolbar,
   addIcon, NKMessage, showToast,
 }

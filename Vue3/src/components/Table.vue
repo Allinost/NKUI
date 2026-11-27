@@ -3,7 +3,12 @@
     class="nk-table"
     :class="[
       `nk-table--${size}`,
-      { 'nk-table--striped': striped, 'nk-table--bordered': bordered, 'nk-table--loading': loading },
+      {
+        'nk-table--striped': striped,
+        'nk-table--bordered': bordered,
+        'nk-table--loading': loading,
+        'nk-table--responsive': responsive,
+      },
     ]"
   >
     <div class="nk-table__scroll">
@@ -35,6 +40,14 @@
           </tr>
         </thead>
         <tbody>
+          <template v-if="loading && !displayData.length">
+            <tr v-for="n in skeletonRows" :key="`skeleton-${n}`" class="nk-table__skeleton-row" aria-hidden="true">
+              <td v-if="selectable" class="nk-table__cell nk-table__cell--select" />
+              <td v-for="col in columns" :key="col.key" class="nk-table__cell">
+                <NkSkeleton variant="text" :height="12" :animated="true" />
+              </td>
+            </tr>
+          </template>
           <tr
             v-for="(row, index) in displayData"
             :key="keyOf(row, index)"
@@ -42,7 +55,7 @@
             :class="{ 'nk-table__row--selected': isSelected(row), 'nk-table__row--clickable': rowClickable }"
             @click="emit('row-click', row, index)"
           >
-            <td v-if="selectable" class="nk-table__cell nk-table__cell--select">
+            <td v-if="selectable" class="nk-table__cell nk-table__cell--select" data-label="选择">
               <input
                 type="checkbox"
                 :aria-label="`选择第 ${index + 1} 行`"
@@ -55,6 +68,7 @@
               v-for="col in columns"
               :key="col.key"
               class="nk-table__cell"
+              :data-label="col.title"
               :style="{ textAlign: col.align || 'left' }"
             >
               <slot :name="`cell-${col.key}`" :row="row" :index="index" :value="getValue(row, col.key)">
@@ -72,7 +86,7 @@
         </tbody>
       </table>
     </div>
-    <div v-if="loading" class="nk-table__loading">
+    <div v-if="loading && displayData.length" class="nk-table__loading">
       <NkLoading />
     </div>
   </div>
@@ -82,6 +96,7 @@
 import { computed, ref } from 'vue'
 import NkEmpty from './Empty.vue'
 import NkLoading from './Loading.vue'
+import NkSkeleton from './Skeleton.vue'
 import type { NkTableColumn, NkTableSortOrder } from '../utils/table'
 
 defineOptions({ name: 'NkTable' })
@@ -101,6 +116,9 @@ const props = withDefaults(defineProps<{
   selection?: any[]
   remoteSort?: boolean
   rowClickable?: boolean
+  /** 窄屏（≤640px）下每行转为卡片，单元格左侧显示列标题 */
+  responsive?: boolean
+  skeletonRows?: number
 }>(), {
   data: () => [],
   rowKey: 'id',
@@ -113,6 +131,8 @@ const props = withDefaults(defineProps<{
   selection: () => [],
   remoteSort: false,
   rowClickable: false,
+  responsive: true,
+  skeletonRows: 4,
 })
 
 const emit = defineEmits<{
@@ -189,13 +209,13 @@ function isSelected(row: any): boolean {
   return props.selection.some((item) => item?.[props.rowKey] === k)
 }
 
-const selectableRows = computed(() => props.data)
-
 const allSelected = computed(
-  () => selectableRows.value.length > 0 && selectableRows.value.every((row) => isSelected(row)),
+  () => props.data.length > 0 && props.data.every((row) => isSelected(row)),
 )
 
-const partiallySelected = computed(() => !allSelected.value && selectableRows.value.some((row) => isSelected(row)))
+const partiallySelected = computed(
+  () => !allSelected.value && props.data.some((row) => isSelected(row)),
+)
 
 function toggleRow(row: any) {
   const selected = isSelected(row)
@@ -206,7 +226,7 @@ function toggleRow(row: any) {
 }
 
 function toggleAll() {
-  emit('update:selection', allSelected.value ? [] : [...selectableRows.value])
+  emit('update:selection', allSelected.value ? [] : [...props.data])
 }
 
 defineExpose({
@@ -319,6 +339,94 @@ defineExpose({
     align-items: center;
     justify-content: center;
     background: color-mix(in srgb, $nk-color-neutral-0 60%, transparent);
+  }
+
+  @include respond-to(sm) {
+    &--responsive {
+      border: none;
+      background: transparent;
+      overflow: visible;
+    }
+
+    &--responsive &__scroll {
+      overflow: visible;
+    }
+
+    &--responsive &__inner,
+    &--responsive &__inner tbody {
+      display: block;
+      width: 100%;
+    }
+
+    &--responsive &__inner thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    &--responsive &__row {
+      display: block;
+      margin-bottom: $nk-spacing-sm;
+      padding: $nk-spacing-xs $nk-spacing-md;
+      border: 1px solid $nk-color-neutral-200;
+      border-radius: $nk-radius-md;
+      background: $nk-color-neutral-0;
+    }
+
+    &--responsive &__cell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $nk-spacing-md;
+      padding: $nk-spacing-sm 0;
+      border-bottom: 1px dashed $nk-color-neutral-200;
+      text-align: right !important;
+      word-break: break-all;
+
+      &::before {
+        content: attr(data-label);
+        flex-shrink: 0;
+        color: $nk-color-neutral-500;
+        font-size: $nk-font-size-xs;
+        text-align: left;
+      }
+
+      &--select,
+      &--empty {
+        display: block;
+        text-align: center !important;
+        border-bottom: none;
+      }
+
+      &--select::before,
+      &--empty::before {
+        content: none;
+      }
+    }
+
+    &--responsive &__row:last-child &__cell:last-child {
+      border-bottom: none;
+    }
+
+    &--responsive &__row--selected {
+      border-color: $nk-color-primary-300;
+    }
+
+    &--responsive &__loading {
+      position: static;
+      min-height: 80px;
+      background: transparent;
+    }
+
+    &--responsive &__empty-row {
+      display: block;
+    }
+
+    &--responsive &__empty-row &__cell--empty {
+      display: block;
+    }
   }
 }
 </style>

@@ -26,6 +26,9 @@
       <nk-icon name="arrow-right" size="xs" />
     </button>
 
+    <select v-if="pageSizeOptions.length" class="nk-pagination__size" :value="pageSize" :disabled="disabled" aria-label="每页条数" @change="onPageSizeChange">
+      <option v-for="opt in pageSizeOptions" :key="opt" :value="opt">{{ opt }} 条/页</option>
+    </select>
     <span v-if="showTotal" class="nk-pagination__total">共 {{ total }} 条</span>
   </div>
 </template>
@@ -44,6 +47,7 @@ const props = withDefaults(defineProps<{
   disabled?: boolean
   showTotal?: boolean
   maxPageButtons?: number
+  pageSizeOptions?: number[]
 }>(), {
   modelValue: 1,
   total: 0,
@@ -52,12 +56,21 @@ const props = withDefaults(defineProps<{
   disabled: false,
   showTotal: true,
   maxPageButtons: 7,
+  pageSizeOptions: () => [],
 })
 
 const emit = defineEmits<{
   'update:modelValue': [value: number]
   change: [value: { page: number; pageSize: number }]
+  'update:pageSize': [value: number]
 }>()
+
+function onPageSizeChange(event: Event) {
+  const next = Number((event.target as HTMLSelectElement).value)
+  emit('update:pageSize', next)
+  emit('update:modelValue', 1)
+  emit('change', { page: 1, pageSize: next })
+}
 
 const totalPages = computed(() => Math.max(1, Math.ceil(props.total / props.pageSize)))
 
@@ -160,4 +173,15 @@ $sizes: (
     white-space: nowrap;
   }
 }
+
+  .nk-pagination__size {
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid $nk-color-neutral-300;
+    border-radius: $nk-radius-md;
+    background: $nk-color-neutral-0;
+    color: $nk-color-neutral-700;
+    font-size: $nk-font-size-sm;
+    cursor: pointer;
+  }
 </style>

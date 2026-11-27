@@ -8,7 +8,8 @@
         <a
           v-if="item.to && idx < items.length - 1"
           class="nk-breadcrumb__link"
-          :href="item.to"
+          href="#"
+          @click.prevent="emit('select', item)"
         >{{ item.label }}</a>
         <span v-else>{{ item.label }}</span>
       </span>
@@ -36,6 +37,10 @@ withDefaults(defineProps<{
   separator: '/',
   size: 'md',
 })
+
+const emit = defineEmits<{
+  select: [item: BreadcrumbItem]
+}>()
 </script>
 
 <style lang="scss" scoped>
